@@ -2385,7 +2385,7 @@ body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm
 /* H3 — color */
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
   color: var(--primary-color) !important;
-  transform: translateX(5px);
+  padding-left: 25px;
 }
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
   height: 24px;
@@ -2486,7 +2486,7 @@ body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mo
 body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
   color: var(--primary-color) !important;
   text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
+  padding-left: 25px;
 }
 body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
   height: 24px;
