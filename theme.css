@@ -168,6 +168,24 @@ settings:
         type: variable-color
         format: hex
         default: '#bd93f9'
+    -
+        id: highlight-light-color
+        title: Highlight color (Light Mode)
+        title.zh: 高亮颜色（亮色模式）
+        description: Override the highlight/mark gradient color for light themes. Defaults to each theme's primary color.
+        description.zh: 覆盖亮色主题的高亮渐变颜色。默认跟随各主题主色。
+        type: variable-color
+        format: hex
+        default: '#ff7096'
+    -
+        id: highlight-dark-color
+        title: Highlight color (Dark Mode)
+        title.zh: 高亮颜色（暗色模式）
+        description: Override the highlight/mark gradient color for dark themes. Defaults to each theme's primary color.
+        description.zh: 覆盖暗色主题的高亮渐变颜色。默认跟随各主题主色。
+        type: variable-color
+        format: hex
+        default: '#ff5555'
 */
 
 /* =================================================================
@@ -1056,6 +1074,7 @@ body.theme-light.theme-light-prussian {
   );
 }
 body.theme-light {
+  --text-highlight: var(--highlight-light-color, var(--primary-color));
   --glow-shadow-text: 0 0 5px var(--glow-color);
   --glow-shadow-box: 0 0 5px var(--glow-color);
   --background-primary: color-mix(in srgb, var(--bg-color), #fff 2%);
@@ -1134,6 +1153,7 @@ body.theme-light {
   --h6-color: var(--h6-light-color, #000000);
 }
 body.theme-dark {
+  --text-highlight: var(--highlight-dark-color, var(--primary-color));
   --glow-shadow-text: 0 0 8px var(--glow-color);
   --glow-shadow-box: 0 0 8px var(--glow-color);
   --background-primary: var(--bg-color);
@@ -2827,7 +2847,7 @@ body.theme-light
   .cm-highlight:not([style*="background"]) {
   background-image: linear-gradient(
     to top,
-    color-mix(in srgb, var(--primary-color), transparent 60%),
+    color-mix(in srgb, var(--text-highlight), transparent 60%),
     transparent
   );
   background-size: 100% 40%;
@@ -2843,8 +2863,8 @@ body.theme-light
   background-size: 100% 100%;
   background-image: linear-gradient(
     to top,
-    color-mix(in srgb, var(--primary-color), transparent 40%),
-    color-mix(in srgb, var(--primary-color), transparent 80%)
+    color-mix(in srgb, var(--text-highlight), transparent 40%),
+    color-mix(in srgb, var(--text-highlight), transparent 80%)
   );
 }
 body.theme-dark .markdown-preview-view mark:not([style*="background"]),
@@ -2854,11 +2874,11 @@ body.theme-dark
   .cm-highlight:not([style*="background"]) {
   background-image: linear-gradient(
     to top,
-    color-mix(in srgb, var(--primary-color), transparent 50%),
+    color-mix(in srgb, var(--text-highlight), transparent 50%),
     transparent
   ) !important;
   background-size: 100% 40%;
-  color: color-mix(in srgb, var(--primary-color), white 20%) !important;
+  color: color-mix(in srgb, var(--text-highlight), white 20%) !important;
   text-shadow: none;
   box-shadow: none;
 }
@@ -2872,12 +2892,12 @@ body.theme-dark
   background-size: 100% 100%;
   background-image: linear-gradient(
     to top,
-    color-mix(in srgb, var(--primary-color), transparent 20%),
-    color-mix(in srgb, var(--primary-color), transparent 80%)
+    color-mix(in srgb, var(--text-highlight), transparent 20%),
+    color-mix(in srgb, var(--text-highlight), transparent 80%)
   ) !important;
   color: #fff !important;
-  text-shadow: 0 0 10px var(--primary-color);
-  box-shadow: 0 0 15px color-mix(in srgb, var(--primary-color), transparent 80%);
+  text-shadow: 0 0 10px var(--text-highlight);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--text-highlight), transparent 80%);
   transform: none;
 }
 .markdown-preview-view strong,
