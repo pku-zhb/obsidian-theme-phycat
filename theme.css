@@ -1608,7 +1608,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   padding-right: 0;
   display: block;
   width: 100%;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .theme-light:not(.h2-style-capsule)
   .markdown-preview-view
@@ -1970,7 +1970,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   padding-right: 0;
   display: block;
   width: 100%;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .theme-dark:not(.h2-style-dark-capsule) .markdown-preview-view h2::before,
 .theme-dark.h2-style-dark-twin .markdown-preview-view h2::before,
@@ -2276,9 +2276,11 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   content: "-";
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--primary-color);
   font-weight: bold;
-  line-height: 1.4;
+  line-height: 1;
   font-family: var(--font-monospace);
   pointer-events: none;
   transition: all 0.3s ease;
@@ -2437,7 +2439,7 @@ body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-hea
   transform: translateX(6px);
 }
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-6:hover::before {
-  transform: scaleX(1.8);
+  transform: translateY(-50%) scaleX(1.8);
 }
 
 /* ---------- DARK MODE ---------- */
