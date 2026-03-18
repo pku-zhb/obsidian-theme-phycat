@@ -127,6 +127,49 @@ settings:
                 
 */
 
+/* @settings
+name: ✏️ Phycat syntax mark setting
+name.zh: ✏️ Phycat 语法标记设置
+id: phycat-syntax
+settings:
+    -
+        id: bold-light-color
+        title: Bold text color (Light Mode)
+        title.zh: 粗体文字颜色（亮色模式）
+        description: Override bold text color for all light themes.
+        description.zh: 覆盖所有亮色主题的粗体颜色。
+        type: variable-color
+        format: hex
+        default: '#e91e63'
+    -
+        id: italic-light-color
+        title: Italic text color (Light Mode)
+        title.zh: 斜体文字颜色（亮色模式）
+        description: Override italic text color for all light themes.
+        description.zh: 覆盖所有亮色主题的斜体颜色。
+        type: variable-color
+        format: hex
+        default: '#0277bd'
+    -
+        id: bold-dark-color
+        title: Bold text color (Dark Mode)
+        title.zh: 粗体文字颜色（暗色模式）
+        description: Override bold text color for all dark themes.
+        description.zh: 覆盖所有暗色主题的粗体颜色。
+        type: variable-color
+        format: hex
+        default: '#ff5555'
+    -
+        id: italic-dark-color
+        title: Italic text color (Dark Mode)
+        title.zh: 斜体文字颜色（暗色模式）
+        description: Override italic text color for all dark themes.
+        description.zh: 覆盖所有暗色主题的斜体颜色。
+        type: variable-color
+        format: hex
+        default: '#bd93f9'
+*/
+
 /* =================================================================
    文件列表样式 (File Explorer) - 彩虹玻璃容器版 (动态图标版)
    特性：根目录彩虹容器 + 智能 SVG 变色图标 + 引导线
@@ -724,7 +767,8 @@ body.theme-light:not(.theme-light-sky):not(.theme-light-forest):not(
   );
   --h2-shadow-color: rgba(61, 184, 211, 0.15);
   --h2-shadow-hover: rgba(61, 184, 211, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #e91e63);
+  --text-italic: var(--italic-light-color, #0277bd);
   --code-normal: #546e7a;
   --code-string: #2e7d32;
   --code-comment: #b0bec5;
@@ -765,7 +809,8 @@ body.theme-light.theme-light-sky {
   );
   --h2-shadow-color: rgba(52, 152, 219, 0.15);
   --h2-shadow-hover: rgba(52, 152, 219, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #1a5276);
+  --text-italic: var(--italic-light-color, #c56200);
   --code-normal: #24292e;
   --code-keyword: #d73a49;
   --code-function: #6f42c1;
@@ -805,7 +850,8 @@ body.theme-light.theme-light-forest {
   );
   --h2-shadow-color: rgba(17, 170, 99, 0.15);
   --h2-shadow-hover: rgba(17, 170, 99, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #8e24aa);
+  --text-italic: var(--italic-light-color, #bf6c00);
   --code-normal: #383a42;
   --code-keyword: #a626a4;
   --code-function: #4078f2;
@@ -842,7 +888,8 @@ body.theme-light.theme-light-mint {
   --h2-bg-gradient: linear-gradient(to right, #80f7c4, #3db8d3, #80f7c4);
   --h2-shadow-color: rgba(61, 184, 191, 0.15);
   --h2-shadow-hover: rgba(61, 184, 191, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #c2185b);
+  --text-italic: var(--italic-light-color, #e65100);
   --code-normal: #37474f;
   --code-string: #00695c;
   --code-comment: #90a4ae;
@@ -877,7 +924,8 @@ body.theme-light.theme-light-mauve {
   --h2-bg-gradient: linear-gradient(to right, #d8b4e2, #a06eb4, #d8b4e2);
   --h2-shadow-color: rgba(160, 110, 180, 0.15);
   --h2-shadow-hover: rgba(160, 110, 180, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #00838f);
+  --text-italic: var(--italic-light-color, #c56200);
   --code-background: #f2eff9;
   --code-normal: #5e35b1;
   --code-normal: #4a148c;
@@ -913,7 +961,8 @@ body.theme-light.theme-light-golden {
   --h2-bg-gradient: linear-gradient(to right, #fcd34d, #f59e0b, #fcd34d);
   --h2-shadow-color: rgba(245, 158, 11, 0.15);
   --h2-shadow-hover: rgba(245, 158, 11, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #4527a0);
+  --text-italic: var(--italic-light-color, #00796b);
   --code-background: #fff7ed;
   --code-normal: #92400e;
   --code-normal: #5d4037;
@@ -949,7 +998,8 @@ body.theme-light.theme-light-cheery {
   --h2-bg-gradient: linear-gradient(to right, #b41919, #ea68b6, #b41919);
   --h2-shadow-color: rgba(170, 17, 65, 0.15);
   --h2-shadow-hover: rgba(170, 17, 65, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #00695c);
+  --text-italic: var(--italic-light-color, #4527a0);
   --code-background: rgb(177 108 108 / 2%);
   --code-normal: #9a0000;
   --code-normal: #4a0d18;
@@ -985,7 +1035,8 @@ body.theme-light.theme-light-prussian {
   --h2-bg-gradient: linear-gradient(to right, #6ba3cc, #1d4e89, #6ba3cc);
   --h2-shadow-color: rgba(29, 78, 137, 0.15);
   --h2-shadow-hover: rgba(29, 78, 137, 0.35);
-  --text-bold: var(--light-deep);
+  --text-bold: var(--bold-light-color, #c62828);
+  --text-italic: var(--italic-light-color, #bf6c00);
   --code-background: #ebf5fa;
   --code-normal: #0f3057;
   --code-normal: #37474f;
@@ -2846,7 +2897,7 @@ body.theme-dark
 body.theme-dark .markdown-preview-view strong,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-strong,
 body.theme-dark .markdown-source-view.mod-cm6 strong {
-  color: var(--primary-color);
+  color: var(--bold-dark-color, var(--primary-color));
 }
 body.theme-dark .markdown-preview-view strong:hover,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-strong:hover,
@@ -2905,12 +2956,12 @@ body.theme-light .markdown-source-view.mod-cm6 strong:hover {
 body.theme-light .markdown-preview-view em,
 body.theme-light .markdown-source-view.mod-cm6 .cm-em,
 body.theme-light .markdown-source-view.mod-cm6 em {
-  color: var(--secondary-color);
+  color: var(--text-italic);
   background-image: linear-gradient(
     -45deg,
     transparent 35%,
-    color-mix(in srgb, var(--secondary-color), transparent 60%) 35%,
-    color-mix(in srgb, var(--secondary-color), transparent 60%) 65%,
+    color-mix(in srgb, var(--text-italic), transparent 60%) 35%,
+    color-mix(in srgb, var(--text-italic), transparent 60%) 65%,
     transparent 65%
   );
 }
@@ -2932,12 +2983,12 @@ body.theme-light .markdown-source-view.mod-cm6 em:hover {
 body.theme-dark .markdown-preview-view em,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-em,
 body.theme-dark .markdown-source-view.mod-cm6 em {
-  color: var(--secondary-color);
+  color: var(--italic-dark-color, var(--secondary-color));
   background-image: linear-gradient(
     -45deg,
     transparent 35%,
-    color-mix(in srgb, var(--secondary-color), white 20%) 35%,
-    color-mix(in srgb, var(--secondary-color), white 20%) 65%,
+    color-mix(in srgb, var(--italic-dark-color, var(--secondary-color)), white 20%) 35%,
+    color-mix(in srgb, var(--italic-dark-color, var(--secondary-color)), white 20%) 65%,
     transparent 65%
   );
 }
