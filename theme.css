@@ -188,6 +188,20 @@ settings:
         default: '#ff5555'
 */
 
+/* @settings
+name: 🔗 Phycat link setting
+name.zh: 🔗 Phycat 链接设置
+id: phycat-links
+settings:
+    -
+        id: editor-wikilink-style
+        title: Wikilink bracket & hover effects in Editor
+        title.zh: 编辑模式 Wikilink 括号装饰与 hover 特效
+        description: Show single bracket decoration and hover animation for [[wikilinks]] in editing/live-preview mode, matching reading mode style.
+        description.zh: 在编辑/实时预览模式中为 [[内部链接]] 显示单括号装饰和悬停动画效果，与阅读模式一致。
+        type: class-toggle
+*/
+
 /* =================================================================
    文件列表样式 (File Explorer) - 彩虹玻璃容器版 (动态图标版)
    特性：根目录彩虹容器 + 智能 SVG 变色图标 + 引导线
@@ -3013,6 +3027,66 @@ body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-head
   padding: 0 !important;
   margin: 0 !important;
 }
+
+/* =================================================================
+   Editor Wikilink bracket decoration & hover effects
+   Mirrors the reading-mode a.internal-link styling for cm-hmd-internal-link.
+   Gated behind Style Settings toggle: editor-wikilink-style
+   ================================================================= */
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  position: relative;
+  border-bottom: none;
+  background-image: none;
+  padding-right: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::before {
+  content: "[";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-right: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::after {
+  content: "]";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-left: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
+  background-color: color-mix(in srgb, var(--primary-color), transparent 90%);
+  color: var(--primary-color);
+  text-decoration: none;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::before {
+  transform: translateX(-4px);
+  color: var(--primary-color);
+  font-weight: bold;
+  opacity: 1;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::after {
+  transform: translateX(4px);
+  color: var(--primary-color);
+  font-weight: bold;
+  opacity: 1;
+}
+
 .markdown-preview-view table td a,
 .markdown-source-view.mod-cm6 .cm-table-widget a {
   padding: 0 2px !important;
