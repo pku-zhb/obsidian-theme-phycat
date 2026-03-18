@@ -2210,6 +2210,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-3 {
   padding-left: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-3::before {
   content: "";
@@ -2222,6 +2223,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   background-color: var(--primary-color);
   opacity: 0.8;
   pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-4 {
   padding-left: 20px;
