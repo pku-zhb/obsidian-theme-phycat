@@ -2281,7 +2281,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   color: var(--primary-color);
   font-weight: bold;
   line-height: 1;
-  font-family: var(--font-monospace);
   pointer-events: none;
   transition: all 0.3s ease;
 }
