@@ -250,7 +250,14 @@ name: 📑 Phycat heading setting
 name.ZH: 📑 Phycat 标题设置
 id: phycat-headings
 settings:
-    - 
+    -
+        id: editor-heading-hover
+        title: Enable heading hover effects in Editor
+        title.zh: 编辑模式标题 hover 特效
+        description: Enable the same heading hover animations in editing/live-preview mode as in reading mode.
+        description.zh: 在编辑/实时预览模式中启用与阅读模式相同的标题悬停动画效果。
+        type: class-toggle
+    -
         id: headings-color-setting
         title: Headings Colors
         title.zh: 标题文字颜色设置
@@ -2287,6 +2294,201 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   -webkit-mask-image: var(--h6-icon-shape);
   mask-image: var(--h6-icon-shape);
 }
+
+/* =================================================================
+   Editor Heading Hover Effects (Toggle: editor-heading-hover)
+   Mirrors reading-mode hover animations in editing/live-preview mode.
+   Controlled by Style Settings class-toggle on body.
+   ================================================================= */
+
+/* ---------- LIGHT MODE ---------- */
+
+/* H1 centered — color + translateY */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+/* H1 centered — underline expand */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  width: 100%;
+}
+
+/* H1 left-aligned — color */
+body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  transform: none;
+  color: var(--primary-color);
+}
+/* H1 left-aligned — ::before pillar */
+body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
+  height: 32px;
+  margin-top: 0;
+  left: 4px;
+  width: 6px;
+  opacity: 0.3;
+  border-radius: 3px;
+}
+/* H1 left-aligned — ::after pillar */
+body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  height: 26px;
+  margin-top: 0;
+  left: 12px;
+  width: 6px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--primary-color), transparent 60%);
+}
+
+/* H2 capsule style — background shift + scale */
+body.editor-heading-hover.theme-light.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  background-position: 100% center;
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px var(--h2-shadow-hover);
+}
+
+/* H2 twin style — color */
+body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--primary-color) !important;
+}
+/* H2 twin style — ::before pillar */
+body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
+  top: auto;
+  margin-top: 0em;
+  height: 1.4em;
+  opacity: 0.4;
+}
+/* H2 twin style — ::after pillar */
+body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+  top: auto;
+  margin-top: 0.15em;
+  height: 1.1em;
+  width: 4px;
+  opacity: 1;
+  background-color: var(--primary-color);
+}
+
+/* H3 — color */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
+  color: var(--primary-color);
+}
+
+/* H4 — color + translateX */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
+  color: var(--light-deep);
+  transform: translateX(6px);
+}
+
+/* H5 — color + translateX */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
+  color: var(--light-deep);
+  transform: translateX(6px);
+}
+
+/* H6 — color + translateX */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
+  color: var(--light-deep);
+  transform: translateX(6px);
+}
+
+/* ---------- DARK MODE ---------- */
+
+/* H1 centered — text-shadow glow */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  text-shadow: var(--glow-shadow-text);
+}
+/* H1 centered — ::after underline glow */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  width: 100%;
+  box-shadow: 0 0 15px var(--h1-underline-color);
+}
+
+/* H1 left-aligned — text-shadow */
+body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  text-shadow: var(--glow-shadow-text);
+}
+/* H1 left-aligned — ::before pillar */
+body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
+  height: 32px;
+  margin-top: 0;
+  left: 4px;
+  width: 6px;
+  opacity: 0.4;
+}
+/* H1 left-aligned — ::after pillar */
+body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  height: 26px;
+  margin-top: 0;
+  left: 12px;
+  width: 6px;
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* H2 dark-capsule — color + glow + shadow + translateY */
+body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--primary-color);
+  text-shadow: var(--glow-shadow-text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+/* H2 dark-capsule — ::after overlay opacity */
+body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+  opacity: 1;
+}
+
+/* H2 dark-twin — color + glow */
+body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--primary-color) !important;
+  text-shadow: var(--glow-shadow-text);
+}
+/* H2 dark-twin — ::before pillar */
+body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
+  top: auto;
+  margin-top: 0em;
+  height: 1.4em;
+  opacity: 0.5;
+}
+/* H2 dark-twin — ::after pillar + glow */
+body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+  top: auto;
+  margin-top: 0.15em;
+  height: 1.1em;
+  width: 4px;
+  opacity: 1;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 12px var(--primary-color);
+}
+
+/* H3 — color + text-shadow */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
+  color: var(--primary-color);
+  text-shadow: var(--glow-shadow-text);
+}
+
+/* H4 — color + text-shadow + translateX */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
+  color: var(--primary-color);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+
+/* H5 — color + text-shadow + translateX */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
+  color: var(--primary-color);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+
+/* H6 — color + text-shadow + translateX */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
+  color: var(--primary-color);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+
 .markdown-preview-view ul > li::marker,
 .markdown-preview-view ol > li::marker {
   color: var(--primary-color);
