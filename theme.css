@@ -1749,7 +1749,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s ease;
 }
 .theme-light .markdown-preview-view h4:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 .theme-light .markdown-preview-view h4:hover::before {
@@ -1774,7 +1774,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s ease;
 }
 .theme-light .markdown-preview-view h5:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 .theme-light .markdown-preview-view h5:hover::before {
@@ -1797,7 +1797,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s ease;
 }
 .theme-light .markdown-preview-view h6:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 .theme-light .markdown-preview-view h6:hover::before {
@@ -2384,24 +2384,25 @@ body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm
 
 /* H3 — color */
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
+  padding-left: 20px;
 }
 
 /* H4 — color + translateX */
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 
 /* H5 — color + translateX */
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 
 /* H6 — color + translateX */
 body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
-  color: var(--light-deep);
+  color: var(--light-deep) !important;
   transform: translateX(6px);
 }
 
@@ -2478,8 +2479,9 @@ body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mo
 
 /* H3 — color + text-shadow */
 body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   text-shadow: var(--glow-shadow-text);
+  padding-left: 20px;
 }
 
 /* H4 — color + text-shadow + translateX */
