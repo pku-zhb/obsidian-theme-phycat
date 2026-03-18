@@ -3145,6 +3145,13 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:h
   font-weight: bold;
   opacity: 1;
 }
+/* Hide our decorative brackets when Obsidian reveals raw [[ ]] formatting marks (cursor inside link) */
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link + .cm-hmd-internal-link::before {
+  display: none;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:has(+ .cm-formatting-link)::after {
+  display: none;
+}
 
 .markdown-preview-view table td a,
 .markdown-source-view.mod-cm6 .cm-table-widget a {
