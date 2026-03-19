@@ -3036,6 +3036,13 @@ body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formattin
 .markdown-source-view.mod-cm6 .cm-table-widget a {
   color: var(--secondary-color) !important;
   text-decoration: none !important;
+}
+/* Light mode: use secondary accent (--text-italic) for links, matching the differentiated color scheme */
+body.theme-light .markdown-preview-view a.internal-link,
+body.theme-light .markdown-preview-view a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
+  color: var(--text-italic) !important;
   font-weight: 500;
   padding: 0 2px;
   margin: 0;
@@ -3124,6 +3131,10 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
   text-decoration: none;
   font-weight: 500;
   padding: 0 2px;
+}
+body.editor-wikilink-style.theme-light .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
+  color: var(--text-italic);
+}
   margin: 0;
   border-radius: 4px;
   position: relative;
