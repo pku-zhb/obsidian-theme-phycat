@@ -200,6 +200,13 @@ settings:
         description: Show single bracket decoration and hover animation for [[wikilinks]] in editing/live-preview mode, matching reading mode style.
         description.zh: 在编辑/实时预览模式中为 [[内部链接]] 显示单括号装饰和悬停动画效果，与阅读模式一致。
         type: class-toggle
+    -
+        id: editor-quote-dim
+        title: Dim blockquote text in Editor
+        title.zh: 编辑模式引用文字弱化
+        description: Reduce the visual weight of blockquote text in editing/live-preview mode, making it appear softer than normal text.
+        description.zh: 在编辑/实时预览模式中降低引用块文字的视觉权重，使其比正文更柔和。
+        type: class-toggle
 */
 
 /* =================================================================
@@ -2905,6 +2912,14 @@ body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-head
 .markdown-preview-view blockquote p,
 .HyperMD-quote.HyperMD-quote-1.cm-line {
   line-height: var(--blockquote-line-height);
+}
+/* Editor blockquote dimming (toggle: editor-quote-dim) */
+body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
+  color: var(--text-faint);
 }
 .theme-dark .markdown-preview-view blockquote {
   position: relative;
