@@ -3183,9 +3183,9 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:h
   font-weight: bold;
   opacity: 1;
 }
-/* Hide our decorative brackets on the active line so raw [[ ]] can show for editing */
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-active .cm-hmd-internal-link::before,
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-active .cm-hmd-internal-link::after {
+/* Hide ALL decorative brackets when Obsidian reveals raw [[ ]] formatting marks (cursor inside link) */
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::after {
   display: none;
 }
 
