@@ -3036,13 +3036,6 @@ body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formattin
 .markdown-source-view.mod-cm6 .cm-table-widget a {
   color: var(--secondary-color) !important;
   text-decoration: none !important;
-}
-/* Light mode: use secondary accent (--text-italic) for links, matching the differentiated color scheme */
-body.theme-light .markdown-preview-view a.internal-link,
-body.theme-light .markdown-preview-view a.external-link,
-body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
-body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
-  color: var(--text-italic) !important;
   font-weight: 500;
   padding: 0 2px;
   margin: 0;
@@ -3053,6 +3046,13 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
   padding-right: 2px !important;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+/* Light mode: use secondary accent (--text-italic) for links */
+body.theme-light .markdown-preview-view a.internal-link,
+body.theme-light .markdown-preview-view a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
+  color: var(--text-italic) !important;
 }
 .markdown-preview-view a.internal-link::before,
 .markdown-preview-view a.external-link::before,
