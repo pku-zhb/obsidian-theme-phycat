@@ -207,6 +207,18 @@ settings:
         description: Reduce the visual weight of blockquote text in editing/live-preview mode, making it appear softer than normal text.
         description.zh: 在编辑/实时预览模式中降低引用块文字的视觉权重，使其比正文更柔和。
         type: class-toggle
+    -
+        id: editor-quote-dim-opacity
+        title: Blockquote dim opacity
+        title.zh: 引用弱化透明度
+        description: "Lower = more transparent. Default: 0.6"
+        description.zh: "数值越小越透明。默认：0.6"
+        type: variable-number-slider
+        default: 0.6
+        min: 0.2
+        max: 1
+        step: 0.05
+        format: ""
 */
 
 /* =================================================================
@@ -2916,7 +2928,7 @@ body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-head
 /* Editor blockquote dimming (toggle: editor-quote-dim) */
 body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote {
   color: var(--text-muted);
-  opacity: 0.75;
+  opacity: var(--editor-quote-dim-opacity, 0.6);
 }
 body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
   color: var(--text-faint);
