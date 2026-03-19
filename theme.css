@@ -1188,10 +1188,11 @@ body.theme-light {
     var(--primary-color),
     white 50%
   );
-  --tag-background: color-mix(in srgb, var(--primary-color), white 85%);
-  --tag-background-hover: color-mix(in srgb, var(--primary-color), white 75%);
-  --tag-border-color: color-mix(in srgb, var(--primary-color), white 50%);
-  --tag-border-color-hover: var(--primary-color);
+  --tag-color: var(--text-bold);
+  --tag-background: color-mix(in srgb, var(--text-bold), white 85%);
+  --tag-background-hover: color-mix(in srgb, var(--text-bold), white 75%);
+  --tag-border-color: color-mix(in srgb, var(--text-bold), white 50%);
+  --tag-border-color-hover: var(--text-bold);
   --h1-color: var(--h1-light-color, #000000);
   --h2-color: var(--h2-light-color, #000000);
   --h3-color: var(--h3-light-color, #000000);
