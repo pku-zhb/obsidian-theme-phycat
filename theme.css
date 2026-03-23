@@ -1321,12 +1321,14 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
     width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.3s ease;
 }
-.theme-light .markdown-preview-view h1:hover {
-  color: var(--seed-primary);
-  transform: translateY(-2px);
+/* H1 centered hover — unified */
+.markdown-preview-view h1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
 }
-.theme-light .markdown-preview-view h1:hover::after {
+.markdown-preview-view h1:hover::after {
   width: 100%;
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light.h1-align-left .markdown-preview-view h1,
 .theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1 {
@@ -1370,25 +1372,27 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
   z-index: 1;
 }
-.theme-light.h1-align-left .markdown-preview-view h1:hover {
-  color: var(--seed-primary);
+/* H1 left-aligned hover — unified */
+.h1-align-left .markdown-preview-view h1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-.theme-light.h1-align-left .markdown-preview-view h1:hover::before {
+.h1-align-left .markdown-preview-view h1:hover::before {
   height: 32px;
   margin-top: 0;
   left: 4px;
   width: 6px;
-  opacity: 0.3;
+  opacity: 0.4;
   border-radius: 3px;
 }
-.theme-light.h1-align-left .markdown-preview-view h1:hover::after {
+.h1-align-left .markdown-preview-view h1:hover::after {
   height: 26px;
   margin-top: 0;
   left: 12px;
   width: 6px;
   border-radius: 3px;
-  box-shadow: 0 0 10px color-mix(in srgb, var(--seed-primary), transparent 60%);
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light.h2-style-capsule .markdown-preview-view h2,
 .theme-light.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2 {
@@ -1413,9 +1417,15 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
     transform 0.4s ease,
     box-shadow 0.4s ease;
 }
+/* H2 capsule text hover — unified */
+.h2-style-capsule .markdown-preview-view h2:hover,
+.h2-style-dark-capsule .markdown-preview-view h2:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+}
+/* H2 capsule light decoration hover */
 .theme-light.h2-style-capsule .markdown-preview-view h2:hover {
   background-position: 100% center;
-  transform: scale(1.01);
   box-shadow: 0 8px 20px color-mix(in srgb, var(--seed-primary), transparent 35%);
 }
 .theme-light.h2-style-capsule
@@ -1507,26 +1517,34 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   .HyperMD-header-2::after {
   margin-top: 0.4em;
 }
-.theme-light:not(.h2-style-capsule) .markdown-preview-view h2:hover,
-.theme-light.h2-style-twin .markdown-preview-view h2:hover {
-  color: var(--seed-primary) !important;
+/* H2 twin/default hover — unified */
+:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover,
+.h2-style-twin .markdown-preview-view h2:hover,
+.h2-style-dark-twin .markdown-preview-view h2:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-.theme-light:not(.h2-style-capsule) .markdown-preview-view h2:hover::before,
-.theme-light.h2-style-twin .markdown-preview-view h2:hover::before {
+/* H2 twin ::before pillar */
+:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::before,
+.h2-style-twin .markdown-preview-view h2:hover::before,
+.h2-style-dark-twin .markdown-preview-view h2:hover::before {
   top: auto;
   margin-top: 0em;
   height: 1.4em;
-  opacity: 0.4;
+  opacity: 0.5;
 }
-.theme-light:not(.h2-style-capsule) .markdown-preview-view h2:hover::after,
-.theme-light.h2-style-twin .markdown-preview-view h2:hover::after {
+/* H2 twin ::after pillar */
+:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::after,
+.h2-style-twin .markdown-preview-view h2:hover::after,
+.h2-style-dark-twin .markdown-preview-view h2:hover::after {
   top: auto;
   margin-top: 0.15em;
   height: 1.1em;
   width: 4px;
   opacity: 1;
   background-color: var(--seed-primary);
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light:not(.h2-style-capsule)
   .markdown-source-view.mod-cm6
@@ -1556,14 +1574,17 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   background-color: var(--seed-primary);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.theme-light .markdown-preview-view h3:hover {
-  padding-left: 20px;
-  color: var(--seed-primary);
+/* H3 hover — unified */
+.markdown-preview-view h3:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
 }
-.theme-light .markdown-preview-view h3:hover::before {
+.markdown-preview-view h3:hover::before {
   height: 24px;
   width: 7px;
-  box-shadow: 0 0 0 3px var(--glow-shadow-box);
+  opacity: 1;
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light .markdown-preview-view h4 {
   padding-left: 20px;
@@ -1581,13 +1602,15 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   border: 1px solid var(--seed-primary);
   transition: all 0.3s ease;
 }
-.theme-light .markdown-preview-view h4:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
+/* H4 hover — unified */
+.markdown-preview-view h4:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
 }
-.theme-light .markdown-preview-view h4:hover::before {
-  transform: translateY(-50%) scale(1.3);
-  box-shadow: 0 0 0 4px var(--glow-shadow-box);
+.markdown-preview-view h4:hover::before {
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light .markdown-preview-view h5 {
   padding-left: 20px;
@@ -1606,14 +1629,17 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-.theme-light .markdown-preview-view h5:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
+/* H5 hover text — unified */
+.markdown-preview-view h5:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
 }
+/* H5 light decoration: fill solid */
 .theme-light .markdown-preview-view h5:hover::before {
   background-color: var(--seed-primary);
   transform: translateY(-50%) scale(1.2);
-  box-shadow: 0 0 0 3px var(--glow-shadow-box);
+  box-shadow: var(--glow-shadow-box);
 }
 .theme-light .markdown-preview-view h6 {
   padding-left: 20px;
@@ -1629,12 +1655,15 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   line-height: 1;
   transition: all 0.3s ease;
 }
-.theme-light .markdown-preview-view h6:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
+/* H6 hover — unified */
+.markdown-preview-view h6:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
 }
-.theme-light .markdown-preview-view h6:hover::before {
-  transform: translateY(-50%) scaleX(1.8);
+.markdown-preview-view h6:hover::before {
+  transform: translateY(-50%) scaleX(1.5);
+  text-shadow: var(--glow-shadow-text);
 }
 .theme-dark .markdown-preview-view h1,
 .theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1 {
@@ -1667,13 +1696,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transform: translateX(-50%);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
-}
-.theme-dark .markdown-preview-view h1:hover {
-  text-shadow: var(--glow-shadow-text);
-}
-.theme-dark .markdown-preview-view h1:hover::after {
-  width: 100%;
-  box-shadow: 0 0 15px var(--seed-primary);
 }
 .theme-dark.h1-align-left .markdown-preview-view h1,
 .theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1 {
@@ -1717,24 +1739,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
   z-index: 1;
 }
-.theme-dark.h1-align-left .markdown-preview-view h1:hover {
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
-.theme-dark.h1-align-left .markdown-preview-view h1:hover::before {
-  height: 32px;
-  margin-top: 0;
-  left: 4px;
-  width: 6px;
-  opacity: 0.4;
-}
-.theme-dark.h1-align-left .markdown-preview-view h1:hover::after {
-  height: 26px;
-  margin-top: 0;
-  left: 12px;
-  width: 6px;
-  box-shadow: 0 0 15px var(--seed-primary);
-}
 .theme-dark.h2-style-dark-capsule .markdown-preview-view h2,
 .theme-dark.h2-style-dark-capsule
   .markdown-source-view.mod-cm6
@@ -1775,11 +1779,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
+/* H2 dark-capsule decoration hover (text merged into unified capsule rule above) */
 .theme-dark.h2-style-dark-capsule .markdown-preview-view h2:hover {
-  color: var(--seed-primary);
-  text-shadow: var(--glow-shadow-text);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
 }
 .theme-dark.h2-style-dark-capsule .markdown-preview-view h2:hover::after {
   opacity: 1;
@@ -1844,29 +1846,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   opacity: 0.6;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.05s;
 }
-.theme-dark:not(.h2-style-dark-capsule) .markdown-preview-view h2:hover,
-.theme-dark.h2-style-dark-twin .markdown-preview-view h2:hover {
-  color: var(--seed-primary) !important;
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
-.theme-dark:not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::before,
-.theme-dark.h2-style-dark-twin .markdown-preview-view h2:hover::before {
-  top: auto;
-  margin-top: 0em;
-  height: 1.4em;
-  opacity: 0.5;
-}
-.theme-dark:not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::after,
-.theme-dark.h2-style-dark-twin .markdown-preview-view h2:hover::after {
-  top: auto;
-  margin-top: 0.15em;
-  height: 1.1em;
-  width: 4px;
-  opacity: 1;
-  background-color: var(--seed-primary);
-  box-shadow: 0 0 12px var(--seed-primary);
-}
 .theme-dark .markdown-preview-view h3 {
   padding-left: 15px;
   display: block;
@@ -1887,16 +1866,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0.8;
 }
-.theme-dark .markdown-preview-view h3:hover {
-  color: var(--seed-primary);
-  padding-left: 20px;
-  text-shadow: var(--glow-shadow-text);
-}
-.theme-dark .markdown-preview-view h3:hover::before {
-  height: 24px;
-  opacity: 1;
-  box-shadow: var(--glow-shadow-box);
-}
 .theme-dark .markdown-preview-view h4 {
   display: flex;
   align-items: center;
@@ -1911,15 +1880,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   border-radius: 50%;
   transition: all 0.3s ease;
   flex-shrink: 0;
-}
-.theme-dark .markdown-preview-view h4:hover {
-  color: var(--seed-primary);
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
-.theme-dark .markdown-preview-view h4:hover::before {
-  transform: scale(1.2);
-  box-shadow: var(--glow-shadow-box);
 }
 .theme-dark .markdown-preview-view h5 {
   display: flex;
@@ -1938,16 +1898,11 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
-.theme-dark .markdown-preview-view h5:hover {
-  color: var(--seed-primary);
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
+/* H5 dark decoration: stay hollow + glow */
 .theme-dark .markdown-preview-view h5:hover::before {
-  background-color: transparent;
   border-color: var(--seed-primary);
+  transform: translateY(-50%) scale(1.2);
   box-shadow: var(--glow-shadow-box);
-  transform: scale(1.2);
 }
 .theme-dark .markdown-preview-view h6 {
   display: flex;
@@ -1960,15 +1915,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   display: inline-block;
   font-weight: bold;
   transition: all 0.3s ease;
-}
-.theme-dark .markdown-preview-view h6:hover {
-  color: var(--seed-primary);
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
-.theme-dark .markdown-preview-view h6:hover::before {
-  text-shadow: var(--glow-shadow-text);
-  transform: scaleX(1.5);
 }
 .markdown-preview-view h3::after,
 .markdown-preview-view h4::after,
@@ -2162,235 +2108,140 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
    Controlled by Style Settings class-toggle on body.
    ================================================================= */
 
-/* ---------- LIGHT MODE ---------- */
+/* ---------- UNIFIED (no theme prefix) ---------- */
 
-/* H1 centered — color + translateY */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
-  color: var(--seed-primary);
-  transform: translateY(-2px);
+/* H1 centered — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
 }
-/* H1 centered — underline expand */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
   width: 100%;
+  box-shadow: var(--glow-shadow-box);
 }
 
-/* H1 left-aligned — color */
-body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
-  color: var(--seed-primary);
+/* H1 left-aligned — unified */
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-/* H1 left-aligned — ::before pillar */
-body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
   height: 32px;
   margin-top: 0;
   left: 4px;
   width: 6px;
-  opacity: 0.3;
+  opacity: 0.4;
   border-radius: 3px;
 }
-/* H1 left-aligned — ::after pillar */
-body.editor-heading-hover.theme-light.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
   height: 26px;
   margin-top: 0;
   left: 12px;
   width: 6px;
   border-radius: 3px;
-  box-shadow: 0 0 10px color-mix(in srgb, var(--seed-primary), transparent 60%);
+  box-shadow: var(--glow-shadow-box);
 }
 
-/* H2 capsule style — background shift + scale */
+/* H2 capsule text — unified */
+body.editor-heading-hover.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+}
+/* H2 capsule light decoration */
 body.editor-heading-hover.theme-light.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
   background-position: 100% center;
-  transform: scale(1.01);
   box-shadow: 0 8px 20px color-mix(in srgb, var(--seed-primary), transparent 35%);
 }
-
-/* H2 twin style — color */
-body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
-body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
-  color: var(--seed-primary) !important;
-  transform: translateX(5px);
-}
-/* H2 twin style — ::before pillar */
-body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
-body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
-  top: auto;
-  margin-top: 0em;
-  height: 1.4em;
-  opacity: 0.4;
-}
-/* H2 twin style — ::after pillar */
-body.editor-heading-hover.theme-light:not(.h2-style-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
-body.editor-heading-hover.theme-light.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
-  top: auto;
-  margin-top: 0.15em;
-  height: 1.1em;
-  width: 4px;
-  opacity: 1;
-  background-color: var(--seed-primary);
-}
-
-/* H3 — color */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
-  color: var(--seed-primary) !important;
-  padding-left: 25px;
-}
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
-  height: 24px;
-  width: 7px;
-  opacity: 1;
-  box-shadow: 0 0 0 3px var(--glow-shadow-box);
-}
-
-/* H4 — color + translateX */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
-}
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-4:hover::before {
-  transform: translateY(-50%) scale(1.3);
-  box-shadow: 0 0 0 4px var(--glow-shadow-box);
-}
-
-/* H5 — color + translateX */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
-}
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover::before {
-  background-color: var(--seed-primary);
-  transform: translateY(-50%) scale(1.2);
-  box-shadow: 0 0 0 3px var(--glow-shadow-box);
-}
-
-/* H6 — color + translateX */
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
-  color: var(--heading-deep) !important;
-  transform: translateX(6px);
-}
-body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-6:hover::before {
-  transform: translateY(-50%) scaleX(1.8);
-}
-
-/* ---------- DARK MODE ---------- */
-
-/* H1 centered — text-shadow glow */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
-  text-shadow: var(--glow-shadow-text);
-}
-/* H1 centered — ::after underline glow */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
-  width: 100%;
-  box-shadow: 0 0 15px var(--seed-primary);
-}
-
-/* H1 left-aligned — text-shadow */
-body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
-  text-shadow: var(--glow-shadow-text);
-  transform: translateX(5px);
-}
-/* H1 left-aligned — ::before pillar */
-body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
-  height: 32px;
-  margin-top: 0;
-  left: 4px;
-  width: 6px;
-  opacity: 0.4;
-}
-/* H1 left-aligned — ::after pillar */
-body.editor-heading-hover.theme-dark.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
-  height: 26px;
-  margin-top: 0;
-  left: 12px;
-  width: 6px;
-  box-shadow: 0 0 15px var(--seed-primary);
-}
-
-/* H2 dark-capsule — color + glow + shadow + translateY */
+/* H2 dark-capsule decoration */
 body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
-  color: var(--seed-primary);
-  text-shadow: var(--glow-shadow-text);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
 }
-/* H2 dark-capsule — ::after overlay opacity */
 body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
   opacity: 1;
 }
 
-/* H2 dark-twin — color + glow */
-body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
-body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
-  color: var(--seed-primary) !important;
+/* H2 twin/default — unified */
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-/* H2 dark-twin — ::before pillar */
-body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
-body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
   top: auto;
   margin-top: 0em;
   height: 1.4em;
   opacity: 0.5;
 }
-/* H2 dark-twin — ::after pillar + glow */
-body.editor-heading-hover.theme-dark:not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
-body.editor-heading-hover.theme-dark.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
   top: auto;
   margin-top: 0.15em;
   height: 1.1em;
   width: 4px;
   opacity: 1;
   background-color: var(--seed-primary);
-  box-shadow: 0 0 12px var(--seed-primary);
+  box-shadow: var(--glow-shadow-box);
 }
 
-/* H3 — color + text-shadow */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
-  color: var(--seed-primary) !important;
+/* H3 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
+  color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
-  padding-left: 25px;
+  transform: translateX(5px);
 }
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
   height: 24px;
   width: 7px;
   opacity: 1;
   box-shadow: var(--glow-shadow-box);
 }
 
-/* H4 — color + text-shadow + translateX */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
-  color: var(--seed-primary);
+/* H4 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
+  color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-4:hover::before {
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-4:hover::before {
   transform: translateY(-50%) scale(1.2);
   box-shadow: var(--glow-shadow-box);
 }
 
-/* H5 — color + text-shadow + translateX */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
-  color: var(--seed-primary);
+/* H5 text — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
+  color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
+/* H5 light decoration: fill solid */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover::before {
+  background-color: var(--seed-primary);
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
+}
+/* H5 dark decoration: stay hollow + glow */
 body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-5:hover::before {
-  background-color: transparent;
   border-color: var(--seed-primary);
-  box-shadow: var(--glow-shadow-box);
   transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
 }
 
-/* H6 — color + text-shadow + translateX */
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
-  color: var(--seed-primary);
+/* H6 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
+  color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
-body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6:hover::before {
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover::before {
+  transform: translateY(-50%) scaleX(1.5);
   text-shadow: var(--glow-shadow-text);
-  transform: scaleX(1.5);
 }
 
 .markdown-preview-view ul > li::marker,
