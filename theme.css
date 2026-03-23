@@ -2941,11 +2941,6 @@ body.theme-dark
 .markdown-source-view.mod-cm6
   .cm-highlight:not([style*="background"]):hover {
   background-size: 100% 100%;
-  background-image: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--accent-highlight), transparent 20%),
-    color-mix(in srgb, var(--accent-highlight), transparent 80%)
-  ) !important;
   text-shadow: var(--glow-shadow-text);
 }
 .markdown-preview-view strong,
