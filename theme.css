@@ -45,49 +45,49 @@ settings:
         default: theme-light-sakura
         options:
             - 
-                label: 🌸 Sakura (Pink / Default)
+                label: 🌸 Sakura 樱花 (Default)
                 value: theme-light-sakura
-            - 
-                label: 🌊 Mint (Mint Blue)
-                value: theme-light-mint
-            - 
-                label: ☁️ Sky (Clear Blue)
+            -
+                label: ☁️ Sky 天空
                 value: theme-light-sky
-            - 
-                label: 🌲 Forest (Natural Green)
+            -
+                label: 🌲 Forest 森林
                 value: theme-light-forest
-            - 
-                label: 🟣 Mauve (Orchid Purple)
+            -
+                label: 🌊 Mint 薄荷
+                value: theme-light-mint
+            -
+                label: 🟣 Mauve 紫藤
                 value: theme-light-mauve
-            - 
-                label: 🌅 Golden Hour (Warm Amber)
+            -
+                label: 🌅 Golden Hour 黄昏
                 value: theme-light-golden
-            - 
-                label: 🍒 Cheery (Vibrant Red)
+            -
+                label: 🍒 Cheery 樱桃
                 value: theme-light-cheery
-            - 
-                label: ⚓ Prussian (Deep Blue)
+            -
+                label: ⚓ Prussian 普鲁士蓝
                 value: theme-light-prussian
             -
-                label: 🌺 Coral Reef (Warm Coral)
+                label: 🌺 Coral Reef 珊瑚礁
                 value: theme-light-coral
             -
-                label: 🪻 Lavender Field (Dreamy Purple)
+                label: 🪻 Lavender Field 薰衣草田
                 value: theme-light-lavender
             -
-                label: 🏜️ Terra Cotta (Earthy)
+                label: 🏜️ Terra Cotta 陶土
                 value: theme-light-terracotta
             -
-                label: 🫒 Olive Grove (Mediterranean)
+                label: 🫒 Olive Grove 橄榄林
                 value: theme-light-olive
             -
-                label: 🐚 Pearl (Minimal Grey)
+                label: 🐚 Pearl 珍珠
                 value: theme-light-pearl
             -
-                label: 🤍 Paper (Pure B&W)
+                label: 🤍 Paper 素纸
                 value: theme-light-paper
             -
-                label: 🍵 Matcha (Japanese Green)
+                label: 🍵 Matcha 抹茶
                 value: theme-light-matcha
     -
         id: dark-color-scheme
@@ -100,34 +100,34 @@ settings:
         default: theme-dark-vampire
         options:
             - 
-                label: 🧛 Vampire (Dracula / Default)
+                label: 🧛 Vampire 吸血鬼 (Default)
                 value: theme-dark-vampire
-            - 
-                label: 🌌 Abyss (Midnight Blue)
+            -
+                label: 🌌 Abyss 深渊
                 value: theme-dark-abyss
-            - 
-                label: ☢️ Radiation (Toxic Green)
+            -
+                label: ☢️ Radiation 辐射
                 value: theme-dark-radiation
             -
-                label: 🔥 Ember (Warm Dark)
+                label: 🔥 Ember 余烬
                 value: theme-dark-ember
             -
-                label: 🌃 Neon City (Cyberpunk)
+                label: 🌃 Neon City 霓虹都市
                 value: theme-dark-neon
             -
-                label: 🪨 Obsidian (Pure Black)
+                label: 🪨 Obsidian 黑曜石
                 value: theme-dark-obsidian
             -
-                label: ☕ Espresso (Coffee)
+                label: ☕ Espresso 浓缩咖啡
                 value: theme-dark-espresso
             -
-                label: 🌌 Aurora (Northern Lights)
+                label: 🌌 Aurora 极光
                 value: theme-dark-aurora
             -
-                label: 🍷 Bordeaux (Wine Red)
+                label: 🍷 Bordeaux 波尔多
                 value: theme-dark-bordeaux
             -
-                label: 🖤 Ink (Monochrome)
+                label: 🖤 Ink 墨
                 value: theme-dark-ink
 */
 
