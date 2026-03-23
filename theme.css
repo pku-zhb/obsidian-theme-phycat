@@ -90,6 +90,40 @@ settings:
 */
 
 /* @settings
+name: 🎨 Phycat color override
+name.zh: 🎨 Phycat 颜色覆盖
+id: phycat-color-override
+settings:
+    -
+        id: user-primary
+        title: Theme color
+        title.zh: 主题色
+        description: Override primary theme color for all presets. Affects heading decorations, borders, hover effects, list markers, and more.
+        description.zh: 覆盖所有预设的主题主色。影响标题装饰、边框、悬停效果、列表标记等。
+        type: variable-color
+        format: hex
+        default: '#ff7096'
+    -
+        id: user-secondary
+        title: Accent color
+        title.zh: 对比强调色
+        description: Override secondary accent color. Affects italic text, links, and H1/H2 secondary decorations.
+        description.zh: 覆盖对比强调色。影响斜体、链接和 H1/H2 辅助装饰。
+        type: variable-color
+        format: hex
+        default: '#bd93f9'
+    -
+        id: user-bg
+        title: Background color
+        title.zh: 背景色
+        description: Override page background color.
+        description.zh: 覆盖页面背景色。
+        type: variable-color
+        format: hex
+        default: '#fff7fa'
+*/
+
+/* @settings
 name: 🗂️ Phycat card Layout
 name.zh: 🗂️ Phycat 卡片布局设置
 id: phycat-layout
@@ -133,59 +167,32 @@ name.zh: ✏️ Phycat 语法标记设置
 id: phycat-syntax
 settings:
     -
-        id: bold-light-color
-        title: Bold text color (Light Mode)
-        title.zh: 粗体文字颜色（亮色模式）
-        description: Override bold text color for all light themes.
-        description.zh: 覆盖所有亮色主题的粗体颜色。
+        id: user-bold
+        title: Bold text color
+        title.zh: 粗体文字颜色
+        description: Override bold/strong text color. Leave default to follow theme preset.
+        description.zh: 覆盖粗体颜色。保持默认则跟随主题预设派生。
         type: variable-color
         format: hex
-        default: '#e91e63'
+        default: '#d94868'
     -
-        id: italic-light-color
-        title: Italic text color (Light Mode)
-        title.zh: 斜体文字颜色（亮色模式）
-        description: Override italic text color for all light themes.
-        description.zh: 覆盖所有亮色主题的斜体颜色。
+        id: user-italic
+        title: Italic text color
+        title.zh: 斜体文字颜色
+        description: Override italic text color.
+        description.zh: 覆盖斜体颜色。
         type: variable-color
         format: hex
-        default: '#0277bd'
+        default: '#a07dd4'
     -
-        id: bold-dark-color
-        title: Bold text color (Dark Mode)
-        title.zh: 粗体文字颜色（暗色模式）
-        description: Override bold text color for all dark themes.
-        description.zh: 覆盖所有暗色主题的粗体颜色。
+        id: user-highlight
+        title: Highlight color
+        title.zh: 高亮标记颜色
+        description: Override highlight/mark gradient color.
+        description.zh: 覆盖高亮渐变颜色。
         type: variable-color
         format: hex
-        default: '#ff5555'
-    -
-        id: italic-dark-color
-        title: Italic text color (Dark Mode)
-        title.zh: 斜体文字颜色（暗色模式）
-        description: Override italic text color for all dark themes.
-        description.zh: 覆盖所有暗色主题的斜体颜色。
-        type: variable-color
-        format: hex
-        default: '#bd93f9'
-    -
-        id: highlight-light-color
-        title: Highlight color (Light Mode)
-        title.zh: 高亮颜色（亮色模式）
-        description: Override the highlight/mark gradient color for light themes. Defaults to each theme's primary color.
-        description.zh: 覆盖亮色主题的高亮渐变颜色。默认跟随各主题主色。
-        type: variable-color
-        format: hex
-        default: '#ff7096'
-    -
-        id: highlight-dark-color
-        title: Highlight color (Dark Mode)
-        title.zh: 高亮颜色（暗色模式）
-        description: Override the highlight/mark gradient color for dark themes. Defaults to each theme's primary color.
-        description.zh: 覆盖暗色主题的高亮渐变颜色。默认跟随各主题主色。
-        type: variable-color
-        format: hex
-        default: '#ff5555'
+        default: '#d94868'
 */
 
 /* @settings
@@ -896,23 +903,28 @@ body.theme-light.theme-light-prussian {
    Derived Variables — unified formula, zero branching
    ============================================ */
 body {
-  /* Accent color system */
-  --accent-bold: color-mix(in srgb, var(--seed-primary, #ff7096), black 15%);
-  --accent-italic: color-mix(in srgb, var(--seed-secondary, #bd93f9), black 15%);
-  --accent-highlight: var(--accent-bold);
+  /* Resolve user overrides for seed colors */
+  --_primary: var(--user-primary, var(--seed-primary, #ff7096));
+  --_secondary: var(--user-secondary, var(--seed-secondary, #bd93f9));
+  --_bg: var(--user-bg, var(--seed-bg, #fff7fa));
 
-  /* Decoration color system */
-  --deco-border: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 60%);
-  --deco-glow: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
-  --deco-hover-bg: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
-  --deco-selection: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 70%);
-  --deco-primary-subtle: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
-  --deco-primary-light: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
-  --deco-primary-wash: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 95%);
+  /* Accent color system (with user override support) */
+  --accent-bold: var(--user-bold, color-mix(in srgb, var(--_primary), black 15%));
+  --accent-italic: var(--user-italic, color-mix(in srgb, var(--_secondary), black 15%));
+  --accent-highlight: var(--user-highlight, var(--accent-bold));
+
+  /* Decoration color system (uses resolved --_primary) */
+  --deco-border: color-mix(in srgb, var(--_primary), transparent 60%);
+  --deco-glow: color-mix(in srgb, var(--_primary), transparent 50%);
+  --deco-hover-bg: color-mix(in srgb, var(--_primary), transparent 90%);
+  --deco-selection: color-mix(in srgb, var(--_primary), transparent 70%);
+  --deco-primary-subtle: color-mix(in srgb, var(--_primary), transparent 90%);
+  --deco-primary-light: color-mix(in srgb, var(--_primary), transparent 80%);
+  --deco-primary-wash: color-mix(in srgb, var(--_primary), transparent 95%);
 
   /* Heading decoration color system */
-  --heading-deep: color-mix(in srgb, var(--seed-primary, #ff7096), black 25%);
-  --heading-light: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+  --heading-deep: color-mix(in srgb, var(--_primary), black 25%);
+  --heading-light: color-mix(in srgb, var(--_primary), transparent 50%);
 }
 
 /* ============================================
@@ -921,7 +933,7 @@ body {
 body.theme-light {
   /* Glow system: soft shadow */
   --glow-shadow-text: none;
-  --glow-shadow-box: 0 2px 10px color-mix(in srgb, var(--seed-primary, #ff7096), transparent 60%);
+  --glow-shadow-box: 0 2px 10px color-mix(in srgb, var(--_primary), transparent 60%);
 
   /* Background system */
   --bg-hover: rgba(0, 0, 0, 0.05);
@@ -936,34 +948,34 @@ body.theme-light {
   --h6-color: var(--h6-light-color, #000000);
 
   /* Obsidian bridge layer */
-  --background-primary: color-mix(in srgb, var(--seed-bg, #fff7fa), white 2%);
-  --background-primary-alt: color-mix(in srgb, var(--seed-bg, #fff7fa), black 3%);
-  --background-secondary: color-mix(in srgb, var(--seed-bg, #fff7fa), white 5%);
-  --background-secondary-alt: color-mix(in srgb, var(--seed-bg, #fff7fa), black 8%);
-  --background-card: color-mix(in srgb, var(--seed-primary, #ff7096), #fff calc(var(--bg-mix-percent, 96) * 1%));
+  --background-primary: color-mix(in srgb, var(--_bg), white 2%);
+  --background-primary-alt: color-mix(in srgb, var(--_bg), black 3%);
+  --background-secondary: color-mix(in srgb, var(--_bg), white 5%);
+  --background-secondary-alt: color-mix(in srgb, var(--_bg), black 8%);
+  --background-card: color-mix(in srgb, var(--_primary), #fff calc(var(--bg-mix-percent, 96) * 1%));
   --text-normal: var(--text-color, #2d2d2d);
   --text-muted: var(--text-muted, #6b6b6b);
-  --text-accent: var(--seed-primary, #ff7096);
+  --text-accent: var(--_primary);
   --text-accent-hover: var(--heading-deep);
-  --list-marker-color: var(--seed-primary, #ff7096);
-  --interactive-accent: var(--seed-primary, #ff7096);
+  --list-marker-color: var(--_primary);
+  --interactive-accent: var(--_primary);
   --interactive-accent-hover: var(--heading-deep);
   --text-selection: var(--deco-selection);
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--seed-secondary, #bd93f9);
+  --background-modifier-border-hover: var(--_secondary);
   --background-modifier-error: #d32f2f;
   --background-modifier-success: #388e3c;
   --code-background: var(--code-block-bg, #faf0f3);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--seed-secondary, #bd93f9);
+  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
   --mermaid-text-color: var(--text-color, #2d2d2d);
 
   /* Checkbox */
-  --checkbox-bg-unchecked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
-  --checkbox-border-unchecked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
-  --checkbox-bg-checked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
+  --checkbox-bg-unchecked: color-mix(in srgb, var(--_primary), transparent 90%);
+  --checkbox-border-unchecked: color-mix(in srgb, var(--_primary), transparent 50%);
+  --checkbox-bg-checked: color-mix(in srgb, var(--_primary), transparent 80%);
   --checkbox-shadow-checked: var(--glow-shadow-box);
   --checkmark-color: #ffffff;
 
@@ -972,9 +984,9 @@ body.theme-light {
   --table-border-inner: rgba(0, 0, 0, 0.06);
   --table-row-hover-bg: rgba(0, 0, 0, 0.03);
   --table-th-bg: var(--deco-primary-subtle);
-  --table-th-border: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
+  --table-th-border: color-mix(in srgb, var(--_primary), transparent 80%);
   --table-cell-hover-bg: var(--deco-primary-light);
-  --table-cell-hover-text: var(--seed-primary, #ff7096);
+  --table-cell-hover-text: var(--_primary);
 
   /* Tags */
   --tag-color: var(--accent-bold);
@@ -990,10 +1002,10 @@ body.theme-light {
   --code-block-header-bg: var(--deco-primary-subtle);
 
   /* Indentation guide */
-  --indentation-guide-color: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+  --indentation-guide-color: color-mix(in srgb, var(--_primary), transparent 50%);
 
   /* Settings panel */
-  --setting-items-background: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 94%);
+  --setting-items-background: color-mix(in srgb, var(--_primary), transparent 94%);
 }
 
 /* ============================================
@@ -1017,33 +1029,33 @@ body.theme-dark {
   --h6-color: var(--h6-dark-color, #ffffff);
 
   /* Obsidian bridge layer */
-  --background-primary: var(--seed-bg, #282a36);
-  --background-primary-alt: var(--seed-bg, #282a36);
-  --background-secondary: color-mix(in srgb, var(--seed-bg, #282a36), black 15%);
-  --background-secondary-alt: color-mix(in srgb, var(--seed-bg, #282a36), black 25%);
+  --background-primary: var(--_bg);
+  --background-primary-alt: var(--_bg);
+  --background-secondary: color-mix(in srgb, var(--_bg), black 15%);
+  --background-secondary-alt: color-mix(in srgb, var(--_bg), black 25%);
   --text-normal: var(--text-color, #f8f8f2);
   --text-muted: var(--text-muted, #d0d0d0);
-  --text-accent: var(--seed-primary, #ff5555);
+  --text-accent: var(--_primary);
   --text-accent-hover: var(--heading-deep);
-  --list-marker-color: var(--seed-primary, #ff5555);
-  --interactive-accent: var(--seed-primary, #ff5555);
+  --list-marker-color: var(--_primary);
+  --interactive-accent: var(--_primary);
   --interactive-accent-hover: var(--heading-deep);
   --text-selection: var(--deco-selection);
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--seed-secondary, #bd93f9);
+  --background-modifier-border-hover: var(--_secondary);
   --background-modifier-error: #ff5555;
   --background-modifier-success: #50fa7b;
   --code-background: var(--code-block-bg, #282a36);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--seed-secondary, #bd93f9);
+  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
   --mermaid-text-color: #000;
 
   /* Checkbox */
-  --checkbox-bg-unchecked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 90%);
-  --checkbox-border-unchecked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 50%);
-  --checkbox-bg-checked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 80%);
+  --checkbox-bg-unchecked: color-mix(in srgb, var(--_primary), transparent 90%);
+  --checkbox-border-unchecked: color-mix(in srgb, var(--_primary), transparent 50%);
+  --checkbox-bg-checked: color-mix(in srgb, var(--_primary), transparent 80%);
   --checkbox-shadow-checked: var(--glow-shadow-box);
   --checkmark-color: #ffffff;
 
@@ -1052,9 +1064,9 @@ body.theme-dark {
   --table-border-inner: rgba(255, 255, 255, 0.05);
   --table-row-hover-bg: rgba(255, 255, 255, 0.03);
   --table-th-bg: var(--deco-primary-subtle);
-  --table-th-border: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 85%);
+  --table-th-border: color-mix(in srgb, var(--_primary), transparent 85%);
   --table-cell-hover-bg: var(--deco-primary-light);
-  --table-cell-hover-text: var(--seed-primary, #ff5555);
+  --table-cell-hover-text: var(--_primary);
 
   /* Tags */
   --tag-color: var(--accent-bold);
@@ -1070,10 +1082,10 @@ body.theme-dark {
   --code-block-header-bg: var(--deco-primary-subtle);
 
   /* Indentation guide */
-  --indentation-guide-color: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 50%);
+  --indentation-guide-color: color-mix(in srgb, var(--_primary), transparent 50%);
 
   /* Settings panel */
-  --setting-items-background: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 94%);
+  --setting-items-background: color-mix(in srgb, var(--_primary), transparent 94%);
 }
 body {
   --line-height-normal: 2.2;
