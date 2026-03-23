@@ -68,7 +68,28 @@ settings:
             - 
                 label: ⚓ Prussian (Deep Blue)
                 value: theme-light-prussian
-    - 
+            -
+                label: 🌺 Coral Reef (Warm Coral)
+                value: theme-light-coral
+            -
+                label: 🪻 Lavender Field (Dreamy Purple)
+                value: theme-light-lavender
+            -
+                label: 🏜️ Terra Cotta (Earthy)
+                value: theme-light-terracotta
+            -
+                label: 🫒 Olive Grove (Mediterranean)
+                value: theme-light-olive
+            -
+                label: 🐚 Pearl (Minimal Grey)
+                value: theme-light-pearl
+            -
+                label: 🤍 Paper (Pure B&W)
+                value: theme-light-paper
+            -
+                label: 🍵 Matcha (Japanese Green)
+                value: theme-light-matcha
+    -
         id: dark-color-scheme
         title: Color Scheme (Dark Mode)
         title.zh: 配色方案（暗色模式）
@@ -87,6 +108,27 @@ settings:
             - 
                 label: ☢️ Radiation (Toxic Green)
                 value: theme-dark-radiation
+            -
+                label: 🔥 Ember (Warm Dark)
+                value: theme-dark-ember
+            -
+                label: 🌃 Neon City (Cyberpunk)
+                value: theme-dark-neon
+            -
+                label: 🪨 Obsidian (Pure Black)
+                value: theme-dark-obsidian
+            -
+                label: ☕ Espresso (Coffee)
+                value: theme-dark-espresso
+            -
+                label: 🌌 Aurora (Northern Lights)
+                value: theme-dark-aurora
+            -
+                label: 🍷 Bordeaux (Wine Red)
+                value: theme-dark-bordeaux
+            -
+                label: 🖤 Ink (Monochrome)
+                value: theme-dark-ink
 */
 
 /* @settings
@@ -702,7 +744,7 @@ code .token.url {
   text-decoration: underline;
 }
 body.theme-dark.theme-dark-vampire,
-body.theme-dark:not(.theme-dark-abyss):not(.theme-dark-radiation) {
+body.theme-dark:not(.theme-dark-abyss):not(.theme-dark-radiation):not(.theme-dark-ember):not(.theme-dark-neon):not(.theme-dark-obsidian):not(.theme-dark-espresso):not(.theme-dark-aurora):not(.theme-dark-bordeaux):not(.theme-dark-ink) {
   --seed-primary: #ff5555;
   --seed-secondary: #bd93f9;
   --seed-bg: #282a36;
@@ -756,8 +798,134 @@ body.theme-dark.theme-dark-radiation {
   --code-tag: #ff5370;
   --code-operator: #89ddff;
 }
+body.theme-dark.theme-dark-ember {
+  --seed-primary: #ff6b35;
+  --seed-secondary: #64b5f6;
+  --seed-bg: #1c1210;
+  --text-color: #e8d5c4;
+  --text-muted: #a89080;
+  --code-block-bg: #1c1210;
+  --code-normal: #e8d5c4;
+  --code-keyword: #ff6b35;
+  --code-function: #f4a460;
+  --code-string: #e6b450;
+  --code-comment: #7a6050;
+  --code-property: #64b5f6;
+  --code-value: #ff8a65;
+  --code-punctuation: #e8d5c4;
+  --code-tag: #ff6b35;
+  --code-operator: #ffab91;
+}
+body.theme-dark.theme-dark-neon {
+  --seed-primary: #e040fb;
+  --seed-secondary: #00e5ff;
+  --seed-bg: #0d0d1a;
+  --text-color: #e0e0f0;
+  --text-muted: #9090b0;
+  --code-block-bg: #0d0d1a;
+  --code-normal: #e0e0f0;
+  --code-keyword: #e040fb;
+  --code-function: #00e5ff;
+  --code-string: #76ff03;
+  --code-comment: #5c5c8a;
+  --code-property: #ffea00;
+  --code-value: #ff4081;
+  --code-punctuation: #e0e0f0;
+  --code-tag: #e040fb;
+  --code-operator: #00e5ff;
+}
+body.theme-dark.theme-dark-obsidian {
+  --seed-primary: #78909c;
+  --seed-secondary: #ffab40;
+  --seed-bg: #1a1a1a;
+  --text-color: #c0c0c0;
+  --text-muted: #808080;
+  --code-block-bg: #1a1a1a;
+  --code-normal: #c0c0c0;
+  --code-keyword: #b0bec5;
+  --code-function: #ffab40;
+  --code-string: #a5d6a7;
+  --code-comment: #616161;
+  --code-property: #90a4ae;
+  --code-value: #ce93d8;
+  --code-punctuation: #c0c0c0;
+  --code-tag: #ef9a9a;
+  --code-operator: #b0bec5;
+}
+body.theme-dark.theme-dark-espresso {
+  --seed-primary: #d4a056;
+  --seed-secondary: #81c784;
+  --seed-bg: #1b1513;
+  --text-color: #d4c4b0;
+  --text-muted: #9a8a76;
+  --code-block-bg: #1b1513;
+  --code-normal: #d4c4b0;
+  --code-keyword: #d4a056;
+  --code-function: #81c784;
+  --code-string: #bcaaa4;
+  --code-comment: #6d5c4d;
+  --code-property: #ffcc80;
+  --code-value: #a1887f;
+  --code-punctuation: #d4c4b0;
+  --code-tag: #e6a07c;
+  --code-operator: #c8b08a;
+}
+body.theme-dark.theme-dark-aurora {
+  --seed-primary: #26de81;
+  --seed-secondary: #a55eea;
+  --seed-bg: #0a1628;
+  --text-color: #c8d6e5;
+  --text-muted: #7a8a9a;
+  --code-block-bg: #0a1628;
+  --code-normal: #c8d6e5;
+  --code-keyword: #26de81;
+  --code-function: #a55eea;
+  --code-string: #48dbfb;
+  --code-comment: #576574;
+  --code-property: #feca57;
+  --code-value: #ff6b6b;
+  --code-punctuation: #c8d6e5;
+  --code-tag: #26de81;
+  --code-operator: #48dbfb;
+}
+body.theme-dark.theme-dark-bordeaux {
+  --seed-primary: #c0392b;
+  --seed-secondary: #f1c40f;
+  --seed-bg: #1a0f14;
+  --text-color: #d9c4cc;
+  --text-muted: #9a8490;
+  --code-block-bg: #1a0f14;
+  --code-normal: #d9c4cc;
+  --code-keyword: #c0392b;
+  --code-function: #f1c40f;
+  --code-string: #e8a0bf;
+  --code-comment: #6b4f5a;
+  --code-property: #e67e73;
+  --code-value: #d4a0c0;
+  --code-punctuation: #d9c4cc;
+  --code-tag: #e74c3c;
+  --code-operator: #e08080;
+}
+body.theme-dark.theme-dark-ink {
+  --seed-primary: #e0e0e0;
+  --seed-secondary: #e57373;
+  --seed-bg: #0e0e0e;
+  --text-color: #d4d4d4;
+  --text-muted: #808080;
+  --code-block-bg: #0e0e0e;
+  --code-normal: #d4d4d4;
+  --code-keyword: #c0c0c0;
+  --code-function: #e0e0e0;
+  --code-string: #a0a0a0;
+  --code-comment: #585858;
+  --code-property: #b0b0b0;
+  --code-value: #e57373;
+  --code-punctuation: #d4d4d4;
+  --code-tag: #c0c0c0;
+  --code-operator: #b0b0b0;
+}
 body.theme-light.theme-light-sakura,
-body.theme-light:not(.theme-light-sky):not(.theme-light-forest):not(.theme-light-mint):not(.theme-light-mauve):not(.theme-light-golden):not(.theme-light-cheery):not(.theme-light-prussian) {
+body.theme-light:not(.theme-light-sky):not(.theme-light-forest):not(.theme-light-mint):not(.theme-light-mauve):not(.theme-light-golden):not(.theme-light-cheery):not(.theme-light-prussian):not(.theme-light-coral):not(.theme-light-lavender):not(.theme-light-terracotta):not(.theme-light-olive):not(.theme-light-pearl):not(.theme-light-paper):not(.theme-light-matcha) {
   --seed-primary: #ff7096;
   --seed-secondary: #bd93f9;
   --seed-bg: #fff7fa;
@@ -900,6 +1068,132 @@ body.theme-light.theme-light-prussian {
   --code-punctuation: #1d3557;
   --code-tag: #e63946;
   --code-operator: #2a9d8f;
+}
+body.theme-light.theme-light-coral {
+  --seed-primary: #e8553d;
+  --seed-secondary: #1976d2;
+  --seed-bg: #fff5f0;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #fdf0ea;
+  --code-normal: #4e342e;
+  --code-keyword: #d84315;
+  --code-function: #6a1b9a;
+  --code-string: #2e7d32;
+  --code-comment: #8d6e63;
+  --code-property: #e65100;
+  --code-value: #ad1457;
+  --code-punctuation: #4e342e;
+  --code-tag: #d84315;
+  --code-operator: #bf360c;
+}
+body.theme-light.theme-light-lavender {
+  --seed-primary: #7c4dff;
+  --seed-secondary: #ef6c00;
+  --seed-bg: #f8f5ff;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #f3eefb;
+  --code-normal: #311b92;
+  --code-keyword: #7c4dff;
+  --code-function: #1565c0;
+  --code-string: #00695c;
+  --code-comment: #9575cd;
+  --code-property: #e65100;
+  --code-value: #c51162;
+  --code-punctuation: #311b92;
+  --code-tag: #6200ea;
+  --code-operator: #aa00ff;
+}
+body.theme-light.theme-light-terracotta {
+  --seed-primary: #bf5b3c;
+  --seed-secondary: #2e7d32;
+  --seed-bg: #fdf6f0;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #f7ede4;
+  --code-normal: #3e2723;
+  --code-keyword: #bf360c;
+  --code-function: #558b2f;
+  --code-string: #795548;
+  --code-comment: #a1887f;
+  --code-property: #e65100;
+  --code-value: #4e342e;
+  --code-punctuation: #3e2723;
+  --code-tag: #d84315;
+  --code-operator: #6d4c41;
+}
+body.theme-light.theme-light-olive {
+  --seed-primary: #6d7c2f;
+  --seed-secondary: #ad1457;
+  --seed-bg: #f7f8f2;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #f0f2e6;
+  --code-normal: #33691e;
+  --code-keyword: #827717;
+  --code-function: #1565c0;
+  --code-string: #558b2f;
+  --code-comment: #9e9d24;
+  --code-property: #e65100;
+  --code-value: #880e4f;
+  --code-punctuation: #33691e;
+  --code-tag: #9e9d24;
+  --code-operator: #689f38;
+}
+body.theme-light.theme-light-pearl {
+  --seed-primary: #607d8b;
+  --seed-secondary: #c62828;
+  --seed-bg: #fafaf8;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #f0f2f3;
+  --code-normal: #37474f;
+  --code-keyword: #546e7a;
+  --code-function: #0277bd;
+  --code-string: #2e7d32;
+  --code-comment: #90a4ae;
+  --code-property: #455a64;
+  --code-value: #78909c;
+  --code-punctuation: #37474f;
+  --code-tag: #546e7a;
+  --code-operator: #607d8b;
+}
+body.theme-light.theme-light-paper {
+  --seed-primary: #1a1a1a;
+  --seed-secondary: #b71c1c;
+  --seed-bg: #ffffff;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #f5f5f5;
+  --code-normal: #24292e;
+  --code-keyword: #d73a49;
+  --code-function: #6f42c1;
+  --code-string: #032f62;
+  --code-comment: #6a737d;
+  --code-property: #005cc5;
+  --code-value: #005cc5;
+  --code-punctuation: #24292e;
+  --code-tag: #22863a;
+  --code-operator: #d73a49;
+}
+body.theme-light.theme-light-matcha {
+  --seed-primary: #558b2f;
+  --seed-secondary: #6a1b9a;
+  --seed-bg: #f5f9f0;
+  --text-color: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --code-block-bg: #eef4e8;
+  --code-normal: #33691e;
+  --code-keyword: #558b2f;
+  --code-function: #1565c0;
+  --code-string: #2e7d32;
+  --code-comment: #7cb342;
+  --code-property: #827717;
+  --code-value: #4a148c;
+  --code-punctuation: #33691e;
+  --code-tag: #689f38;
+  --code-operator: #33691e;
 }
 /* ============================================
    Derived Variables — unified formula, zero branching
