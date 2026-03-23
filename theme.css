@@ -2934,13 +2934,14 @@ body.theme-dark
   text-shadow: none;
   box-shadow: none;
 }
-/* Highlight hover — unified (no color change, only effects) */
-.markdown-preview-view mark:not([style*="background"]):hover,
-.markdown-source-view.mod-cm6
-  mark:not([style*="background"]):hover,
-.markdown-source-view.mod-cm6
-  .cm-highlight:not([style*="background"]):hover {
-  background-size: 100% 100%;
+/* Highlight hover — gradient expands from 40% to full height */
+body.theme-light .markdown-preview-view mark:not([style*="background"]):hover,
+body.theme-light .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
+body.theme-light .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover,
+body.theme-dark .markdown-preview-view mark:not([style*="background"]):hover,
+body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover {
+  background-size: 100% 100% !important;
   text-shadow: var(--glow-shadow-text);
 }
 .markdown-preview-view strong,
