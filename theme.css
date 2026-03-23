@@ -1121,148 +1121,188 @@ body.theme-light.theme-light-prussian {
     transparent 94%
   );
 }
+/* ============================================
+   Derived Variables — unified formula, zero branching
+   ============================================ */
+body {
+  /* Accent color system */
+  --accent-bold: color-mix(in srgb, var(--seed-primary, #ff7096), black 15%);
+  --accent-italic: color-mix(in srgb, var(--seed-secondary, #bd93f9), black 15%);
+  --accent-highlight: var(--accent-bold);
+
+  /* Decoration color system */
+  --deco-border: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 60%);
+  --deco-glow: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+  --deco-hover-bg: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
+  --deco-selection: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 70%);
+  --deco-primary-subtle: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
+  --deco-primary-light: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
+  --deco-primary-wash: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 95%);
+
+  /* Heading decoration color system */
+  --heading-deep: color-mix(in srgb, var(--seed-primary, #ff7096), black 25%);
+  --heading-light: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+}
+
+/* ============================================
+   Light Mode Variables
+   ============================================ */
 body.theme-light {
-  --glow-shadow-text: 0 0 5px var(--glow-color);
-  --glow-shadow-box: 0 0 5px var(--glow-color);
-  --background-primary: color-mix(in srgb, var(--bg-color), #fff 2%);
-  --background-card: color-mix(
-    in srgb,
-    var(--primary-color),
-    #fff calc(var(--bg-mix-percent) * 1%)
-  );
-  --background-primary-alt: color-mix(in srgb, var(--bg-color), #000 3%);
-  --background-secondary: color-mix(in srgb, var(--bg-color), #fff 5%);
-  --background-secondary-alt: color-mix(in srgb, var(--bg-color), #000 8%);
-  --text-normal: var(--text-color);
-  --text-muted: var(--text-color-secondary);
-  --mermaid-text-color: var(--text-color);
-  --text-accent: var(--primary-color);
-  --text-accent-hover: var(--link-hover-color);
-  --list-marker-color: var(--primary-color);
-  --interactive-accent: var(--primary-color);
-  --interactive-accent-hover: var(--link-hover-color);
-  --text-selection: #dce3e9b6;
-  --background-modifier-hover: rgba(0, 0, 0, 0.05);
-  --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
-  --background-modifier-border: var(--border-color);
-  --background-modifier-border-hover: var(--secondary-color);
-  --background-modifier-error: #d32f2f;
-  --background-modifier-success: #388e3c;
-  --code-background: var(--code-block-bg);
-  --code-normal: var(--text-color);
-  --input-shadow: inset 0 0 0 1px var(--border-color);
-  --input-shadow-hover: inset 0 0 0 1px var(--secondary-color);
-  --checkbox-bg-unchecked: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 90%
-  );
-  --checkbox-border-unchecked: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 50%
-  );
-  --checkbox-bg-checked: var(--primary-color);
-  --checkbox-shadow-checked: 0 2px 5px
-    color-mix(in srgb, var(--primary-color), transparent 60%);
-  --table-bg: rgba(255, 255, 255, 0.4);
-  --table-border-inner: rgba(0, 0, 0, 0.06);
-  --table-row-hover-bg: rgba(0, 0, 0, 0.03);
-  --table-th-bg: color-mix(in srgb, var(--primary-color), white 90%);
-  --table-th-border: color-mix(in srgb, var(--primary-color), transparent 80%);
-  --table-cell-hover-bg: color-mix(in srgb, var(--primary-color), white 80%);
-  --table-cell-hover-text: var(--primary-color);
-  --border-color: color-mix(in srgb, var(--primary-color), transparent 50%);
-  --blockquote-background-color: color-mix(
-    in srgb,
-    var(--primary-color),
-    white 96%
-  );
-  --setting-items-background: color-mix(
-    in srgb,
-    var(--light-lighter),
-    transparent 94%
-  );
-  --indentation-guide-color: color-mix(
-    in srgb,
-    var(--primary-color),
-    white 50%
-  );
-  --tag-color: var(--text-bold);
-  --tag-background: color-mix(in srgb, var(--text-bold), white 85%);
-  --tag-background-hover: color-mix(in srgb, var(--text-bold), white 75%);
-  --tag-border-color: color-mix(in srgb, var(--text-bold), white 50%);
-  --tag-border-color-hover: var(--text-bold);
+  /* Glow system: soft shadow */
+  --glow-shadow-text: none;
+  --glow-shadow-box: 0 2px 10px color-mix(in srgb, var(--seed-primary, #ff7096), transparent 60%);
+
+  /* Background system */
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --text-faint: #999;
+
+  /* Heading text color */
   --h1-color: var(--h1-light-color, #000000);
   --h2-color: var(--h2-light-color, #000000);
   --h3-color: var(--h3-light-color, #000000);
   --h4-color: var(--h4-light-color, #000000);
   --h5-color: var(--h5-light-color, #000000);
   --h6-color: var(--h6-light-color, #000000);
+
+  /* Obsidian bridge layer */
+  --background-primary: color-mix(in srgb, var(--seed-bg, #fff7fa), white 2%);
+  --background-primary-alt: color-mix(in srgb, var(--seed-bg, #fff7fa), black 3%);
+  --background-secondary: color-mix(in srgb, var(--seed-bg, #fff7fa), white 5%);
+  --background-secondary-alt: color-mix(in srgb, var(--seed-bg, #fff7fa), black 8%);
+  --background-card: color-mix(in srgb, var(--seed-primary, #ff7096), #fff calc(var(--bg-mix-percent, 96) * 1%));
+  --text-normal: var(--text-color, #2d2d2d);
+  --text-muted: var(--text-muted, #6b6b6b);
+  --text-accent: var(--seed-primary, #ff7096);
+  --text-accent-hover: var(--heading-deep);
+  --list-marker-color: var(--seed-primary, #ff7096);
+  --interactive-accent: var(--seed-primary, #ff7096);
+  --interactive-accent-hover: var(--heading-deep);
+  --text-selection: var(--deco-selection);
+  --background-modifier-hover: var(--bg-hover);
+  --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
+  --background-modifier-border: var(--deco-border);
+  --background-modifier-border-hover: var(--seed-secondary, #bd93f9);
+  --background-modifier-error: #d32f2f;
+  --background-modifier-success: #388e3c;
+  --code-background: var(--code-block-bg, #faf0f3);
+  --input-shadow: inset 0 0 0 1px var(--deco-border);
+  --input-shadow-hover: inset 0 0 0 1px var(--seed-secondary, #bd93f9);
+  --mermaid-text-color: var(--text-color, #2d2d2d);
+
+  /* Checkbox */
+  --checkbox-bg-unchecked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 90%);
+  --checkbox-border-unchecked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+  --checkbox-bg-checked: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
+  --checkbox-shadow-checked: var(--glow-shadow-box);
+  --checkmark-color: #ffffff;
+
+  /* Table */
+  --table-bg: rgba(255, 255, 255, 0.4);
+  --table-border-inner: rgba(0, 0, 0, 0.06);
+  --table-row-hover-bg: rgba(0, 0, 0, 0.03);
+  --table-th-bg: var(--deco-primary-subtle);
+  --table-th-border: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 80%);
+  --table-cell-hover-bg: var(--deco-primary-light);
+  --table-cell-hover-text: var(--seed-primary, #ff7096);
+
+  /* Tags */
+  --tag-color: var(--accent-bold);
+  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
+  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
+  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
+  --tag-border-color-hover: var(--accent-bold);
+
+  /* Blockquote */
+  --blockquote-background-color: var(--deco-primary-wash);
+
+  /* Code block header */
+  --code-block-header-bg: var(--deco-primary-subtle);
+
+  /* Indentation guide */
+  --indentation-guide-color: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 50%);
+
+  /* Settings panel */
+  --setting-items-background: color-mix(in srgb, var(--seed-primary, #ff7096), transparent 94%);
 }
+
+/* ============================================
+   Dark Mode Variables
+   ============================================ */
 body.theme-dark {
-  --text-highlight: var(--highlight-dark-color, var(--primary-color));
-  --glow-shadow-text: 0 0 8px var(--glow-color);
-  --glow-shadow-box: 0 0 8px var(--glow-color);
-  --background-primary: var(--bg-color);
-  --background-primary-alt: var(--bg-color);
-  --background-secondary: color-mix(in srgb, var(--bg-color), #000 15%);
-  --background-secondary-alt: color-mix(in srgb, var(--bg-color), #000 25%);
-  --text-normal: var(--text-color);
-  --text-muted: var(--text-color-secondary);
-  --mermaid-text-color: #000;
-  --text-accent: var(--primary-color);
-  --text-accent-hover: var(--link-hover-color);
-  --list-marker-color: var(--primary-color);
-  --interactive-accent: var(--primary-color);
-  --interactive-accent-hover: var(--link-hover-color);
-  --text-selection: var(--select-text-bg-color);
-  --background-modifier-hover: rgba(255, 255, 255, 0.05);
-  --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
-  --background-modifier-border: var(--border-color);
-  --background-modifier-border-hover: var(--secondary-color);
-  --background-modifier-error: #ff5555;
-  --background-modifier-success: #50fa7b;
-  --code-background: var(--code-block-bg);
-  --code-normal: var(--text-color);
-  --checkbox-bg-unchecked: rgba(255, 255, 255, 0.05);
-  --checkbox-border-unchecked: rgba(255, 255, 255, 0.3);
-  --checkbox-bg-checked: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 80%
-  );
-  --checkbox-shadow-checked: 0 0 8px var(--primary-color);
-  --table-bg: rgba(255, 255, 255, 0.02);
-  --table-border-inner: rgba(255, 255, 255, 0.05);
-  --table-row-hover-bg: rgba(255, 255, 255, 0.03);
-  --table-th-bg: color-mix(in srgb, var(--primary-color), transparent 95%);
-  --table-th-border: color-mix(in srgb, var(--primary-color), transparent 85%);
-  --table-cell-hover-bg: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 85%
-  );
-  --table-cell-hover-text: #fff;
-  --setting-items-background: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 96%
-  );
-  --tag-background: color-mix(in srgb, var(--primary-color), transparent 85%);
-  --tag-background-hover: color-mix(
-    in srgb,
-    var(--primary-color),
-    transparent 75%
-  );
-  --tag-border-color: color-mix(in srgb, var(--primary-color), transparent 50%);
-  --tag-border-color-hover: var(--primary-color);
+  /* Glow system: neon */
+  --glow-shadow-text: 0 0 8px var(--deco-glow);
+  --glow-shadow-box: 0 0 8px var(--deco-glow);
+
+  /* Background system */
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --text-faint: #555;
+
+  /* Heading text color */
   --h1-color: var(--h1-dark-color, #ffffff);
   --h2-color: var(--h2-dark-color, #ffffff);
   --h3-color: var(--h3-dark-color, #ffffff);
   --h4-color: var(--h4-dark-color, #ffffff);
   --h5-color: var(--h5-dark-color, #ffffff);
   --h6-color: var(--h6-dark-color, #ffffff);
+
+  /* Obsidian bridge layer */
+  --background-primary: var(--seed-bg, #282a36);
+  --background-primary-alt: var(--seed-bg, #282a36);
+  --background-secondary: color-mix(in srgb, var(--seed-bg, #282a36), black 15%);
+  --background-secondary-alt: color-mix(in srgb, var(--seed-bg, #282a36), black 25%);
+  --text-normal: var(--text-color, #f8f8f2);
+  --text-muted: var(--text-muted, #d0d0d0);
+  --text-accent: var(--seed-primary, #ff5555);
+  --text-accent-hover: var(--heading-deep);
+  --list-marker-color: var(--seed-primary, #ff5555);
+  --interactive-accent: var(--seed-primary, #ff5555);
+  --interactive-accent-hover: var(--heading-deep);
+  --text-selection: var(--deco-selection);
+  --background-modifier-hover: var(--bg-hover);
+  --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
+  --background-modifier-border: var(--deco-border);
+  --background-modifier-border-hover: var(--seed-secondary, #bd93f9);
+  --background-modifier-error: #ff5555;
+  --background-modifier-success: #50fa7b;
+  --code-background: var(--code-block-bg, #282a36);
+  --input-shadow: inset 0 0 0 1px var(--deco-border);
+  --input-shadow-hover: inset 0 0 0 1px var(--seed-secondary, #bd93f9);
+  --mermaid-text-color: #000;
+
+  /* Checkbox */
+  --checkbox-bg-unchecked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 90%);
+  --checkbox-border-unchecked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 50%);
+  --checkbox-bg-checked: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 80%);
+  --checkbox-shadow-checked: var(--glow-shadow-box);
+  --checkmark-color: #ffffff;
+
+  /* Table */
+  --table-bg: rgba(255, 255, 255, 0.02);
+  --table-border-inner: rgba(255, 255, 255, 0.05);
+  --table-row-hover-bg: rgba(255, 255, 255, 0.03);
+  --table-th-bg: var(--deco-primary-subtle);
+  --table-th-border: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 85%);
+  --table-cell-hover-bg: var(--deco-primary-light);
+  --table-cell-hover-text: var(--seed-primary, #ff5555);
+
+  /* Tags */
+  --tag-color: var(--accent-bold);
+  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
+  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
+  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
+  --tag-border-color-hover: var(--accent-bold);
+
+  /* Blockquote */
+  --blockquote-background-color: var(--deco-primary-wash);
+
+  /* Code block header */
+  --code-block-header-bg: var(--deco-primary-subtle);
+
+  /* Indentation guide */
+  --indentation-guide-color: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 50%);
+
+  /* Settings panel */
+  --setting-items-background: color-mix(in srgb, var(--seed-primary, #ff5555), transparent 94%);
 }
 body {
   --line-height-normal: 2.2;
