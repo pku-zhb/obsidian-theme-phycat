@@ -587,6 +587,8 @@ settings:
 */
 
 :root {
+  --h1-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='24' r='3'/></svg>");
+  --h2-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='20' r='3'/><circle cx='8' cy='28' r='3'/></svg>");
   --h3-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>");
   --h4-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286z'/></svg>");
   --h5-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286zM4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 11.429c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>");
@@ -882,7 +884,7 @@ body.theme-light.theme-light-cheery {
   --code-operator: #689d6a;
 }
 body.theme-light.theme-light-prussian {
-  --seed-primary: #1d4e89;
+  --seed-primary: #2563eb;
   --seed-secondary: #c62828;
   --seed-bg: #f0f6fa;
   --text-color: #2d2d2d;
@@ -1362,7 +1364,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   transform: translateY(-50%);
   margin-top: -6px;
   left: 2px;
-  background-color: var(--_secondary);
+  background-color: var(--heading-light);
   opacity: 0.5;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
@@ -1516,7 +1518,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   margin-top: 0.3em;
   height: 0.6em;
   width: 2px;
-  background-color: var(--_secondary);
+  background-color: var(--heading-light);
   border-radius: 2px;
   opacity: 0.6;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.05s;
@@ -1572,6 +1574,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 .theme-light .markdown-preview-view h3 {
   width: fit-content;
   padding-left: 15px;
+  position: relative;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .theme-light .markdown-preview-view h3::before {
@@ -1600,6 +1603,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 }
 .theme-light .markdown-preview-view h4 {
   padding-left: 20px;
+  position: relative;
 }
 .theme-light .markdown-preview-view h4::before {
   content: "";
@@ -1626,6 +1630,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 }
 .theme-light .markdown-preview-view h5 {
   padding-left: 20px;
+  position: relative;
 }
 .theme-light .markdown-preview-view h5::before {
   content: "";
@@ -1655,6 +1660,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 }
 .theme-light .markdown-preview-view h6 {
   padding-left: 20px;
+  position: relative;
 }
 .theme-light .markdown-preview-view h6::before {
   content: "-";
@@ -1729,7 +1735,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   width: 10px;
   height: 22px;
   border-radius: 6px;
-  background-color: var(--_secondary);
+  background-color: var(--heading-light);
   opacity: 0.6;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
@@ -1853,7 +1859,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   margin-top: 0.4em;
   height: 0.6em;
   width: 2px;
-  background-color: var(--_secondary);
+  background-color: var(--heading-light);
   border-radius: 2px;
   opacity: 0.6;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.05s;
@@ -1861,6 +1867,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 .theme-dark .markdown-preview-view h3 {
   padding-left: 15px;
   display: block;
+  position: relative;
   transition:
     padding-left 0.3s ease,
     color 0.3s ease;
@@ -2940,7 +2947,6 @@ body.theme-dark
     color-mix(in srgb, var(--accent-highlight), transparent 80%)
   ) !important;
   text-shadow: var(--glow-shadow-text);
-  box-shadow: var(--glow-shadow-box);
 }
 .markdown-preview-view strong,
 .markdown-source-view.mod-cm6 .cm-strong,
@@ -2965,6 +2971,7 @@ body.theme-dark .markdown-source-view.mod-cm6 strong {
 .markdown-preview-view strong:hover,
 .markdown-source-view.mod-cm6 .cm-strong:hover,
 .markdown-source-view.mod-cm6 strong:hover {
+  font-weight: 900;
   text-shadow: var(--glow-shadow-text);
   border-bottom: 1px solid color-mix(in srgb, var(--_primary), transparent 70%);
 }
@@ -3939,7 +3946,8 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-.markdown-preview-view :not(pre) > code:hover {
+.markdown-preview-view :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting):hover {
   background-color: var(--_primary) !important;
   color: #fff !important;
   border-color: var(--_primary);
@@ -4376,6 +4384,11 @@ body:not(.restored-scrollbars) ::-webkit-scrollbar-thumb:active {
   ::-webkit-scrollbar,
 .scrollbar-hide ::-webkit-scrollbar {
   display: none;
+}
+/* Default layout: unify sidebar background with content */
+body:not(.layout-cards) .workspace-split.mod-left-split,
+body:not(.layout-cards) .workspace-split.mod-right-split {
+  background-color: var(--background-primary);
 }
 body.layout-cards:not(.is-mobile)
   .workspace-tabs:not(.mod-stacked)
