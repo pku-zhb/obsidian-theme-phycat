@@ -812,7 +812,7 @@ body.theme-light.theme-light-forest {
   --code-operator: #0184bc;
 }
 body.theme-light.theme-light-mint {
-  --seed-primary: #3db8bf;
+  --seed-primary: #0e9aa7;
   --seed-secondary: #c2185b;
   --seed-bg: #f4fdff;
   --text-color: #2d2d2d;
@@ -848,7 +848,7 @@ body.theme-light.theme-light-mauve {
   --code-operator: #00695c;
 }
 body.theme-light.theme-light-golden {
-  --seed-primary: #f59e0b;
+  --seed-primary: #d97706;
   --seed-secondary: #4527a0;
   --seed-bg: #fffbeb;
   --text-color: #2d2d2d;
