@@ -646,51 +646,51 @@ body {
   --h4-size: 1.2em;
   --h5-size: 1.2em;
   --h6-size: 1.2em;
-  .token.keyword,
-  .token.tag,
-  .token.selector {
-    color: var(--code-keyword);
-    font-weight: bold;
-  }
-  .token.function,
-  .token.class-name {
-    color: var(--code-function);
-  }
-  .token.string,
-  .token.attr-value {
-    color: var(--code-string);
-  }
-  .token.comment {
-    color: var(--code-comment);
-    font-style: italic;
-  }
-  .token.number,
-  .token.boolean {
-    color: var(--code-value);
-  }
-  .token.operator,
-  .token.variable {
-    color: var(--code-operator);
-  }
-  .token.property,
-  .token.attr-name {
-    color: var(--code-property);
-  }
-  .token.punctuation {
-    color: var(--code-punctuation);
-  }
-  .token.important,
-  .token.bold {
-    font-weight: bold;
-    color: var(--code-important, var(--code-keyword));
-  }
-  .token.italic {
-    font-style: italic;
-  }
-  .token.url {
-    color: var(--code-string);
-    text-decoration: underline;
-  }
+}
+code .token.keyword,
+code .token.tag,
+code .token.selector {
+  color: var(--code-keyword);
+  font-weight: bold;
+}
+code .token.function,
+code .token.class-name {
+  color: var(--code-function);
+}
+code .token.string,
+code .token.attr-value {
+  color: var(--code-string);
+}
+code .token.comment {
+  color: var(--code-comment);
+  font-style: italic;
+}
+code .token.number,
+code .token.boolean {
+  color: var(--code-value);
+}
+code .token.operator,
+code .token.variable {
+  color: var(--code-operator);
+}
+code .token.property,
+code .token.attr-name {
+  color: var(--code-property);
+}
+code .token.punctuation {
+  color: var(--code-punctuation);
+}
+code .token.important,
+code .token.bold {
+  font-weight: bold;
+  color: var(--code-important, var(--code-keyword));
+}
+code .token.italic {
+  font-style: italic;
+}
+code .token.url {
+  color: var(--code-string);
+  text-decoration: underline;
 }
 body.theme-dark.theme-dark-vampire,
 body.theme-dark:not(.theme-dark-abyss):not(.theme-dark-radiation) {
@@ -3873,7 +3873,7 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   content: "❌";
   color: #ff5555;
 }
-*/ .theme-dark .callout[data-callout="bug"] {
+.theme-dark .callout[data-callout="bug"] {
   border-color: rgba(255, 85, 85, 0.4) !important;
   background-color: rgba(255, 85, 85, 0.1) !important;
 }
