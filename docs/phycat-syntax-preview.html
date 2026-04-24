@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phycat 浅色模式配色方案 v3</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
+    background: #1a1a2e; color: #eee;
+    padding: 40px 20px; line-height: 1.8;
+  }
+  h1 { text-align: center; font-size: 1.5em; margin-bottom: 6px; color: #fff; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 35px; font-size: 0.85em; }
+  .section-title {
+    text-align: center; font-size: 1.15em; margin: 50px 0 22px;
+    padding: 10px 0; border-bottom: 1px solid #333; color: #bbb;
+  }
+  .legend {
+    max-width: 1200px; margin: 0 auto 25px; padding: 14px 22px;
+    background: rgba(255,255,255,0.05); border-radius: 10px;
+    font-size: 0.82em; color: #aaa; line-height: 2;
+  }
+  .legend strong { color: #ddd; }
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+    gap: 24px; max-width: 1200px; margin: 0 auto;
+  }
+  .theme-card {
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .theme-card-header {
+    padding: 10px 18px; font-weight: 700; font-size: 0.9em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    display: inline-block; border: 1px solid rgba(0,0,0,0.12);
+  }
+  .theme-card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .half { padding: 16px 20px; }
+  .half-label {
+    font-size: 0.68em; text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 10px;
+    opacity: 0.4; font-weight: 700;
+  }
+  .line { margin-bottom: 6px; font-size: 0.9em; line-height: 2.2; }
+  .b { font-weight: 700; }
+  .s { text-decoration: line-through; }
+  .i-wave {
+    font-style: italic; padding-bottom: 2px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 6px 3px;
+  }
+  .mark-grad {
+    padding: 0 3px; border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 55%;
+  }
+  .mix {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed rgba(0,0,0,0.07);
+    font-size: 0.9em; line-height: 2.4;
+  }
+  .dark .mix { border-top-color: rgba(255,255,255,0.07); }
+  .change-note {
+    font-size: 0.72em; opacity: 0.5; font-weight: 400;
+    margin-left: auto; font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<h1>Phycat 浅色模式 · 语法标记配色 v3</h1>
+<p class="subtitle">核心问题：6个浅色主题正文色已带主题色调，粗体同色系无法突出 · 粗体+斜体都需重选</p>
+
+<div class="legend">
+  <strong>正文近黑（Sakura / Sky）：</strong>粗体保留原强调色 ✓，仅改斜体为对比色<br>
+  <strong>正文带色调（其余6个）：</strong>粗体 → 对比色主强调，斜体 → 另一个对比色次强调<br>
+  <strong>不改的：</strong>高亮渐变（保留 primary-color 渐变） · 删除线（主题色线 + 褪色字）
+</div>
+
+<div class="section-title">☀️ 浅色模式 — Before vs After</div>
+<div class="theme-grid" id="light-grid"></div>
+
+<div class="section-title">🌙 深色模式 — 参考（不改动）</div>
+<div class="theme-grid" id="dark-grid"></div>
+
+<script>
+function wave(c) {
+  return `linear-gradient(-45deg, transparent 35%, ${c} 35%, ${c} 65%, transparent 65%)`;
+}
+function hlGrad(hex, a) {
+  return `linear-gradient(to top, ${rgba(hex,a)}, transparent)`;
+}
+function rgba(hex, a) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+const L = [
+  {
+    name: '🌸 Sakura', note: '仅改斜体',
+    bg: '#fff7fa', text: '#3f3a3b', primary: '#ff7096', headerBg: '#ffe8ef', headerText: '#1c1719',
+    boldOld: '#e91e63', italicOld: '#bd93f9',
+    boldNew: '#e91e63',   // keep — body is neutral, pink bold stands out
+    italicNew: '#0277bd', // ocean blue — cool contrast to warm pink
+  },
+  {
+    name: '☁️ Sky', note: '仅改斜体',
+    bg: '#f4faff', text: '#0a1112', primary: '#3498db', headerBg: '#ddeefb', headerText: '#080d12',
+    boldOld: '#1a5276', italicOld: '#5296d5',
+    boldNew: '#1a5276',   // keep — body is near-black
+    italicNew: '#c56200', // burnt orange — warm contrast to cool blue
+  },
+  {
+    name: '🌲 Forest', note: '粗体+斜体都改',
+    bg: '#f2f9f5', text: '#5c7066', primary: '#11aa63', headerBg: '#ddf3e8', headerText: '#000',
+    boldOld: '#008145', italicOld: '#14ae9c',
+    boldNew: '#8e24aa',   // deep purple — stands out against green-gray body
+    italicNew: '#bf6c00', // amber — warm, different from purple
+  },
+  {
+    name: '🌊 Mint', note: '粗体+斜体都改',
+    bg: '#f4fdff', text: '#546e7a', primary: '#3db8bf', headerBg: '#d8f5f7', headerText: '#263238',
+    boldOld: '#089ba3', italicOld: '#2acd9e',
+    boldNew: '#c2185b',   // deep rose — warm pop against cool blue-gray body
+    italicNew: '#e65100',  // burnt orange — warm, clearly different from rose
+  },
+  {
+    name: '🟣 Mauve', note: '粗体+斜体都改',
+    bg: '#fafafc', text: '#6a3f7a', primary: '#a06eb4', headerBg: '#f0e4f5', headerText: '#4a235a',
+    boldOld: '#6a3f7a', italicOld: '#6a3f7a',
+    boldNew: '#00838f',   // deep teal — cool complement to purple body
+    italicNew: '#c56200',  // burnt orange — warm third voice
+  },
+  {
+    name: '🌅 Golden Hour', note: '粗体+斜体都改',
+    bg: '#fffbeb', text: '#92400e', primary: '#f59e0b', headerBg: '#fef0c7', headerText: '#78350f',
+    boldOld: '#b45309', italicOld: '#b45309',
+    boldNew: '#4527a0',   // deep indigo — cool dramatic contrast to warm amber body
+    italicNew: '#00796b',  // deep teal — cool, different from indigo
+  },
+  {
+    name: '🍒 Cheery', note: '粗体+斜体都改',
+    bg: '#fffbfb', text: '#870e0e', primary: '#aa1141', headerBg: '#ffe5ea', headerText: '#333',
+    boldOld: '#9a0036', italicOld: '#810000',
+    boldNew: '#00695c',   // deep teal — cool calm contrast to hot red body
+    italicNew: '#4527a0',  // deep indigo — different cool tone
+  },
+  {
+    name: '⚓ Prussian', note: '粗体+斜体都改',
+    bg: '#f0f6fa', text: '#1d4e89', primary: '#1d4e89', headerBg: '#d8e8f3', headerText: '#003153',
+    boldOld: '#003153', italicOld: '#003153',
+    boldNew: '#c62828',   // deep red — warm, high contrast to blue body
+    italicNew: '#bf6c00',  // amber — warm, different from red
+  },
+];
+
+const D = [
+  {
+    name: '🧛 Vampire', bg: '#282a36', text: '#d0d0d0', textFull: '#f8f8f2',
+    primary: '#ff5555', secondary: '#bd93f9', headerBg: '#343746',
+  },
+  {
+    name: '🌌 Abyss', bg: '#0f111a', text: '#7e8c9f', textFull: '#d6deeb',
+    primary: '#00b7c0', secondary: '#2e8bd6', headerBg: '#1a1d2e',
+  },
+  {
+    name: '☢️ Radiation', bg: '#1b1d1b', text: '#99a699', textFull: '#e6e6e6',
+    primary: '#4cd964', secondary: '#ffc107', headerBg: '#262826',
+  },
+];
+
+function renderL(t) {
+  const wOld = wave(rgba(t.italicOld, 0.5));
+  const wNew = wave(rgba(t.italicNew, 0.45));
+  const hl = hlGrad(t.primary, 0.35);
+  const sc = rgba(t.primary, 0.5);
+  return `
+  <div class="theme-card">
+    <div class="theme-card-header" style="background:${t.headerBg};color:${t.headerText}">
+      <span class="dot" style="background:${t.primary}"></span>
+      ${t.name}
+      <span class="change-note">${t.note}</span>
+    </div>
+    <div class="theme-card-body" style="background:${t.bg}">
+      <div class="half" style="border-right:1px dashed rgba(0,0,0,0.08)">
+        <div class="half-label" style="color:${t.text}">BEFORE</div>
+        <div class="line" style="color:${t.text}">这是一段正文展示。</div>
+        <div class="line"><span class="b" style="color:${t.boldOld}">粗体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="i-wave" style="color:${t.italicOld};background-image:${wOld}">斜体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="mark-grad" style="color:${t.text};background-image:${hl}">高亮文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="s" style="color:#999;text-decoration-color:${sc}">删除线</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="mix" style="color:${t.text}">
+          记录<span class="b" style="color:${t.boldOld}">行动项</span>和<span class="b" style="color:${t.boldOld}">截止日期</span>，<span class="i-wave" style="color:${t.italicOld};background-image:${wOld}">拉丁术语</span>也用斜体，<span class="mark-grad" style="color:${t.text};background-image:${hl}">核心论点</span>高亮，<span class="s" style="color:#999;text-decoration-color:${sc}">旧数据</span>已过时
+        </div>
+      </div>
+      <div class="half">
+        <div class="half-label" style="color:${t.text}">AFTER</div>
+        <div class="line" style="color:${t.text}">这是一段正文展示。</div>
+        <div class="line"><span class="b" style="color:${t.boldNew}">粗体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="i-wave" style="color:${t.italicNew};background-image:${wNew}">斜体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="mark-grad" style="color:${t.text};background-image:${hl}">高亮文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="s" style="color:#999;text-decoration-color:${sc}">删除线</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="mix" style="color:${t.text}">
+          记录<span class="b" style="color:${t.boldNew}">行动项</span>和<span class="b" style="color:${t.boldNew}">截止日期</span>，<span class="i-wave" style="color:${t.italicNew};background-image:${wNew}">拉丁术语</span>也用斜体，<span class="mark-grad" style="color:${t.text};background-image:${hl}">核心论点</span>高亮，<span class="s" style="color:#999;text-decoration-color:${sc}">旧数据</span>已过时
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderD(t) {
+  const wv = wave(rgba(t.secondary, 0.55));
+  const hl = hlGrad(t.primary, 0.4);
+  return `
+  <div class="theme-card">
+    <div class="theme-card-header" style="background:${t.headerBg};color:${t.textFull}">
+      <span class="dot" style="background:${t.primary}"></span>
+      ${t.name}
+      <span class="change-note">粗体 <span style="color:${t.primary}">●</span> 斜体 <span style="color:${t.secondary}">●</span></span>
+    </div>
+    <div class="theme-card-body dark" style="background:${t.bg}">
+      <div class="half" style="border-right:1px dashed rgba(255,255,255,0.06)">
+        <div class="half-label" style="color:${t.text}">当前效果</div>
+        <div class="line" style="color:${t.text}">这是一段正文展示。</div>
+        <div class="line"><span class="b" style="color:${t.primary}">粗体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="i-wave" style="color:${t.secondary};background-image:${wv}">斜体文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="mark-grad" style="color:${t.textFull};background-image:${hl}">高亮文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="s" style="color:#888;text-decoration-color:${t.primary}">删除线</span><span style="color:${t.text}"> 和正文</span></div>
+      </div>
+      <div class="half">
+        <div class="half-label" style="color:${t.text}">混排</div>
+        <div class="mix" style="color:${t.text};border:none;margin:0;padding:0">
+          记录<span class="b" style="color:${t.primary}">行动项</span>和<span class="b" style="color:${t.primary}">截止日期</span>，<span class="i-wave" style="color:${t.secondary};background-image:${wv}">拉丁术语</span>也用斜体，<span class="mark-grad" style="color:${t.textFull};background-image:${hl}">核心论点</span>高亮，<span class="s" style="color:#888;text-decoration-color:${t.primary}">旧数据</span>已过时
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('light-grid').innerHTML = L.map(renderL).join('');
+document.getElementById('dark-grid').innerHTML = D.map(renderD).join('');
+</script>
+</body>
+</html>

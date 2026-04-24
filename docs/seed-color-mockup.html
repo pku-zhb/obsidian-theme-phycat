@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phycat 种子色派生方案对比</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', serif;
+    background: #1a1a2e; color: #eee;
+    padding: 30px 20px; line-height: 1.8;
+  }
+  h1 { text-align: center; font-size: 1.4em; margin-bottom: 4px; color: #fff; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.82em; }
+  .section-title {
+    text-align: center; font-size: 1.1em; margin: 40px 0 18px;
+    padding: 8px 0; border-bottom: 1px solid #333; color: #bbb;
+  }
+  .legend {
+    max-width: 1400px; margin: 0 auto 20px; padding: 12px 20px;
+    background: rgba(255,255,255,0.05); border-radius: 10px;
+    font-size: 0.8em; color: #aaa; line-height: 2;
+  }
+  .legend strong { color: #ddd; }
+  .legend .tag {
+    display: inline-block; padding: 1px 8px; border-radius: 4px;
+    font-size: 0.9em; font-weight: 700; margin: 0 2px;
+  }
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+    gap: 20px; max-width: 1400px; margin: 0 auto;
+  }
+  .theme-card {
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .theme-card-header {
+    padding: 8px 16px; font-weight: 700; font-size: 0.85em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .seed-dots { display: flex; gap: 4px; margin-left: auto; align-items: center; }
+  .seed-dots .label { font-size: 0.7em; opacity: 0.5; margin-right: 4px; font-weight: 400; }
+  .dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    display: inline-block; border: 1.5px solid rgba(0,0,0,0.15);
+  }
+  .theme-card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .col { padding: 14px 16px; }
+  .col + .col { border-left: 1px dashed rgba(0,0,0,0.08); }
+  .dark .col + .col { border-left-color: rgba(255,255,255,0.06); }
+  .col-label {
+    font-size: 0.65em; text-transform: uppercase;
+    letter-spacing: 1.2px; margin-bottom: 8px;
+    opacity: 0.4; font-weight: 700;
+  }
+  .line { margin-bottom: 4px; font-size: 0.85em; line-height: 2.2; }
+  .b { font-weight: 700; }
+  .i-wave {
+    font-style: italic; padding-bottom: 2px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 6px 3px;
+  }
+  .mark-grad {
+    padding: 0 3px; border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 55%;
+  }
+  .s { text-decoration: line-through; }
+  .mix {
+    margin-top: 6px; padding-top: 6px;
+    border-top: 1px dashed rgba(0,0,0,0.07);
+    font-size: 0.85em; line-height: 2.2;
+  }
+  .dark .mix { border-top-color: rgba(255,255,255,0.07); }
+  .color-label {
+    font-size: 0.6em; opacity: 0.45; display: block; margin-top: 2px;
+    font-family: monospace; font-style: normal; font-weight: 400;
+  }
+  .verdict {
+    font-size: 0.7em; margin-top: 8px; padding: 6px 10px;
+    border-radius: 6px; line-height: 1.6;
+  }
+  .verdict-ok { background: rgba(0,200,100,0.1); color: #4CAF50; }
+  .verdict-bad { background: rgba(255,80,80,0.1); color: #ff6b6b; }
+  .verdict-meh { background: rgba(255,200,0,0.1); color: #f0c040; }
+</style>
+</head>
+<body>
+
+<h1>种子色派生方案对比：3 种子色够不够？</h1>
+<p class="subtitle">问题：只给 primary + secondary + bg 三个种子色，粗体/斜体色能自动派生吗？</p>
+
+<div class="legend">
+  <strong>三列对比：</strong><br>
+  <span class="tag" style="background:rgba(255,255,255,0.1);color:#8be9fd">A 当前</span> 手工精选的粗体/斜体颜色（我们上一轮的成果）<br>
+  <span class="tag" style="background:rgba(255,255,255,0.1);color:#50fa7b">B 加深30%</span> 仅用 color-mix(seed, black 30%) 自动加深 → primary→bold, secondary→italic<br>
+  <span class="tag" style="background:rgba(255,255,255,0.1);color:#ff79c6">C 加深40%</span> 加深力度更大 → color-mix(seed, black 40%)<br>
+  <br>
+  <strong>核心矛盾：</strong>Forest/Mint/Mauve/Golden/Cheery/Prussian 的正文色自带主题色调，加深 primary 得到的粗体色与正文同色系，<em>可能</em>无法突出
+</div>
+
+<div class="section-title">☀️ 浅色模式 — 手选 vs 自动派生</div>
+<div class="theme-grid" id="light-grid"></div>
+
+<div class="section-title">🌙 暗色模式 — 直接用 primary/secondary（天然够用）</div>
+<div class="theme-grid" id="dark-grid"></div>
+
+<script>
+// Color utilities
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return [r, g, b];
+}
+function rgbToHex(r, g, b) {
+  return '#' + [r,g,b].map(x => Math.round(Math.max(0,Math.min(255,x))).toString(16).padStart(2,'0')).join('');
+}
+function rgba(hex, a) {
+  const [r,g,b] = hexToRgb(hex);
+  return `rgba(${r},${g},${b},${a})`;
+}
+// Simulate color-mix(in srgb, color, black P%)
+function darken(hex, pct) {
+  const [r,g,b] = hexToRgb(hex);
+  const f = 1 - pct;
+  return rgbToHex(r*f, g*f, b*f);
+}
+function wave(c) {
+  return `linear-gradient(-45deg, transparent 35%, ${c} 35%, ${c} 65%, transparent 65%)`;
+}
+function hlGrad(hex, a) {
+  return `linear-gradient(to top, ${rgba(hex,a)}, transparent)`;
+}
+
+// Compute relative luminance
+function luminance(hex) {
+  let [r,g,b] = hexToRgb(hex).map(c => {
+    c = c/255;
+    return c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);
+  });
+  return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+function contrastRatio(hex1, hex2) {
+  const l1 = luminance(hex1), l2 = luminance(hex2);
+  const lighter = Math.max(l1,l2), darker = Math.min(l1,l2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+const L = [
+  {
+    name: '🌸 Sakura', bg: '#fff7fa', text: '#3f3a3b',
+    primary: '#ff7096', secondary: '#bd93f9',
+    boldHand: '#e91e63', italicHand: '#0277bd',
+  },
+  {
+    name: '☁️ Sky', bg: '#f4faff', text: '#0a1112',
+    primary: '#3498db', secondary: '#5296d5',
+    boldHand: '#1a5276', italicHand: '#c56200',
+  },
+  {
+    name: '🌲 Forest', bg: '#f2f9f5', text: '#5c7066',
+    primary: '#11aa63', secondary: '#14ae9c',
+    boldHand: '#8e24aa', italicHand: '#bf6c00',
+  },
+  {
+    name: '🌊 Mint', bg: '#f4fdff', text: '#546e7a',
+    primary: '#3db8bf', secondary: '#2acd9e',
+    boldHand: '#c2185b', italicHand: '#e65100',
+  },
+  {
+    name: '🟣 Mauve', bg: '#fafafc', text: '#6a3f7a',
+    primary: '#a06eb4', secondary: '#8e24aa',
+    boldHand: '#00838f', italicHand: '#c56200',
+  },
+  {
+    name: '🌅 Golden Hour', bg: '#fffbeb', text: '#92400e',
+    primary: '#f59e0b', secondary: '#b45309',
+    boldHand: '#4527a0', italicHand: '#00796b',
+  },
+  {
+    name: '🍒 Cheery', bg: '#fffbfb', text: '#870e0e',
+    primary: '#aa1141', secondary: '#810000',
+    boldHand: '#00695c', italicHand: '#4527a0',
+  },
+  {
+    name: '⚓ Prussian', bg: '#f0f6fa', text: '#1d4e89',
+    primary: '#1d4e89', secondary: '#003153',
+    boldHand: '#c62828', italicHand: '#bf6c00',
+  },
+];
+
+const D = [
+  {
+    name: '🧛 Vampire', bg: '#282a36', text: '#d0d0d0', textFull: '#f8f8f2',
+    primary: '#ff5555', secondary: '#bd93f9', headerBg: '#343746',
+  },
+  {
+    name: '🌌 Abyss', bg: '#0f111a', text: '#7e8c9f', textFull: '#d6deeb',
+    primary: '#00b7c0', secondary: '#2e8bd6', headerBg: '#1a1d2e',
+  },
+  {
+    name: '☢️ Radiation', bg: '#1b1d1b', text: '#99a699', textFull: '#e6e6e6',
+    primary: '#4cd964', secondary: '#ffc107', headerBg: '#262826',
+  },
+];
+
+function renderLightCard(t) {
+  const bold30 = darken(t.primary, 0.30);
+  const italic30 = darken(t.secondary, 0.30);
+  const bold40 = darken(t.primary, 0.40);
+  const italic40 = darken(t.secondary, 0.40);
+
+  const hlGr = hlGrad(t.primary, 0.35);
+  const sc = rgba(t.primary, 0.5);
+
+  // Contrast ratios against bg
+  const crBoldHand = contrastRatio(t.boldHand, t.bg).toFixed(1);
+  const crItalicHand = contrastRatio(t.italicHand, t.bg).toFixed(1);
+  const crBold30 = contrastRatio(bold30, t.bg).toFixed(1);
+  const crItalic30 = contrastRatio(italic30, t.bg).toFixed(1);
+  const crBold40 = contrastRatio(bold40, t.bg).toFixed(1);
+  const crItalic40 = contrastRatio(italic40, t.bg).toFixed(1);
+  const crText = contrastRatio(t.text, t.bg).toFixed(1);
+
+  // Contrast between bold and body text (hue differentiation)
+  const crBoldVsText30 = contrastRatio(bold30, t.text).toFixed(1);
+  const crBoldVsTextHand = contrastRatio(t.boldHand, t.text).toFixed(1);
+
+  // Judge: is darken(primary) too close to body text color?
+  function hueDiff(hex1, hex2) {
+    const [r1,g1,b1] = hexToRgb(hex1);
+    const [r2,g2,b2] = hexToRgb(hex2);
+    return Math.sqrt((r1-r2)**2 + (g1-g2)**2 + (b1-b2)**2);
+  }
+  const dist30 = hueDiff(bold30, t.text);
+  const distHand = hueDiff(t.boldHand, t.text);
+
+  let verdict30;
+  if (dist30 > 150 && crBold30 > 3) {
+    verdict30 = `<div class="verdict verdict-ok">✓ 色差 ${Math.round(dist30)}，对比度 ${crBold30}:1 — 可用</div>`;
+  } else if (dist30 > 100) {
+    verdict30 = `<div class="verdict verdict-meh">△ 色差 ${Math.round(dist30)}，对比度 ${crBold30}:1 — 勉强</div>`;
+  } else {
+    verdict30 = `<div class="verdict verdict-bad">✗ 色差 ${Math.round(dist30)}，对比度 ${crBold30}:1 — 太近，不够突出</div>`;
+  }
+
+  function renderCol(label, boldC, italicC, boldLabel, italicLabel) {
+    const wv = wave(rgba(italicC, 0.45));
+    return `
+      <div class="col">
+        <div class="col-label" style="color:${t.text}">${label}</div>
+        <div class="line" style="color:${t.text}">这是一段正文展示。</div>
+        <div class="line">
+          <span class="b" style="color:${boldC}">粗体文本</span>
+          <span style="color:${t.text}"> 和正文</span>
+          <span class="color-label">${boldLabel}</span>
+        </div>
+        <div class="line">
+          <span class="i-wave" style="color:${italicC};background-image:${wv}">斜体文本</span>
+          <span style="color:${t.text}"> 和正文</span>
+          <span class="color-label">${italicLabel}</span>
+        </div>
+        <div class="line"><span class="mark-grad" style="color:${t.text};background-image:${hlGr}">高亮文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="line"><span class="s" style="color:#999;text-decoration-color:${sc}">删除线</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="mix" style="color:${t.text}">
+          记录<span class="b" style="color:${boldC}">行动项</span>和<span class="b" style="color:${boldC}">截止</span>，<span class="i-wave" style="color:${italicC};background-image:${wv}">斜体术语</span>，<span class="mark-grad" style="color:${t.text};background-image:${hlGr}">核心论点</span>，<span class="s" style="color:#999;text-decoration-color:${sc}">过时</span>
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+  <div class="theme-card">
+    <div class="theme-card-header" style="background:${darken(t.bg, 0.03)};color:${t.text}">
+      ${t.name}
+      <span style="font-size:0.7em;opacity:0.5;font-weight:400">正文 ${t.text} (${crText}:1)</span>
+      <div class="seed-dots">
+        <span class="label">种子色:</span>
+        <span class="dot" style="background:${t.primary}" title="primary ${t.primary}"></span>
+        <span class="dot" style="background:${t.secondary}" title="secondary ${t.secondary}"></span>
+        <span class="dot" style="background:${t.bg};border-color:rgba(0,0,0,0.3)" title="bg ${t.bg}"></span>
+      </div>
+    </div>
+    <div class="theme-card-body" style="background:${t.bg}">
+      ${renderCol(
+        'A · 手选（当前）',
+        t.boldHand, t.italicHand,
+        `bold: ${t.boldHand} (${crBoldHand}:1)`,
+        `italic: ${t.italicHand} (${crItalicHand}:1)`
+      )}
+      ${renderCol(
+        'B · 加深30%',
+        bold30, italic30,
+        `bold: ${bold30} (${crBold30}:1)`,
+        `italic: ${italic30} (${crItalic30}:1)`
+      )}
+      ${renderCol(
+        'C · 加深40%',
+        bold40, italic40,
+        `bold: ${bold40} (${crBold40}:1)`,
+        `italic: ${italic40} (${crItalic40}:1)`
+      )}
+    </div>
+    <div style="background:${t.bg};padding:4px 16px 10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+      <div class="verdict verdict-ok" style="font-size:0.65em">手选色差 ${Math.round(distHand)}</div>
+      ${verdict30}
+      <div style="font-size:0.65em;opacity:0.4;padding:6px">加深=同色系，无法跨色相</div>
+    </div>
+  </div>`;
+}
+
+function renderDarkCard(t) {
+  const wv = wave(rgba(t.secondary, 0.55));
+  const hl = hlGrad(t.primary, 0.4);
+  const crBold = contrastRatio(t.primary, t.bg).toFixed(1);
+  const crItalic = contrastRatio(t.secondary, t.bg).toFixed(1);
+
+  return `
+  <div class="theme-card">
+    <div class="theme-card-header" style="background:${t.headerBg};color:${t.textFull}">
+      ${t.name}
+      <div class="seed-dots">
+        <span class="label">直接用种子色:</span>
+        <span class="dot" style="background:${t.primary};border-color:rgba(255,255,255,0.2)"></span>
+        <span class="dot" style="background:${t.secondary};border-color:rgba(255,255,255,0.2)"></span>
+      </div>
+    </div>
+    <div class="theme-card-body dark" style="background:${t.bg};grid-template-columns:1fr">
+      <div class="col">
+        <div class="line" style="color:${t.text}">这是一段正文展示。</div>
+        <div class="line">
+          <span class="b" style="color:${t.primary}">粗体文本</span>
+          <span style="color:${t.text}"> 和正文</span>
+          <span class="color-label">bold = primary ${t.primary} (${crBold}:1) ✓ 天然够亮</span>
+        </div>
+        <div class="line">
+          <span class="i-wave" style="color:${t.secondary};background-image:${wv}">斜体文本</span>
+          <span style="color:${t.text}"> 和正文</span>
+          <span class="color-label">italic = secondary ${t.secondary} (${crItalic}:1) ✓</span>
+        </div>
+        <div class="line"><span class="mark-grad" style="color:${t.textFull};background-image:${hl}">高亮文本</span><span style="color:${t.text}"> 和正文</span></div>
+        <div class="mix" style="color:${t.text}">
+          记录<span class="b" style="color:${t.primary}">行动项</span>和<span class="b" style="color:${t.primary}">截止</span>，<span class="i-wave" style="color:${t.secondary};background-image:${wv}">斜体术语</span>，<span class="mark-grad" style="color:${t.textFull};background-image:${hl}">核心论点</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('light-grid').innerHTML = L.map(renderLightCard).join('');
+document.getElementById('dark-grid').innerHTML = D.map(renderDarkCard).join('');
+</script>
+</body>
+</html>
