@@ -1207,7 +1207,7 @@ body {
   /* Accent color system (with user override support) */
   --accent-bold: var(--user-bold, color-mix(in srgb, var(--_primary), black 15%));
   --accent-italic: var(--user-italic, color-mix(in srgb, var(--_secondary), black 15%));
-  --accent-highlight: var(--user-highlight, var(--accent-bold));
+  --accent-highlight: var(--user-highlight, color-mix(in srgb, var(--_secondary), black 15%));
 
   /* Decoration color system (uses resolved --_primary) */
   --deco-border: color-mix(in srgb, var(--_primary), transparent 60%);
