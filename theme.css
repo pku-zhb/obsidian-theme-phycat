@@ -5433,3 +5433,158 @@ body.rainbow-folders .nav-file-title.is-active .nav-file-title-content::before {
     transparent 95%
   ) !important;
 }
+
+/* =================================================================
+   Source Mode (non-Live-Preview): full reset to plain text
+   `.markdown-source-view.mod-cm6:not(.is-live-preview)` matches ONLY
+   pure Source mode (not Live Preview). Everything inside the editor —
+   headings, inline formatting, links, lists, code, callouts, tags,
+   tables, frontmatter — is forced to monospace plain text with no
+   font-size, weight, italics, color, background, border, padding,
+   pseudo-elements, transforms, transitions, or shadows. Result: the
+   editor behaves like a plain text editor showing raw markdown.
+   ================================================================= */
+
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::after {
+  font-family: var(--font-monospace) !important;
+  font-size: var(--font-text-size, 1em) !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  line-height: var(--line-height-customize, 1.5) !important;
+  letter-spacing: normal !important;
+  text-align: inherit !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  color: var(--text-normal) !important;
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  display: inline !important;
+  transform: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Block-level CM elements need to stay block-flow */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line {
+  display: block !important;
+}
+
+/* Kill ALL pseudo-element decorations inside lines */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-header::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-header::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-list-line::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-list-line::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-quote::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-quote::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-codeblock::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-codeblock::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Native bullets / numbers should also flatten */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .list-bullet,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .list-number,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-header,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-quote,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-list,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-link,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-code {
+  color: var(--text-normal) !important;
+  background: none !important;
+  font-family: var(--font-monospace) !important;
+  font-weight: normal !important;
+  opacity: 1 !important;
+}
+
+/* Indent guides and active-line glow off */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-indent::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-active-indent::before {
+  box-shadow: none !important;
+  opacity: 0.3 !important;
+}
+
+/* ============================================================
+   全局聚焦 Tab 强调 (Focused Tab Emphasis)
+   高亮"当前键盘焦点所在、全局唯一"的那个 tab。
+   .workspace-tabs.mod-active 全局只有一个分组带这个类，
+   上下左右分屏时也只命中聚焦的那一组，故其内部的 .is-active
+   即"聚焦 tab"。限定 .mod-root 让点侧边栏时不会误染侧栏图标。
+   flat / cards 两种布局、明暗主题通用。
+   想换风格只改下面两个变量即可。
+   ============================================================ */
+body {
+  --phycat-focused-tab-bg: var(--_primary);
+  --phycat-focused-tab-text: var(--text-on-accent, #fff);
+}
+
+/* 通用：直接覆盖 Obsidian 原生 tab 变量。
+   这样 flat 布局里连接处的曲线 (::before/::after 伪元素) 会跟着
+   一起染成强调色，不会在边角残留旧底色。 */
+.workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active {
+  --tab-background-active: var(--phycat-focused-tab-bg);
+  --tab-text-color-active: var(--phycat-focused-tab-text);
+  --tab-text-color-focused-active: var(--phycat-focused-tab-text);
+  background-color: var(--phycat-focused-tab-bg) !important;
+}
+
+.workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-title {
+  color: var(--phycat-focused-tab-text) !important;
+  font-weight: 700;
+}
+
+.workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-icon,
+.workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-close-button,
+.workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active
+  .workspace-tab-header-status-icon {
+  color: var(--phycat-focused-tab-text) !important;
+  opacity: 1 !important;
+}
+
+/* 仅卡片布局加外发光：卡片 tab 是完整圆角胶囊，光晕跟着圆角走。
+   flat 布局底部是直角(要与下方内容相连)，加外发光会在边角出现
+   方形拖影，所以不在 flat 里加。 */
+body.layout-cards
+  .workspace-split.mod-root
+  .workspace-tabs.mod-active
+  .workspace-tab-header.is-active {
+  border-color: color-mix(in srgb, var(--_primary), #fff 25%) !important;
+  box-shadow:
+    0 1px 10px color-mix(in srgb, var(--_primary), transparent 55%),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
