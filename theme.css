@@ -2972,6 +2972,24 @@ body.editor-quote-dim
   color: inherit;
   opacity: 1 !important;
 }
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-enhance-active-callout-block
+  :is(
+    .cm-formatting-quote,
+    .cm-formatting-callout,
+    .cm-hmd-callout,
+    .cm-callout
+  ),
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-enhance-active-callout-block
+  > span[class*="callout" i] {
+  color: var(--text-faint) !important;
+  display: inline !important;
+  font-size: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: auto !important;
+}
 .markdown-preview-view blockquote {
   position: relative;
   margin: 0.75em 0;
@@ -3935,20 +3953,130 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   filter: grayscale(0%) !important;
 }
 .callout-content {
+  --callout-body-line-height: var(--blockquote-line-height, var(--line-height-customize, 1.6));
   position: relative;
   z-index: 2;
-  line-height: 1.65;
+  line-height: var(--callout-body-line-height);
+  overflow: visible !important;
 }
 .callout-content p,
 .callout-content ul,
-.callout-content ol {
+.callout-content ol,
+.callout-content :is(h1, h2, h3, h4, h5, h6) {
+  line-height: var(--callout-body-line-height) !important;
   margin-block: 0.4em !important;
 }
+.callout-content p:empty,
+.callout-content p:has(> br:only-child) {
+  margin-block: 0 !important;
+  min-height: calc(var(--callout-body-line-height) * 1em);
+}
+.callout-content p:empty::before {
+  content: "\00a0";
+}
+.callout-content ul,
+.callout-content ol {
+  --list-indent: 0 !important;
+  --list-indent-editing: 0 !important;
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  list-style: none !important;
+}
+.callout-content ul ul,
+.callout-content ol ol,
+.callout-content ul ol,
+.callout-content ol ul {
+  margin-left: 1em !important;
+  margin-inline-start: 1em !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+}
 .callout-content li {
+  --callout-list-marker-width: 2ch;
+  display: block;
   margin-block: 0.15em !important;
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-left: var(--callout-list-marker-width) !important;
+  padding-inline-start: var(--callout-list-marker-width) !important;
+  position: relative;
+  text-indent: 0 !important;
 }
 .callout-content li > p {
+  display: inline;
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
   margin-block: 0 !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  text-indent: 0 !important;
+}
+.callout-content ol {
+  counter-reset: callout-ordered-list;
+}
+.callout-content ol > li {
+  --callout-list-marker-width: 3ch;
+  counter-increment: callout-ordered-list;
+}
+.callout-content ol > li:nth-child(n + 10) {
+  --callout-list-marker-width: 4ch;
+}
+.callout-content ol > li:nth-child(n + 100) {
+  --callout-list-marker-width: 5ch;
+}
+.callout-content ul > li::before {
+  content: "•" !important;
+  position: absolute !important;
+  left: 0 !important;
+  inset-inline-start: 0 !important;
+  top: 0 !important;
+  display: block !important;
+  width: var(--callout-list-marker-width) !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--_primary) !important;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  line-height: var(--callout-body-line-height) !important;
+  opacity: 1 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+.callout-content ol > li::before {
+  content: counter(callout-ordered-list) "." !important;
+  position: absolute !important;
+  left: 0 !important;
+  inset-inline-start: 0 !important;
+  top: 0 !important;
+  display: block !important;
+  width: var(--callout-list-marker-width) !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--_primary) !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  line-height: var(--callout-body-line-height) !important;
+  opacity: 1 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+.callout-content li.task-list-item {
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  text-indent: 0 !important;
+}
+.callout-content li.task-list-item::before {
+  content: none !important;
+  display: none !important;
 }
 .callout-content > :first-child {
   margin-top: 0 !important;
