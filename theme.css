@@ -331,6 +331,13 @@ settings:
         title.zh:  段落间距（阅读模式）
         type: variable-text
         default: 1em
+    -
+        id: reading-list-continuation-line
+        title: Show reading list continuation lines
+        title.zh: 显示阅读模式列表延伸线
+        description: Draw a subtle vertical guide under nested list items in Reading mode.
+        description.zh: 在阅读模式的嵌套列表项下方显示一条竖向延伸线。默认关闭。
+        type: class-toggle
 */
 
 /* @settings
@@ -1786,8 +1793,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   content: "";
   position: absolute;
   left: 0;
-  top: auto;
-  margin-top: 0.1em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1em;
   width: 5px;
   background-color: var(--_primary);
@@ -1801,7 +1809,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 .theme-light.h2-style-twin
   .markdown-source-view.mod-cm6
   .HyperMD-header-2::before {
-  margin-top: 0.2em;
+  margin-top: 0;
 }
 .theme-light:not(.h2-style-capsule) .markdown-preview-view h2::after,
 .theme-light.h2-style-twin .markdown-preview-view h2::after,
@@ -1814,8 +1822,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   content: "";
   position: absolute;
   left: 8px;
-  top: auto;
-  margin-top: 0.3em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 0.6em;
   width: 2px;
   background-color: var(--heading-light);
@@ -1829,7 +1838,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 .theme-light.h2-style-twin
   .markdown-source-view.mod-cm6
   .HyperMD-header-2::after {
-  margin-top: 0.4em;
+  margin-top: 0;
 }
 /* H2 twin/default hover — unified */
 :not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover,
@@ -1843,8 +1852,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 :not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::before,
 .h2-style-twin .markdown-preview-view h2:hover::before,
 .h2-style-dark-twin .markdown-preview-view h2:hover::before {
-  top: auto;
-  margin-top: 0em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1.4em;
   opacity: 0.5;
 }
@@ -1852,8 +1862,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
 :not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::after,
 .h2-style-twin .markdown-preview-view h2:hover::after,
 .h2-style-dark-twin .markdown-preview-view h2:hover::after {
-  top: auto;
-  margin-top: 0.15em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1.1em;
   width: 4px;
   opacity: 1;
@@ -2134,8 +2145,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   content: "";
   position: absolute;
   left: 0;
-  top: auto;
-  margin-top: 0.2em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1em;
   width: 5px;
   background-color: var(--_primary);
@@ -2155,8 +2167,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   content: "";
   position: absolute;
   left: 8px;
-  top: auto;
-  margin-top: 0.4em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 0.6em;
   width: 2px;
   background-color: var(--heading-light);
@@ -2492,16 +2505,18 @@ body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .Hype
 body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
 body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
 body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
-  top: auto;
-  margin-top: 0em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1.4em;
   opacity: 0.5;
 }
 body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
 body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
 body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
-  top: auto;
-  margin-top: 0.15em;
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
   height: 1.1em;
   width: 4px;
   opacity: 1;
@@ -2595,7 +2610,7 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
 .markdown-preview-view li {
   position: relative;
 }
-.markdown-preview-view li::before {
+body.reading-list-continuation-line .markdown-preview-view li::before {
   content: "";
   position: absolute;
   top: calc(var(--line-height-customize) * 1em);
@@ -2606,14 +2621,24 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
   opacity: 0.5;
   pointer-events: none;
 }
-.markdown-preview-view ul > li::before {
+body.reading-list-continuation-line .markdown-preview-view ul > li::before {
   left: -0.83rem;
 }
-.markdown-preview-view > div > ul > li::before,
-.markdown-preview-view > div > ol > li::before {
+body.reading-list-continuation-line
+  .markdown-preview-view
+  > div
+  > ul
+  > li::before,
+body.reading-list-continuation-line
+  .markdown-preview-view
+  > div
+  > ol
+  > li::before {
   display: none;
 }
-.markdown-preview-view li.task-list-item::before {
+body.reading-list-continuation-line
+  .markdown-preview-view
+  li.task-list-item::before {
   left: -0.7rem;
   height: calc(100% - var(--line-height-customize) * 1.4em);
 }
@@ -2962,6 +2987,10 @@ body.editor-quote-dim
 .markdown-preview-view blockquote::before {
   content: none;
 }
+body.editor-quote-dim .markdown-preview-view blockquote {
+  color: var(--text-muted);
+  opacity: var(--editor-quote-dim-opacity, 0.6);
+}
 .markdown-preview-view blockquote p {
   color: inherit;
   margin-block-start: 0;
@@ -2970,6 +2999,117 @@ body.editor-quote-dim
 }
 .markdown-preview-view blockquote p:last-child {
   margin-bottom: 0;
+}
+.markdown-preview-view blockquote .heading-collapse-indicator {
+  display: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6) {
+  display: block !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 0 0.5em 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: var(--blockquote-line-height) !important;
+  text-align: inherit !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6):hover {
+  color: inherit !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6)::before {
+  position: static !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  font-weight: normal;
+  opacity: 0.75;
+  transform: none !important;
+}
+.markdown-preview-view blockquote h1::before {
+  content: "# " !important;
+}
+.markdown-preview-view blockquote h2::before {
+  content: "## " !important;
+}
+.markdown-preview-view blockquote h3::before {
+  content: "### " !important;
+}
+.markdown-preview-view blockquote h4::before {
+  content: "#### " !important;
+}
+.markdown-preview-view blockquote h5::before {
+  content: "##### " !important;
+}
+.markdown-preview-view blockquote h6::before {
+  content: "###### " !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6)::after {
+  content: none !important;
+  display: none !important;
+}
+.markdown-preview-view blockquote :is(ul, ol) {
+  margin: 0 0 0.5em 0 !important;
+  padding-inline-start: 0 !important;
+  list-style: none !important;
+}
+.markdown-preview-view blockquote :is(ul, ol) :is(ul, ol) {
+  margin-left: 1em !important;
+}
+.markdown-preview-view blockquote li {
+  margin: 0 0 0.35em 0 !important;
+  padding-left: 0 !important;
+  color: inherit !important;
+  list-style: none !important;
+}
+.markdown-preview-view blockquote li::marker {
+  content: "" !important;
+  color: transparent !important;
+}
+.markdown-preview-view blockquote ol {
+  counter-reset: quote-ordered-list;
+}
+.markdown-preview-view blockquote ol > li {
+  counter-increment: quote-ordered-list;
+}
+.markdown-preview-view blockquote ul > li::before,
+.markdown-preview-view blockquote ol > li::before {
+  position: static !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  opacity: 0.75;
+  transform: none !important;
+}
+.markdown-preview-view blockquote ul > li::before {
+  content: "- " !important;
+}
+.markdown-preview-view blockquote ol > li::before {
+  content: counter(quote-ordered-list) ". " !important;
 }
 .markdown-preview-view blockquote:hover {
   background: transparent;
