@@ -27,6 +27,12 @@ settings:
         markdown: true
         description: "**🧩 Plugin Recommendation: Hover Editor** \n It is highly recommended to install the [**Hover Editor**](https://github.com/nothingislost/obsidian-hover-editor) plugin. You can turn the settings pane mentioned above into a floating window to tweak the theme in real-time."
         description.zh: "**🧩 插件建议：Hover Editor** \n 强烈建议安装 [**Hover Editor**](https://github.com/nothingislost/obsidian-hover-editor) 插件。配合上面的独立设置面板，你可以将其转换为悬浮窗口，边看笔记边实时调整主题效果。"
+    -
+        id: info-codemirror-enhance
+        type: info-text
+        markdown: true
+        description: "**🧩 Required for enhanced Live Preview editing: CodeMirror Enhance** \n This fork relies on the local **CodeMirror Enhance** plugin for semantic editor classes and stable Markdown marker editing, including quote/callout dimming, active quote/callout blocks, and heading marker folding. Without it, the theme still loads, but those Live Preview editing refinements will fall back to Obsidian's default DOM behavior."
+        description.zh: "**🧩 Live Preview 编辑增强依赖：CodeMirror Enhance** \n 这个分支依赖本地 **CodeMirror Enhance** 插件提供编辑器语义类和稳定的 Markdown 标记编辑体验，包括引用/callout 的 dim 控制、当前引用/callout 块识别，以及标题标记折叠。没有该插件时主题仍可加载，但这些 Live Preview 编辑细节会退回 Obsidian 默认 DOM 行为。"
 */
 
 /* @settings
@@ -264,7 +270,7 @@ settings:
         description.zh: "数值越小越透明。默认：0.6"
         type: variable-number-slider
         default: 0.6
-        min: 0.2
+        min: 0
         max: 1
         step: 0.05
         format: ""
@@ -2633,7 +2639,7 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
 .markdown-source-view.mod-cm6 .list-bullet {
   color: transparent !important;
   position: relative;
-  margin-right: 12px !important;
+  margin-right: 0 !important;
   display: inline-block;
 }
 .markdown-source-view.mod-cm6 .list-bullet:after {
@@ -2674,9 +2680,9 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
 }
 .markdown-source-view.mod-cm6 .list-number {
   color: var(--_primary) !important;
-  font-family: "Cascadia Code", "Lucida Console", monospace !important;
-  font-weight: bold;
-  margin-right: 4px;
+  font-family: inherit !important;
+  font-weight: inherit;
+  margin-right: 0;
 }
 .image-embed[alt*="right" i],
 .image-embed[alt*="+R" i],
@@ -2902,12 +2908,44 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
   line-height: var(--blockquote-line-height);
 }
 /* Editor blockquote dimming (toggle: editor-quote-dim) */
-body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote {
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i]) {
   color: var(--text-muted);
   opacity: var(--editor-quote-dim-opacity, 0.6);
 }
-body.editor-quote-dim .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6.is-live-preview
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i]) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-enhance-callout-line,
+.markdown-source-view.mod-cm6.is-live-preview
+  .HyperMD-quote[class*="callout" i] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i])
+  .cm-formatting-quote {
   color: var(--text-faint);
+}
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-active-quote-block,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-active-callout-block,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-callout-line,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  [class*="callout" i] {
+  color: inherit;
+  opacity: 1 !important;
 }
 .theme-dark .markdown-preview-view blockquote {
   position: relative;
@@ -3754,8 +3792,8 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   color: var(--code-punctuation, #555) !important;
 }
 .callout {
-  padding: 12px 16px !important;
-  margin-block: 1em !important;
+  padding: 10px 14px !important;
+  margin-block: 0.75em !important;
   border: none !important;
   border-radius: 12px !important;
   position: relative !important;
@@ -3772,8 +3810,8 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
 .callout-title {
   display: inline-flex !important;
   align-items: center;
-  margin-bottom: 12px !important;
-  padding: 4px 12px !important;
+  margin-bottom: 8px !important;
+  padding: 3px 10px !important;
   border-radius: 50px !important;
   font-weight: 700;
   font-size: 0.9em;
@@ -3826,6 +3864,24 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
 .callout-content {
   position: relative;
   z-index: 2;
+  line-height: 1.65;
+}
+.callout-content p,
+.callout-content ul,
+.callout-content ol {
+  margin-block: 0.4em !important;
+}
+.callout-content li {
+  margin-block: 0.15em !important;
+}
+.callout-content li > p {
+  margin-block: 0 !important;
+}
+.callout-content > :first-child {
+  margin-top: 0 !important;
+}
+.callout-content > :last-child {
+  margin-bottom: 0 !important;
 }
 .callout-content ul.contains-task-list {
   margin-left: 2px;
