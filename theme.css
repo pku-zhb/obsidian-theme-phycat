@@ -3,25 +3,25 @@ name: 🐱 Phycat theme Info & Help
 name.zh: 🐱 Phycat 主题帮助信息
 id: phycat-info
 settings:
-    - 
+    -
         id: info-intro
         type: info-text
         markdown: true
         description: "### Phycat Theme \n A vibrant, glassmorphism aesthetic theme for Obsidian. \n\n [Github Repository](https://github.com/sumruler/obsidian-theme-phycat) | [Report Issue](https://github.com/sumruler/obsidian-theme-phycat/issues)| [Support](https://www.phycat.cn/donate.html)"
         description.zh: "### Phycat 主题 \n 一个充满活力、具有玻璃拟态美感的 Obsidian 主题。\n\n [Github 仓库](https://github.com/sumruler/obsidian-theme-phycat) | [反馈问题](https://github.com/sumruler/obsidian-theme-phycat/issues)| [打赏支持](https://www.phycat.cn/donate.html)"
-    - 
+    -
         id: info-font-tip
         type: info-text
         markdown: true
         description: "**💡 Font Recommendation:** \n This theme is optimized for [**LXGW WenKai**](https://github.com/lxgw/LxgwWenKai). Please install it for the best experience."
         description.zh: "**💡 字体建议：** \n 本主题针对 [**霞鹜文楷 (LXGW WenKai)**](https://github.com/lxgw/LxgwWenKai) 进行了优化，建议安装该字体以获得最佳体验。"
-    - 
+    -
         id: info-view-tip
         type: info-text
         markdown: true
         description: "**🪟 Pro Tip: Independent Settings View** \n Press `Ctrl+P` and search for `Style Settings: Show style settings view`. This opens the settings in a separate pane instead of a modal, preventing it from blocking your view."
         description.zh: "**🪟 技巧：独立设置窗口** \n 按下 `Ctrl+P` 呼出命令面板，搜索 `Style Settings: Show style settings view`。这可以单独打开一个设置面板，避免全屏弹窗遮挡你的笔记。"
-    - 
+    -
         id: info-hover-tip
         type: info-text
         markdown: true
@@ -40,7 +40,7 @@ name: 🎨 Phycat color setting
 name.zh: 🎨 Phycat 配色设置
 id: phycat-colors
 settings:
-    - 
+    -
         id: light-color-scheme
         title: Color Scheme (Light Mode)
         title.zh: 配色方案（亮色模式）
@@ -50,7 +50,7 @@ settings:
         allowEmpty: false
         default: theme-light-sakura
         options:
-            - 
+            -
                 label: 🌸 Sakura 樱花 (Default)
                 value: theme-light-sakura
             -
@@ -105,7 +105,7 @@ settings:
         allowEmpty: false
         default: theme-dark-vampire
         options:
-            - 
+            -
                 label: 🧛 Vampire 吸血鬼 (Default)
                 value: theme-dark-vampire
             -
@@ -176,7 +176,7 @@ name: 🗂️ Phycat card Layout
 name.zh: 🗂️ Phycat 卡片布局设置
 id: phycat-layout
 settings:
-    - 
+    -
         id: layout-style
         title: Interface Layout
         title.zh: 界面布局风格
@@ -186,18 +186,18 @@ settings:
         allowEmpty: false
         default: layout-default
         options:
-            - 
+            -
                 label: 🔲 Default (Flat)
                 value: layout-default
-            - 
+            -
                 label: 🃏 Cards (Floating)
                 value: layout-cards
-    - 
+    -
         id: rainbow-folders
         title: 启用彩虹文件夹 (Rainbow Folders)
         description: 启用后，侧边栏文件列表将变为多彩嵌套的玻璃容器风格，并带有动态类型图标。关闭则恢复 Obsidian 默认样式。
         type: class-toggle
-    - 
+    -
         id: bg-mix-percent
         title: 背景色混合比例（Card模式生效）
         description: 调整背景色中白色的混合程度（数值越大越白，默认为 90）。
@@ -206,7 +206,7 @@ settings:
         min: 0
         max: 100
         step: 1
-                
+
 */
 
 /* @settings
@@ -286,7 +286,7 @@ name: 📏 Phycat spacing setting
 name.zh: 📏 Phycat 文章间距设置
 id: phycat-spacing
 settings:
-    - 
+    -
         id: file-line-width
         title: File line width
         title.zh: 阅读区宽度
@@ -294,38 +294,38 @@ settings:
         type: variable-number
         default: 900
         format: px
-    - 
+    -
         id: letter-spacing
         title: Letter spacing
         title.zh: 字间距
         type: variable-number
         default: 1
         format: px
-    - 
+    -
         id: line-height-customize
         title: Line height
         title.zh: 段落行高
         type: variable-number
         default: 2.2
-    - 
+    -
         id: code-line-height
         title: code Line height
         title.zh: 代码行高
         type: variable-number
         default: 1.6
-    - 
+    -
         id: blockquote-line-height
         title: blockquote Line height
         title.zh: 引用块行高
         type: variable-number
         default: 1.6
-    - 
+    -
         id: table-line-height
         title: Table Line height
         title.zh: 表格行高
         type: variable-number
         default: 1.8
-    - 
+    -
         id: p-spacing
         title: Paragraph spacing (Reading mode)
         title.zh:  段落间距（阅读模式）
@@ -338,6 +338,22 @@ settings:
         description: Draw a subtle vertical guide under nested list items in Reading mode.
         description.zh: 在阅读模式的嵌套列表项下方显示一条竖向延伸线。默认关闭。
         type: class-toggle
+    -
+        id: editor-gutter-outside
+        title: Place Live Preview gutter outside text column
+        title.zh: Live Preview gutter 外置
+        description: Move CodeMirror line numbers and fold gutter outside the readable text column so Live Preview aligns more closely with Reading mode.
+        description.zh: 把 Live Preview 的行号和折叠 gutter 移到正文列外侧，让 Live Preview 更接近阅读模式的正文宽度与左边界。默认关闭。
+        type: class-toggle
+    -
+        id: editor-gutter-outside-width
+        title: Outside gutter width
+        title.zh: 外置 gutter 宽度
+        description: Increase this if long line numbers overlap the text column.
+        description.zh: 如果行号位数较多或贴近正文，可调大这个宽度。
+        type: variable-number
+        default: 48
+        format: px
 */
 
 /* @settings
@@ -360,14 +376,14 @@ settings:
         level: 3
         collapsed: true
 
-    - 
+    -
         id: h1-light-color
         title: H1 light color
         title.zh: H1 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h1-dark-color
         title: H1 dark color
         title.zh: H1 暗颜色
@@ -375,29 +391,29 @@ settings:
         format: hex
         default: '#ffffff'
 
-    - 
+    -
         id: h2-light-color
         title: H2 light color
         title.zh: H2 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h2-dark-color
         title: H2 dark color
         title.zh: H2 暗颜色
         type: variable-color
         format: hex
         default: '#ffffff'
- 
-    - 
+
+    -
         id: h3-light-color
         title: H3 light color
         title.zh: H3 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h3-dark-color
         title: H3 dark color
         title.zh: H3 暗颜色
@@ -405,14 +421,14 @@ settings:
         format: hex
         default: '#ffffff'
 
-    - 
+    -
         id: h4-light-color
         title: H4 light color
         title.zh: H4 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h4-dark-color
         title: H4 dark color
         title.zh: H4 暗颜色
@@ -420,14 +436,14 @@ settings:
         format: hex
         default: '#ffffff'
 
-    - 
+    -
         id: h5-light-color
         title: H5 light color
         title.zh: H5 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h5-dark-color
         title: H5 dark color
         title.zh: H5 暗颜色
@@ -435,28 +451,28 @@ settings:
         format: hex
         default: '#ffffff'
 
-    - 
+    -
         id: h6-light-color
         title: H6 light color
         title.zh: H6 亮颜色
         type: variable-color
         format: hex
         default: '#000000'
-    - 
+    -
         id: h6-dark-color
         title: H6 dark color
         title.zh: H6 暗颜色
         type: variable-color
         format: hex
         default: '#ffffff'
-    - 
+    -
         id: heading1-setting
         title: H1 title
         title.zh: 一级标题
         type: heading
         level: 3
         collapsed: true
-    -  
+    -
         id: h1-alignment
         title: H1 Alignment
         title.zh: H1 对齐方式
@@ -470,21 +486,21 @@ settings:
             value: h1-align-center
           - label: ⬅️ Left
             value: h1-align-left
-    - 
+    -
         id: h1-size
         title: H1 font size
         title.zh: H1字体大小
         type: variable-number
         default: 1.618
         format: em
-    - 
+    -
         id: heading2-setting
         title: H2 title
         title.zh: 二级标题
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h2-style-select
         title: Select Style
         title.zh: 亮色模式风格
@@ -494,13 +510,13 @@ settings:
         allowEmpty: false
         default: h2-style-twin
         options:
-            - 
+            -
                 label: 🏛️ Twin Pillars (New)
                 value: h2-style-twin
-            - 
+            -
                 label: 💊 Capsule (Original)
                 value: h2-style-capsule
-    - 
+    -
         id: h2-style-dark-select
         title: Select Style
         title.zh: 暗色模式选择风格
@@ -510,137 +526,136 @@ settings:
         allowEmpty: false
         default: h2-style-dark-twin
         options:
-            - 
+            -
                 label: 🏙️ Neon Twin (New)
                 value: h2-style-dark-twin
-            - 
+            -
                 label: 🔮 Glass Capsule (Original)
                 value: h2-style-dark-capsule
-    - 
+    -
         id: h2-size
         title: H2 font size
         title.zh: H2字体大小
         type: variable-number
         default: 1.462
         format: em
-    - 
+    -
         id: h2-spacing-scale-start
         title: H2 spacing start
         title.zh: H2前间距
         type: variable-number
         default: 1.318
-    - 
+    -
         id: h2-spacing-scale-end
         title: H2 spacing end
         title.zh: H2后间距
         type: variable-number
         default: 1.318
-    - 
+    -
         id: heading3-setting
         title: H3 title
         title.zh: 三级标题
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h3-size
         title: H3 font size
         title.zh: H3字体大小
         type: variable-number
         default: 1.318
         format: em
-    - 
+    -
         id: h3-spacing-scale-start
         title: H3 spacing start
         title.zh: H3前间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: h3-spacing-scale-end
         title: H3 spacing end
         title.zh: H3后间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: heading4-setting
         title: H4 title
         title.zh: 四级标题
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h4-size
         title: H4 font size
         title.zh: H4字体大小
         type: variable-number
         default: 1.2
         format: em
-    - 
+    -
         id: h4-spacing-scale-start
         title: H4 spacing start
         title.zh: H4前间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: h4-spacing-scale-end
         title: H4 spacing end
         title.zh: H4后间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: heading5-setting
         title: H5 title
         title.zh: 五级标题
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h5-size
         title: H5 font size
         title.zh: H5字体大小
         type: variable-number
         default: 1.2
         format: em
-    - 
+    -
         id: h5-spacing-scale-start
         title: H5 spacing start
         title.zh: H5前间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: h5-spacing-scale-end
         title: H5 spacing end
         title.zh: H5后间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: heading6-setting
         title: H6 title
         title.zh: 六级标题
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h6-size
         title: H6 font size
         title.zh: H6字体大小
         type: variable-number
         default: 1.2
         format: em
-    - 
+    -
         id: h6-spacing-scale-start
         title: H6 spacing start
         title.zh: H6前间距
         type: variable-number
         default: 1.5
-    - 
+    -
         id: h6-spacing-scale-end
         title: H6 spacing end
         title.zh: H6后间距
         type: variable-number
         default: 1.5
 */
-
 :root {
   --h1-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='24' r='3'/></svg>");
   --h2-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='20' r='3'/><circle cx='8' cy='28' r='3'/></svg>");
@@ -660,13 +675,13 @@ body {
   --checkbox-size: 1.25rem;
   --checkmark-color: #ffffff;
   --table-border-radius: 8px;
-  --text-faint: color-mix(in srgb, var(--primary-color), transparent 20%);
+  --text-faint: color-mix(in srgb, var(--_primary), transparent 20%);
   --link-external-decoration-hover: none;
   --titlebar-background: transparent;
   --titlebar-background-focused: transparent;
   --he-title-bar-inactive-pinned-bg: color-mix(
     in srgb,
-    var(--primary-color),
+    var(--_primary),
     #fff 20%
   );
   --h1-line-height: 1.2;
@@ -1263,7 +1278,7 @@ body.theme-light {
   --background-secondary-alt: color-mix(in srgb, var(--_bg), black 8%);
   --background-card: color-mix(in srgb, var(--_primary), #fff calc(var(--bg-mix-percent, 96) * 1%));
   --text-normal: var(--text-color, #2d2d2d);
-  --text-muted: var(--text-muted, #6b6b6b);
+  --text-muted: #6b6b6b;
   --text-accent: var(--_primary);
   --text-accent-hover: var(--heading-deep);
   --list-marker-color: var(--_primary);
@@ -1343,7 +1358,7 @@ body.theme-dark {
   --background-secondary: color-mix(in srgb, var(--_bg), black 15%);
   --background-secondary-alt: color-mix(in srgb, var(--_bg), black 25%);
   --text-normal: var(--text-color, #f8f8f2);
-  --text-muted: var(--text-muted, #d0d0d0);
+  --text-muted: #d0d0d0;
   --text-accent: var(--_primary);
   --text-accent-hover: var(--heading-deep);
   --list-marker-color: var(--_primary);
@@ -1414,6 +1429,44 @@ body {
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 .cm-scroller {
   line-height: var(--line-height-customize);
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-contentContainer {
+  overflow-x: visible;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutters {
+  box-sizing: border-box;
+  flex-basis: var(--editor-gutter-outside-width, 48px) !important;
+  inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  min-inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  max-inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  margin-inline-start: calc(
+    0px - var(--editor-gutter-outside-width, 48px)
+  ) !important;
+  margin-inline-end: 0 !important;
+  background: transparent !important;
+  border-inline-end: 0 !important;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutter {
+  background: transparent !important;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutterElement {
+  box-sizing: border-box;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-lineNumbers
+  .cm-gutterElement {
+  min-inline-size: calc(var(--editor-gutter-outside-width, 48px) - 16px);
+  padding-inline-end: 8px;
+  text-align: end;
 }
 body .markdown-preview-view h1,
 body .markdown-source-view.mod-cm6 .HyperMD-header-1 {
@@ -1841,17 +1894,17 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   margin-top: 0;
 }
 /* H2 twin/default hover — unified */
-:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover,
-.h2-style-twin .markdown-preview-view h2:hover,
-.h2-style-dark-twin .markdown-preview-view h2:hover {
+body:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover,
+body.h2-style-twin .markdown-preview-view h2:hover,
+body.h2-style-dark-twin .markdown-preview-view h2:hover {
   color: var(--heading-deep) !important;
   text-shadow: var(--glow-shadow-text);
   transform: translateX(5px);
 }
 /* H2 twin ::before pillar */
-:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::before,
-.h2-style-twin .markdown-preview-view h2:hover::before,
-.h2-style-dark-twin .markdown-preview-view h2:hover::before {
+body:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::before,
+body.h2-style-twin .markdown-preview-view h2:hover::before,
+body.h2-style-dark-twin .markdown-preview-view h2:hover::before {
   top: 50%;
   margin-top: 0;
   transform: translateY(-50%);
@@ -1859,9 +1912,9 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   opacity: 0.5;
 }
 /* H2 twin ::after pillar */
-:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::after,
-.h2-style-twin .markdown-preview-view h2:hover::after,
-.h2-style-dark-twin .markdown-preview-view h2:hover::after {
+body:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-preview-view h2:hover::after,
+body.h2-style-twin .markdown-preview-view h2:hover::after,
+body.h2-style-dark-twin .markdown-preview-view h2:hover::after {
   top: 50%;
   margin-top: 0;
   transform: translateY(-50%);
@@ -2433,7 +2486,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   -webkit-mask-image: var(--h6-icon-shape);
   mask-image: var(--h6-icon-shape);
 }
-
 /* =================================================================
    Editor Heading Hover Effects (Toggle: editor-heading-hover)
    Mirrors reading-mode hover animations in editing/live-preview mode.
@@ -2577,7 +2629,6 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
   transform: translateY(-50%) scaleX(1.5);
   text-shadow: var(--glow-shadow-text);
 }
-
 .markdown-preview-view ul > li::marker,
 .markdown-preview-view ol > li::marker {
   color: var(--_primary);
@@ -2751,9 +2802,6 @@ body.reading-list-continuation-line
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-.markdown-preview-view ul.contains-task-list {
-  margin-left: 10px;
 }
 .markdown-preview-view ul.contains-task-list {
   margin-left: 10px;
@@ -3489,7 +3537,15 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
 .markdown-source-view.mod-cm6 .cm-strikethrough:hover {
   text-shadow: var(--glow-shadow-text);
 }
-.markdown-preview-view hr {
+.markdown-preview-view hr,
+.markdown-source-view.mod-cm6.is-live-preview .hr {
+  position: relative;
+  overflow: visible;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.markdown-preview-view hr,
+.markdown-source-view.mod-cm6.is-live-preview .hr hr {
   border: none;
   height: 1px;
   background: linear-gradient(
@@ -3498,12 +3554,21 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
     var(--_primary),
     transparent
   );
-  position: relative;
-  overflow: visible;
-  opacity: 0.5;
-  transition: all 0.3s ease;
 }
-.markdown-preview-view hr::after {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-hr {
+  padding-block: 0.7em;
+}
+.markdown-source-view.mod-cm6.is-live-preview .hr {
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+}
+.markdown-source-view.mod-cm6.is-live-preview .hr hr {
+  flex: 1 0 0 !important;
+  margin: 0 !important;
+}
+.markdown-preview-view hr::after,
+.markdown-source-view.mod-cm6.is-live-preview .hr::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -3516,8 +3581,12 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-.markdown-preview-view hr:hover {
+.markdown-preview-view hr:hover,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover {
   opacity: 1;
+}
+.markdown-preview-view hr:hover,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover hr {
   background: linear-gradient(
     90deg,
     transparent,
@@ -3525,7 +3594,8 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
     transparent
   );
 }
-.markdown-preview-view hr:hover::after {
+.markdown-preview-view hr:hover::after,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover::after {
   border-color: var(--_primary);
   background-color: var(--_primary);
   box-shadow: 0 0 10px var(--_primary);
@@ -3589,9 +3659,6 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
 .markdown-preview-view table thead tr:nth-child(2n),
 .markdown-preview-view table thead tr:nth-child(2n + 1) {
   background-color: transparent !important;
-}
-.markdown-preview-view table th {
-  background-color: var(--table-th-bg) !important;
 }
 .theme-dark .markdown-preview-view table tbody td:hover {
   text-shadow: 0 0 8px var(--_primary);
@@ -3980,9 +4047,15 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   --list-indent-editing: 0 !important;
   margin-left: 0 !important;
   margin-inline-start: 0 !important;
-  padding-left: 0 !important;
-  padding-inline-start: 0 !important;
-  list-style: none !important;
+  padding-left: 1.25em !important;
+  padding-inline-start: 1.25em !important;
+  list-style-position: outside !important;
+}
+.callout-content ul {
+  list-style: disc outside !important;
+}
+.callout-content ol {
+  list-style: decimal outside !important;
 }
 .callout-content ul ul,
 .callout-content ol ol,
@@ -3994,15 +4067,19 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   padding-inline-start: 0 !important;
 }
 .callout-content li {
-  --callout-list-marker-width: 2ch;
-  display: block;
+  display: list-item;
   margin-block: 0.15em !important;
   margin-left: 0 !important;
   margin-inline-start: 0 !important;
-  padding-left: var(--callout-list-marker-width) !important;
-  padding-inline-start: var(--callout-list-marker-width) !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
   position: relative;
   text-indent: 0 !important;
+}
+.markdown-preview-view .callout .callout-content li::marker,
+.callout-content li::marker {
+  content: normal !important;
+  color: var(--_primary) !important;
 }
 .callout-content li > p {
   display: inline;
@@ -4013,61 +4090,12 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   padding-inline-start: 0 !important;
   text-indent: 0 !important;
 }
-.callout-content ol {
-  counter-reset: callout-ordered-list;
-}
-.callout-content ol > li {
-  --callout-list-marker-width: 3ch;
-  counter-increment: callout-ordered-list;
-}
-.callout-content ol > li:nth-child(n + 10) {
-  --callout-list-marker-width: 4ch;
-}
-.callout-content ol > li:nth-child(n + 100) {
-  --callout-list-marker-width: 5ch;
-}
-.callout-content ul > li::before {
-  content: "•" !important;
-  position: absolute !important;
-  left: 0 !important;
-  inset-inline-start: 0 !important;
-  top: 0 !important;
-  display: block !important;
-  width: var(--callout-list-marker-width) !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  color: var(--_primary) !important;
-  background: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  font-family: var(--font-monospace);
-  line-height: var(--callout-body-line-height) !important;
-  opacity: 1 !important;
-  text-align: left !important;
-  transform: none !important;
-}
+.markdown-preview-view .callout .callout-content ul > li::before,
+.markdown-preview-view .callout .callout-content ol > li::before,
+.callout-content ul > li::before,
 .callout-content ol > li::before {
-  content: counter(callout-ordered-list) "." !important;
-  position: absolute !important;
-  left: 0 !important;
-  inset-inline-start: 0 !important;
-  top: 0 !important;
-  display: block !important;
-  width: var(--callout-list-marker-width) !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  color: var(--_primary) !important;
-  background: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  font-family: var(--font-monospace);
-  line-height: var(--callout-body-line-height) !important;
-  opacity: 1 !important;
-  text-align: left !important;
-  transform: none !important;
+  content: none !important;
+  display: none !important;
 }
 .callout-content li.task-list-item {
   padding-left: 0 !important;
@@ -4985,7 +5013,8 @@ body.layout-cards
   .titlebar-button-container.mod-right {
   background-color: transparent;
 }
-body.layout-cards:not(.is-mobile).mod-left-split
+body.layout-cards:not(.is-mobile)
+  .workspace-split.mod-left-split
   .workspace-sidedock-vault-profile {
   border: 0;
   padding: 0;
@@ -5690,7 +5719,6 @@ body.rainbow-folders .nav-file-title.is-active .nav-file-title-content::before {
     transparent 95%
   ) !important;
 }
-
 /* =================================================================
    Source Mode (non-Live-Preview): full reset to plain text
    `.markdown-source-view.mod-cm6:not(.is-live-preview)` matches ONLY
@@ -5782,7 +5810,6 @@ body.rainbow-folders .nav-file-title.is-active .nav-file-title-content::before {
   box-shadow: none !important;
   opacity: 0.3 !important;
 }
-
 /* ============================================================
    全局聚焦 Tab 强调 (Focused Tab Emphasis)
    高亮"当前键盘焦点所在、全局唯一"的那个 tab。

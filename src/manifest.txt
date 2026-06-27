@@ -1,0 +1,14 @@
+sections/00-settings.css
+sections/01-root-base-vars.css
+sections/02-presets-code-tokens.css
+sections/03-derived-bridge.css
+sections/10-reading-editor-base.css
+sections/11-headings.css
+sections/12-editor-heading-hover.css
+sections/20-lists-images-tasks.css
+sections/21-quotes-links-inline-hr.css
+sections/22-tables-code-callouts.css
+sections/30-ui-layout-bases-scrollbars.css
+sections/31-file-explorer.css
+sections/40-source-mode-reset.css
+sections/90-focused-tab.css

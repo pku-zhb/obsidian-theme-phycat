@@ -1,0 +1,76 @@
+.markdown-preview-view,
+.markdown-source-view {
+  letter-spacing: var(--letter-spacing);
+  position: relative;
+}
+.markdown-preview-view p,
+.markdown-preview-view li {
+  color: var(--text-normal);
+  word-spacing: var(--word-spacing);
+}
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  line-height: var(--line-height-customize);
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-contentContainer {
+  overflow-x: visible;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutters {
+  box-sizing: border-box;
+  flex-basis: var(--editor-gutter-outside-width, 48px) !important;
+  inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  min-inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  max-inline-size: var(--editor-gutter-outside-width, 48px) !important;
+  margin-inline-start: calc(
+    0px - var(--editor-gutter-outside-width, 48px)
+  ) !important;
+  margin-inline-end: 0 !important;
+  background: transparent !important;
+  border-inline-end: 0 !important;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutter {
+  background: transparent !important;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-gutterElement {
+  box-sizing: border-box;
+}
+body.editor-gutter-outside
+  .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width
+  .cm-lineNumbers
+  .cm-gutterElement {
+  min-inline-size: calc(var(--editor-gutter-outside-width, 48px) - 16px);
+  padding-inline-end: 8px;
+  text-align: end;
+}
+body .markdown-preview-view h1,
+body .markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  color: var(--h1-color) !important;
+}
+body .markdown-preview-view h2,
+body .markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  color: var(--h2-color) !important;
+}
+body .markdown-preview-view h3,
+body .markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  color: var(--h3-color) !important;
+}
+body .markdown-preview-view h4,
+body .markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  color: var(--h4-color) !important;
+}
+body .markdown-preview-view h5,
+body .markdown-source-view.mod-cm6 .HyperMD-header-5 {
+  color: var(--h5-color) !important;
+}
+body .markdown-preview-view h6,
+body .markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  color: var(--h6-color) !important;
+}

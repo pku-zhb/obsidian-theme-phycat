@@ -1,0 +1,143 @@
+/* =================================================================
+   Editor Heading Hover Effects (Toggle: editor-heading-hover)
+   Mirrors reading-mode hover animations in editing/live-preview mode.
+   Controlled by Style Settings class-toggle on body.
+   ================================================================= */
+
+/* ---------- UNIFIED (no theme prefix) ---------- */
+
+/* H1 centered — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+}
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  width: 100%;
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H1 left-aligned — unified */
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::before {
+  height: 32px;
+  margin-top: 0;
+  left: 4px;
+  width: 6px;
+  opacity: 0.4;
+  border-radius: 3px;
+}
+body.editor-heading-hover.h1-align-left .markdown-source-view.mod-cm6 .HyperMD-header-1:hover::after {
+  height: 26px;
+  margin-top: 0;
+  left: 12px;
+  width: 6px;
+  border-radius: 3px;
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H2 capsule text — unified */
+body.editor-heading-hover.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--heading-deep);
+  text-shadow: var(--glow-shadow-text);
+}
+/* H2 capsule light decoration */
+body.editor-heading-hover.theme-light.h2-style-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  background-position: 100% center;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--_primary), transparent 35%);
+}
+/* H2 dark-capsule decoration */
+body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+body.editor-heading-hover.theme-dark.h2-style-dark-capsule .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+  opacity: 1;
+}
+
+/* H2 twin/default — unified */
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::before {
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
+  height: 1.4em;
+  opacity: 0.5;
+}
+body.editor-heading-hover:not(.h2-style-capsule):not(.h2-style-dark-capsule) .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.h2-style-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after,
+body.editor-heading-hover.h2-style-dark-twin .markdown-source-view.mod-cm6 .HyperMD-header-2:hover::after {
+  top: 50%;
+  margin-top: 0;
+  transform: translateY(-50%);
+  height: 1.1em;
+  width: 4px;
+  opacity: 1;
+  background-color: var(--_primary);
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H3 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-3:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-3:hover::before {
+  height: 24px;
+  width: 7px;
+  opacity: 1;
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H4 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-4:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-4:hover::before {
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H5 text — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-5:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+/* H5 light decoration: fill solid */
+body.editor-heading-hover.theme-light .markdown-source-view.mod-cm6 .HyperMD-header-5:hover::before {
+  background-color: var(--_primary);
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
+}
+/* H5 dark decoration: stay hollow + glow */
+body.editor-heading-hover.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-5:hover::before {
+  border-color: var(--_primary);
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--glow-shadow-box);
+}
+
+/* H6 — unified */
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover {
+  color: var(--heading-deep) !important;
+  text-shadow: var(--glow-shadow-text);
+  transform: translateX(5px);
+}
+body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover::before {
+  transform: translateY(-50%) scaleX(1.5);
+  text-shadow: var(--glow-shadow-text);
+}

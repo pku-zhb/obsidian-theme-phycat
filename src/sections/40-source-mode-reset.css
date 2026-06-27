@@ -1,0 +1,91 @@
+/* =================================================================
+   Source Mode (non-Live-Preview): full reset to plain text
+   `.markdown-source-view.mod-cm6:not(.is-live-preview)` matches ONLY
+   pure Source mode (not Live Preview). Everything inside the editor —
+   headings, inline formatting, links, lists, code, callouts, tags,
+   tables, frontmatter — is forced to monospace plain text with no
+   font-size, weight, italics, color, background, border, padding,
+   pseudo-elements, transforms, transitions, or shadows. Result: the
+   editor behaves like a plain text editor showing raw markdown.
+   ================================================================= */
+
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::after {
+  font-family: var(--font-monospace) !important;
+  font-size: var(--font-text-size, 1em) !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  line-height: var(--line-height-customize, 1.5) !important;
+  letter-spacing: normal !important;
+  text-align: inherit !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  color: var(--text-normal) !important;
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  display: inline !important;
+  transform: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Block-level CM elements need to stay block-flow */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line {
+  display: block !important;
+}
+
+/* Kill ALL pseudo-element decorations inside lines */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line *::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-header::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-header::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-list-line::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-list-line::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-quote::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-quote::after,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-codeblock::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .HyperMD-codeblock::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Native bullets / numbers should also flatten */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .list-bullet,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .list-number,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-header,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-quote,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-list,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-link,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting-code {
+  color: var(--text-normal) !important;
+  background: none !important;
+  font-family: var(--font-monospace) !important;
+  font-weight: normal !important;
+  opacity: 1 !important;
+}
+
+/* Indent guides and active-line glow off */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-indent::before,
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-active-indent::before {
+  box-shadow: none !important;
+  opacity: 0.3 !important;
+}

@@ -1,0 +1,115 @@
+:root {
+  --h1-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='24' r='3'/></svg>");
+  --h2-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='20' r='3'/><circle cx='8' cy='28' r='3'/></svg>");
+  --h3-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>");
+  --h4-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286z'/></svg>");
+  --h5-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286zM4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 11.429c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>");
+  --h6-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 11.429c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 16c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286z'/></svg>");
+  --list-spacing: 0.075em;
+}
+body {
+  --blockquote-line-height: 1.6;
+  --table-line-height: 1.8;
+  --letter-spacing: 1px;
+  --code-size: 0.95rem;
+  --code-white-space: pre;
+  --code-radius: 8px;
+  --checkbox-size: 1.25rem;
+  --checkmark-color: #ffffff;
+  --table-border-radius: 8px;
+  --text-faint: color-mix(in srgb, var(--_primary), transparent 20%);
+  --link-external-decoration-hover: none;
+  --titlebar-background: transparent;
+  --titlebar-background-focused: transparent;
+  --he-title-bar-inactive-pinned-bg: color-mix(
+    in srgb,
+    var(--_primary),
+    #fff 20%
+  );
+  --h1-line-height: 1.2;
+  --h2-line-height: 1.5;
+  --h3-line-height: 1.5;
+  --h4-line-height: 1.4;
+  --h5-line-height: 1.4;
+  --h6-line-height: 1.4;
+  --file-line-width: 900px;
+  --h1-spacing-scale-start: 1.5;
+  --h1-spacing-scale-end: 1.5;
+  --h2-spacing-scale-start: 1.5;
+  --h2-spacing-scale-end: 1.5;
+  --h3-spacing-scale-start: 1.5;
+  --h3-spacing-scale-end: 1.5;
+  --h4-spacing-scale-start: 1.5;
+  --h4-spacing-scale-end: 1.5;
+  --h5-spacing-scale-start: 1.5;
+  --h5-spacing-scale-end: 1.5;
+  --h6-spacing-scale-start: 1.5;
+  --h6-spacing-scale-end: 1.5;
+  --heading-spacing: 0.5rem;
+  --h3-spacing-scale: 1.6;
+  --h2-spacing-scale: 0.2;
+  --word-spacing: 2px;
+  --h1-letter-spacing: -0.015em;
+  --h2-letter-spacing: -0.011em;
+  --h3-letter-spacing: -0.008em;
+  --h4-letter-spacing: -0.005em;
+  --h5-letter-spacing: -0.002em;
+  --h6-letter-spacing: 0em;
+  --h1-line-height: 1.2;
+  --h2-line-height: 1.2;
+  --h3-line-height: 1.3;
+  --h4-line-height: 1.4;
+  --h5-line-height: 1.4;
+  --h6-line-height: 1.4;
+  --h1-size: 1.618em;
+  --h2-size: 1.462em;
+  --h3-size: 1.318em;
+  --h4-size: 1.2em;
+  --h5-size: 1.2em;
+  --h6-size: 1.2em;
+}
+code .token.keyword,
+code .token.tag,
+code .token.selector {
+  color: var(--code-keyword);
+  font-weight: bold;
+}
+code .token.function,
+code .token.class-name {
+  color: var(--code-function);
+}
+code .token.string,
+code .token.attr-value {
+  color: var(--code-string);
+}
+code .token.comment {
+  color: var(--code-comment);
+  font-style: italic;
+}
+code .token.number,
+code .token.boolean {
+  color: var(--code-value);
+}
+code .token.operator,
+code .token.variable {
+  color: var(--code-operator);
+}
+code .token.property,
+code .token.attr-name {
+  color: var(--code-property);
+}
+code .token.punctuation {
+  color: var(--code-punctuation);
+}
+code .token.important,
+code .token.bold {
+  font-weight: bold;
+  color: var(--code-important, var(--code-keyword));
+}
+code .token.italic {
+  font-style: italic;
+}
+code .token.url {
+  color: var(--code-string);
+  text-decoration: underline;
+}

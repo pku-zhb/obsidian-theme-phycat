@@ -1,0 +1,658 @@
+/* @settings
+name: 🐱 Phycat theme Info & Help
+name.zh: 🐱 Phycat 主题帮助信息
+id: phycat-info
+settings:
+    -
+        id: info-intro
+        type: info-text
+        markdown: true
+        description: "### Phycat Theme \n A vibrant, glassmorphism aesthetic theme for Obsidian. \n\n [Github Repository](https://github.com/sumruler/obsidian-theme-phycat) | [Report Issue](https://github.com/sumruler/obsidian-theme-phycat/issues)| [Support](https://www.phycat.cn/donate.html)"
+        description.zh: "### Phycat 主题 \n 一个充满活力、具有玻璃拟态美感的 Obsidian 主题。\n\n [Github 仓库](https://github.com/sumruler/obsidian-theme-phycat) | [反馈问题](https://github.com/sumruler/obsidian-theme-phycat/issues)| [打赏支持](https://www.phycat.cn/donate.html)"
+    -
+        id: info-font-tip
+        type: info-text
+        markdown: true
+        description: "**💡 Font Recommendation:** \n This theme is optimized for [**LXGW WenKai**](https://github.com/lxgw/LxgwWenKai). Please install it for the best experience."
+        description.zh: "**💡 字体建议：** \n 本主题针对 [**霞鹜文楷 (LXGW WenKai)**](https://github.com/lxgw/LxgwWenKai) 进行了优化，建议安装该字体以获得最佳体验。"
+    -
+        id: info-view-tip
+        type: info-text
+        markdown: true
+        description: "**🪟 Pro Tip: Independent Settings View** \n Press `Ctrl+P` and search for `Style Settings: Show style settings view`. This opens the settings in a separate pane instead of a modal, preventing it from blocking your view."
+        description.zh: "**🪟 技巧：独立设置窗口** \n 按下 `Ctrl+P` 呼出命令面板，搜索 `Style Settings: Show style settings view`。这可以单独打开一个设置面板，避免全屏弹窗遮挡你的笔记。"
+    -
+        id: info-hover-tip
+        type: info-text
+        markdown: true
+        description: "**🧩 Plugin Recommendation: Hover Editor** \n It is highly recommended to install the [**Hover Editor**](https://github.com/nothingislost/obsidian-hover-editor) plugin. You can turn the settings pane mentioned above into a floating window to tweak the theme in real-time."
+        description.zh: "**🧩 插件建议：Hover Editor** \n 强烈建议安装 [**Hover Editor**](https://github.com/nothingislost/obsidian-hover-editor) 插件。配合上面的独立设置面板，你可以将其转换为悬浮窗口，边看笔记边实时调整主题效果。"
+    -
+        id: info-codemirror-enhance
+        type: info-text
+        markdown: true
+        description: "**🧩 Required for enhanced Live Preview editing: CodeMirror Enhance** \n This fork relies on the local **CodeMirror Enhance** plugin for semantic editor classes and stable Markdown marker editing, including quote/callout dimming, active quote/callout blocks, and heading marker folding. Without it, the theme still loads, but those Live Preview editing refinements will fall back to Obsidian's default DOM behavior."
+        description.zh: "**🧩 Live Preview 编辑增强依赖：CodeMirror Enhance** \n 这个分支依赖本地 **CodeMirror Enhance** 插件提供编辑器语义类和稳定的 Markdown 标记编辑体验，包括引用/callout 的 dim 控制、当前引用/callout 块识别，以及标题标记折叠。没有该插件时主题仍可加载，但这些 Live Preview 编辑细节会退回 Obsidian 默认 DOM 行为。"
+*/
+
+/* @settings
+name: 🎨 Phycat color setting
+name.zh: 🎨 Phycat 配色设置
+id: phycat-colors
+settings:
+    -
+        id: light-color-scheme
+        title: Color Scheme (Light Mode)
+        title.zh: 配色方案（亮色模式）
+        description: Choose your preferred light mode flavor.
+        description.zh: 选择你喜欢的亮色模式风格。
+        type: class-select
+        allowEmpty: false
+        default: theme-light-sakura
+        options:
+            -
+                label: 🌸 Sakura 樱花 (Default)
+                value: theme-light-sakura
+            -
+                label: ☁️ Sky 天空
+                value: theme-light-sky
+            -
+                label: 🌲 Forest 森林
+                value: theme-light-forest
+            -
+                label: 🌊 Mint 薄荷
+                value: theme-light-mint
+            -
+                label: 🟣 Mauve 紫藤
+                value: theme-light-mauve
+            -
+                label: 🌅 Golden Hour 黄昏
+                value: theme-light-golden
+            -
+                label: 🍒 Cheery 樱桃
+                value: theme-light-cheery
+            -
+                label: ⚓ Prussian 普鲁士蓝
+                value: theme-light-prussian
+            -
+                label: 🌺 Coral Reef 珊瑚礁
+                value: theme-light-coral
+            -
+                label: 🪻 Lavender Field 薰衣草田
+                value: theme-light-lavender
+            -
+                label: 🏜️ Terra Cotta 陶土
+                value: theme-light-terracotta
+            -
+                label: 🫒 Olive Grove 橄榄林
+                value: theme-light-olive
+            -
+                label: 🐚 Pearl 珍珠
+                value: theme-light-pearl
+            -
+                label: 🤍 Paper 素纸
+                value: theme-light-paper
+            -
+                label: 🍵 Matcha 抹茶
+                value: theme-light-matcha
+    -
+        id: dark-color-scheme
+        title: Color Scheme (Dark Mode)
+        title.zh: 配色方案（暗色模式）
+        description: Choose your preferred dark mode flavor.
+        description.zh: 选择你喜欢的暗色模式风格。
+        type: class-select
+        allowEmpty: false
+        default: theme-dark-vampire
+        options:
+            -
+                label: 🧛 Vampire 吸血鬼 (Default)
+                value: theme-dark-vampire
+            -
+                label: 🌌 Abyss 深渊
+                value: theme-dark-abyss
+            -
+                label: ☢️ Radiation 辐射
+                value: theme-dark-radiation
+            -
+                label: 🔥 Ember 余烬
+                value: theme-dark-ember
+            -
+                label: 🌃 Neon City 霓虹都市
+                value: theme-dark-neon
+            -
+                label: 🪨 Obsidian 黑曜石
+                value: theme-dark-obsidian
+            -
+                label: ☕ Espresso 浓缩咖啡
+                value: theme-dark-espresso
+            -
+                label: 🌌 Aurora 极光
+                value: theme-dark-aurora
+            -
+                label: 🍷 Bordeaux 波尔多
+                value: theme-dark-bordeaux
+            -
+                label: 🖤 Ink 墨
+                value: theme-dark-ink
+*/
+
+/* @settings
+name: 🎨 Phycat color override
+name.zh: 🎨 Phycat 颜色覆盖
+id: phycat-color-override
+settings:
+    -
+        id: user-primary
+        title: Theme color
+        title.zh: 主题色
+        description: Override primary theme color for all presets. Affects heading decorations, borders, hover effects, list markers, and more.
+        description.zh: 覆盖所有预设的主题主色。影响标题装饰、边框、悬停效果、列表标记等。
+        type: variable-color
+        format: hex
+        default: '#ff7096'
+    -
+        id: user-secondary
+        title: Accent color
+        title.zh: 对比强调色
+        description: Override secondary accent color. Affects italic text, links, and H1/H2 secondary decorations.
+        description.zh: 覆盖对比强调色。影响斜体、链接和 H1/H2 辅助装饰。
+        type: variable-color
+        format: hex
+        default: '#bd93f9'
+    -
+        id: user-bg
+        title: Background color
+        title.zh: 背景色
+        description: Override page background color.
+        description.zh: 覆盖页面背景色。
+        type: variable-color
+        format: hex
+        default: '#fff7fa'
+*/
+
+/* @settings
+name: 🗂️ Phycat card Layout
+name.zh: 🗂️ Phycat 卡片布局设置
+id: phycat-layout
+settings:
+    -
+        id: layout-style
+        title: Interface Layout
+        title.zh: 界面布局风格
+        description: Switch between the default flat layout and the modern card layout.
+        description.zh: 在默认平铺布局和现代卡片布局之间切换。
+        type: class-select
+        allowEmpty: false
+        default: layout-default
+        options:
+            -
+                label: 🔲 Default (Flat)
+                value: layout-default
+            -
+                label: 🃏 Cards (Floating)
+                value: layout-cards
+    -
+        id: rainbow-folders
+        title: 启用彩虹文件夹 (Rainbow Folders)
+        description: 启用后，侧边栏文件列表将变为多彩嵌套的玻璃容器风格，并带有动态类型图标。关闭则恢复 Obsidian 默认样式。
+        type: class-toggle
+    -
+        id: bg-mix-percent
+        title: 背景色混合比例（Card模式生效）
+        description: 调整背景色中白色的混合程度（数值越大越白，默认为 90）。
+        type: variable-number-slider
+        default: 90
+        min: 0
+        max: 100
+        step: 1
+
+*/
+
+/* @settings
+name: ✏️ Phycat syntax mark setting
+name.zh: ✏️ Phycat 语法标记设置
+id: phycat-syntax
+settings:
+    -
+        id: user-bold
+        title: Bold text color
+        title.zh: 粗体文字颜色
+        description: Override bold/strong text color. Leave default to follow theme preset.
+        description.zh: 覆盖粗体颜色。保持默认则跟随主题预设派生。
+        type: variable-color
+        format: hex
+        default: '#d94868'
+    -
+        id: user-italic
+        title: Italic text color
+        title.zh: 斜体文字颜色
+        description: Override italic text color.
+        description.zh: 覆盖斜体颜色。
+        type: variable-color
+        format: hex
+        default: '#a07dd4'
+    -
+        id: user-highlight
+        title: Highlight color
+        title.zh: 高亮标记颜色
+        description: Override highlight/mark gradient color.
+        description.zh: 覆盖高亮渐变颜色。
+        type: variable-color
+        format: hex
+        default: '#d94868'
+*/
+
+/* @settings
+name: 🔗 Phycat link setting
+name.zh: 🔗 Phycat 链接设置
+id: phycat-links
+settings:
+    -
+        id: editor-wikilink-style
+        title: Wikilink bracket & hover effects in Editor
+        title.zh: 编辑模式 Wikilink 括号装饰与 hover 特效
+        description: Show single bracket decoration and hover animation for [[wikilinks]] in editing/live-preview mode, matching reading mode style.
+        description.zh: 在编辑/实时预览模式中为 [[内部链接]] 显示单括号装饰和悬停动画效果，与阅读模式一致。
+        type: class-toggle
+    -
+        id: editor-quote-dim
+        title: Dim blockquote text in Editor
+        title.zh: 编辑模式引用文字弱化
+        description: Reduce the visual weight of blockquote text in editing/live-preview mode, making it appear softer than normal text.
+        description.zh: 在编辑/实时预览模式中降低引用块文字的视觉权重，使其比正文更柔和。
+        type: class-toggle
+    -
+        id: editor-quote-dim-opacity
+        title: Blockquote dim opacity
+        title.zh: 引用弱化透明度
+        description: "Lower = more transparent. Default: 0.6"
+        description.zh: "数值越小越透明。默认：0.6"
+        type: variable-number-slider
+        default: 0.6
+        min: 0
+        max: 1
+        step: 0.05
+        format: ""
+*/
+
+/* =================================================================
+   文件列表样式 (File Explorer) - 彩虹玻璃容器版 (动态图标版)
+   特性：根目录彩虹容器 + 智能 SVG 变色图标 + 引导线
+   生效条件：仅在 Style Settings 中开启 "rainbow-folders" 时生效
+   ================================================================= */
+/* @settings
+name: 📏 Phycat spacing setting
+name.zh: 📏 Phycat 文章间距设置
+id: phycat-spacing
+settings:
+    -
+        id: file-line-width
+        title: File line width
+        title.zh: 阅读区宽度
+        description.zh: 单位px
+        type: variable-number
+        default: 900
+        format: px
+    -
+        id: letter-spacing
+        title: Letter spacing
+        title.zh: 字间距
+        type: variable-number
+        default: 1
+        format: px
+    -
+        id: line-height-customize
+        title: Line height
+        title.zh: 段落行高
+        type: variable-number
+        default: 2.2
+    -
+        id: code-line-height
+        title: code Line height
+        title.zh: 代码行高
+        type: variable-number
+        default: 1.6
+    -
+        id: blockquote-line-height
+        title: blockquote Line height
+        title.zh: 引用块行高
+        type: variable-number
+        default: 1.6
+    -
+        id: table-line-height
+        title: Table Line height
+        title.zh: 表格行高
+        type: variable-number
+        default: 1.8
+    -
+        id: p-spacing
+        title: Paragraph spacing (Reading mode)
+        title.zh:  段落间距（阅读模式）
+        type: variable-text
+        default: 1em
+    -
+        id: reading-list-continuation-line
+        title: Show reading list continuation lines
+        title.zh: 显示阅读模式列表延伸线
+        description: Draw a subtle vertical guide under nested list items in Reading mode.
+        description.zh: 在阅读模式的嵌套列表项下方显示一条竖向延伸线。默认关闭。
+        type: class-toggle
+    -
+        id: editor-gutter-outside
+        title: Place Live Preview gutter outside text column
+        title.zh: Live Preview gutter 外置
+        description: Move CodeMirror line numbers and fold gutter outside the readable text column so Live Preview aligns more closely with Reading mode.
+        description.zh: 把 Live Preview 的行号和折叠 gutter 移到正文列外侧，让 Live Preview 更接近阅读模式的正文宽度与左边界。默认关闭。
+        type: class-toggle
+    -
+        id: editor-gutter-outside-width
+        title: Outside gutter width
+        title.zh: 外置 gutter 宽度
+        description: Increase this if long line numbers overlap the text column.
+        description.zh: 如果行号位数较多或贴近正文，可调大这个宽度。
+        type: variable-number
+        default: 48
+        format: px
+*/
+
+/* @settings
+name: 📑 Phycat heading setting
+name.ZH: 📑 Phycat 标题设置
+id: phycat-headings
+settings:
+    -
+        id: editor-heading-hover
+        title: Enable heading hover effects in Editor
+        title.zh: 编辑模式标题 hover 特效
+        description: Enable the same heading hover animations in editing/live-preview mode as in reading mode.
+        description.zh: 在编辑/实时预览模式中启用与阅读模式相同的标题悬停动画效果。
+        type: class-toggle
+    -
+        id: headings-color-setting
+        title: Headings Colors
+        title.zh: 标题文字颜色设置
+        type: heading
+        level: 3
+        collapsed: true
+
+    -
+        id: h1-light-color
+        title: H1 light color
+        title.zh: H1 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h1-dark-color
+        title: H1 dark color
+        title.zh: H1 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+
+    -
+        id: h2-light-color
+        title: H2 light color
+        title.zh: H2 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h2-dark-color
+        title: H2 dark color
+        title.zh: H2 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+
+    -
+        id: h3-light-color
+        title: H3 light color
+        title.zh: H3 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h3-dark-color
+        title: H3 dark color
+        title.zh: H3 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+
+    -
+        id: h4-light-color
+        title: H4 light color
+        title.zh: H4 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h4-dark-color
+        title: H4 dark color
+        title.zh: H4 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+
+    -
+        id: h5-light-color
+        title: H5 light color
+        title.zh: H5 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h5-dark-color
+        title: H5 dark color
+        title.zh: H5 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+
+    -
+        id: h6-light-color
+        title: H6 light color
+        title.zh: H6 亮颜色
+        type: variable-color
+        format: hex
+        default: '#000000'
+    -
+        id: h6-dark-color
+        title: H6 dark color
+        title.zh: H6 暗颜色
+        type: variable-color
+        format: hex
+        default: '#ffffff'
+    -
+        id: heading1-setting
+        title: H1 title
+        title.zh: 一级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h1-alignment
+        title: H1 Alignment
+        title.zh: H1 对齐方式
+        description: Choose whether H1 titles are centered or left-aligned.
+        description.zh: 选择 H1 标题是居中显示还是居左显示。
+        type: class-select
+        allowEmpty: false
+        default: h1-align-center
+        options:
+          - label: ↔️ Center (Default)
+            value: h1-align-center
+          - label: ⬅️ Left
+            value: h1-align-left
+    -
+        id: h1-size
+        title: H1 font size
+        title.zh: H1字体大小
+        type: variable-number
+        default: 1.618
+        format: em
+    -
+        id: heading2-setting
+        title: H2 title
+        title.zh: 二级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h2-style-select
+        title: Select Style
+        title.zh: 亮色模式风格
+        description: Choose between the original capsule style or the new twin pillars style.
+        description.zh: 选择原有的胶囊背景风格或新的双子塔风格。
+        type: class-select
+        allowEmpty: false
+        default: h2-style-twin
+        options:
+            -
+                label: 🏛️ Twin Pillars (New)
+                value: h2-style-twin
+            -
+                label: 💊 Capsule (Original)
+                value: h2-style-capsule
+    -
+        id: h2-style-dark-select
+        title: Select Style
+        title.zh: 暗色模式选择风格
+        description: Choose between the original glass capsule style or the new neon twin pillars style.
+        description.zh: 选择原有的玻璃胶囊风格或新的霓虹双子塔风格。
+        type: class-select
+        allowEmpty: false
+        default: h2-style-dark-twin
+        options:
+            -
+                label: 🏙️ Neon Twin (New)
+                value: h2-style-dark-twin
+            -
+                label: 🔮 Glass Capsule (Original)
+                value: h2-style-dark-capsule
+    -
+        id: h2-size
+        title: H2 font size
+        title.zh: H2字体大小
+        type: variable-number
+        default: 1.462
+        format: em
+    -
+        id: h2-spacing-scale-start
+        title: H2 spacing start
+        title.zh: H2前间距
+        type: variable-number
+        default: 1.318
+    -
+        id: h2-spacing-scale-end
+        title: H2 spacing end
+        title.zh: H2后间距
+        type: variable-number
+        default: 1.318
+    -
+        id: heading3-setting
+        title: H3 title
+        title.zh: 三级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h3-size
+        title: H3 font size
+        title.zh: H3字体大小
+        type: variable-number
+        default: 1.318
+        format: em
+    -
+        id: h3-spacing-scale-start
+        title: H3 spacing start
+        title.zh: H3前间距
+        type: variable-number
+        default: 1.5
+    -
+        id: h3-spacing-scale-end
+        title: H3 spacing end
+        title.zh: H3后间距
+        type: variable-number
+        default: 1.5
+    -
+        id: heading4-setting
+        title: H4 title
+        title.zh: 四级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h4-size
+        title: H4 font size
+        title.zh: H4字体大小
+        type: variable-number
+        default: 1.2
+        format: em
+    -
+        id: h4-spacing-scale-start
+        title: H4 spacing start
+        title.zh: H4前间距
+        type: variable-number
+        default: 1.5
+    -
+        id: h4-spacing-scale-end
+        title: H4 spacing end
+        title.zh: H4后间距
+        type: variable-number
+        default: 1.5
+    -
+        id: heading5-setting
+        title: H5 title
+        title.zh: 五级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h5-size
+        title: H5 font size
+        title.zh: H5字体大小
+        type: variable-number
+        default: 1.2
+        format: em
+    -
+        id: h5-spacing-scale-start
+        title: H5 spacing start
+        title.zh: H5前间距
+        type: variable-number
+        default: 1.5
+    -
+        id: h5-spacing-scale-end
+        title: H5 spacing end
+        title.zh: H5后间距
+        type: variable-number
+        default: 1.5
+    -
+        id: heading6-setting
+        title: H6 title
+        title.zh: 六级标题
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h6-size
+        title: H6 font size
+        title.zh: H6字体大小
+        type: variable-number
+        default: 1.2
+        format: em
+    -
+        id: h6-spacing-scale-start
+        title: H6 spacing start
+        title.zh: H6前间距
+        type: variable-number
+        default: 1.5
+    -
+        id: h6-spacing-scale-end
+        title: H6 spacing end
+        title.zh: H6后间距
+        type: variable-number
+        default: 1.5
+*/

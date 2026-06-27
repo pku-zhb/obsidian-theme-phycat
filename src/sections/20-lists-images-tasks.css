@@ -1,0 +1,347 @@
+.markdown-preview-view ul > li::marker,
+.markdown-preview-view ol > li::marker {
+  color: var(--_primary);
+}
+.markdown-preview-view em {
+  padding: 0 3px 0 0;
+  color: var(--_secondary);
+}
+.markdown-preview-view ul {
+  list-style-type: disc;
+}
+.markdown-preview-view ul ul {
+  list-style-type: circle;
+}
+.markdown-preview-view ul ul ul {
+  list-style-type: square;
+}
+.markdown-preview-view ol {
+  list-style-type: decimal;
+}
+.markdown-preview-view ol ol {
+  list-style-type: lower-alpha;
+}
+.markdown-preview-view ol ol ol {
+  list-style-type: lower-roman;
+}
+.markdown-preview-view ul > li > ol {
+  padding-left: 25px;
+}
+.markdown-preview-view li {
+  position: relative;
+}
+body.reading-list-continuation-line .markdown-preview-view li::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--line-height-customize) * 1em);
+  height: calc(100% - (var(--line-height-customize) * 1.5em));
+  bottom: 0;
+  left: -18px;
+  border-left: 1px solid var(--_primary);
+  opacity: 0.5;
+  pointer-events: none;
+}
+body.reading-list-continuation-line .markdown-preview-view ul > li::before {
+  left: -0.83rem;
+}
+body.reading-list-continuation-line
+  .markdown-preview-view
+  > div
+  > ul
+  > li::before,
+body.reading-list-continuation-line
+  .markdown-preview-view
+  > div
+  > ol
+  > li::before {
+  display: none;
+}
+body.reading-list-continuation-line
+  .markdown-preview-view
+  li.task-list-item::before {
+  left: -0.7rem;
+  height: calc(100% - var(--line-height-customize) * 1.4em);
+}
+.markdown-rendered.show-indentation-guide li > ul::before,
+.markdown-rendered.show-indentation-guide li > ol::before {
+  display: none !important;
+  border: none !important;
+}
+.el-ol ol li {
+  margin-left: 35px;
+}
+.markdown-source-view.mod-cm6 .HyperMD-list-line {
+  --list-color: var(--text-muted);
+}
+.markdown-source-view.mod-cm6 .HyperMD-list-line-1,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-6 {
+  --list-color: var(--_primary);
+}
+.markdown-source-view.mod-cm6 .list-bullet {
+  color: transparent !important;
+  position: relative;
+  margin-right: 0 !important;
+  display: inline-block;
+}
+.markdown-source-view.mod-cm6 .list-bullet:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: var(--list-color) !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.markdown-source-view.mod-cm6 .HyperMD-list-line:hover .list-bullet:after {
+  transform: translate(-50%, -50%) scale(1.6);
+  box-shadow: 0 0 8px var(--list-color);
+}
+.markdown-source-view.is-live-preview {
+  --list-padding-inline-start: 0;
+}
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  margin-inline-start: 3px !important;
+}
+.markdown-source-view.mod-cm6 .cm-active-indent::before {
+  opacity: 1 !important;
+  box-shadow: 0 0 8px var(--_primary);
+  z-index: 1;
+}
+.markdown-source-view.mod-cm6 .HyperMD-list-line .task-list-item-checkbox {
+  border-color: var(--list-color) !important;
+}
+.markdown-source-view.mod-cm6
+  .HyperMD-list-line
+  .task-list-item-checkbox:checked {
+  background-color: var(--list-color) !important;
+  box-shadow: 0 0 5px var(--list-color);
+}
+.markdown-source-view.mod-cm6 .list-number {
+  color: var(--_primary) !important;
+  font-family: inherit !important;
+  font-weight: inherit;
+  margin-right: 0;
+}
+.image-embed[alt*="right" i],
+.image-embed[alt*="+R" i],
+.image-embed[alt*="left" i],
+.image-embed[alt*="+L" i],
+.image-embed[alt*="center" i],
+.image-embed[alt*="+C" i],
+.image-embed[alt*="banner" i] {
+  display: flex !important;
+  width: 100% !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.image-embed[alt*="right" i],
+.image-embed[alt*="+R" i] {
+  justify-content: flex-end;
+}
+.image-embed[alt*="left" i],
+.image-embed[alt*="+L" i] {
+  justify-content: flex-start;
+}
+.image-embed[alt*="center" i],
+.image-embed[alt*="+C" i] {
+  justify-content: center;
+}
+.image-embed[alt*="right" i] img,
+.image-embed[alt*="+R" i] img,
+.image-embed[alt*="left" i] img,
+.image-embed[alt*="+L" i] img,
+.image-embed[alt*="center" i] img,
+.image-embed[alt*="+C" i] img {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.image-embed[alt*="banner" i] {
+  justify-content: center;
+}
+.image-embed[alt*="banner" i] img {
+  width: 100% !important;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.markdown-preview-view ul.contains-task-list {
+  margin-left: 10px;
+}
+.markdown-preview-view input[type="checkbox"],
+.markdown-preview-view .task-list-item-checkbox {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  left: -1.3rem !important;
+  top: calc(
+    (var(--line-height-customize) * 1.1rem - var(--checkbox-size)) / 2
+  ) !important;
+  width: var(--checkbox-size) !important;
+  height: var(--checkbox-size) !important;
+  z-index: 10;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.markdown-preview-view input[type="checkbox"]::before,
+.markdown-preview-view .task-list-item-checkbox::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  border-radius: 50% !important;
+  background-color: var(--checkbox-bg-unchecked) !important;
+  border: 2px solid var(--checkbox-border-unchecked) !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+  z-index: 1;
+}
+.markdown-preview-view input[type="checkbox"]:checked::before,
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+  border: 1px solid var(--_primary) !important;
+  background-color: var(--checkbox-bg-checked) !important;
+  box-shadow: var(--checkbox-shadow-checked) !important;
+  animation: task-pulse 0.4s forwards;
+}
+.markdown-preview-view input[type="checkbox"]::after,
+.markdown-preview-view .task-list-item-checkbox::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 45% !important;
+  left: 50% !important;
+  width: 0.45rem !important;
+  height: 0.25rem !important;
+  background-color: transparent !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  border: 2.5px solid var(--checkmark-color) !important;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+.markdown-preview-view input[type="checkbox"]:checked::after,
+.markdown-preview-view .task-list-item-checkbox:checked::after {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1) !important;
+  border-color: var(--checkmark-color) !important;
+}
+.markdown-preview-view .task-list-item[data-task="/"] {
+  color: var(--text-normal) !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+.markdown-preview-view .task-list-item[data-task="/"] p,
+.markdown-preview-view .task-list-item[data-task="/"] strong,
+.markdown-preview-view .task-list-item[data-task="/"] em,
+.markdown-preview-view .task-list-item[data-task="/"] code {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.markdown-preview-view
+  .task-list-item[data-task="/"]
+  input[type="checkbox"]:checked::after {
+  content: "" !important;
+  border: none !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background-color: var(--checkmark-color) !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+.markdown-preview-view .task-list-item[data-task="-"] {
+  color: var(--text-muted) !important;
+  text-decoration: line-through !important;
+  opacity: 0.7 !important;
+}
+.markdown-preview-view .task-list-item[data-task="-"] strong,
+.markdown-preview-view .task-list-item[data-task="-"] em {
+  text-decoration: line-through !important;
+  color: inherit !important;
+}
+.markdown-preview-view
+  .task-list-item[data-task="-"]
+  input[type="checkbox"]:checked::before {
+  background-color: var(--text-muted) !important;
+  border-color: var(--text-muted) !important;
+  box-shadow: none !important;
+}
+.markdown-preview-view
+  .task-list-item[data-task="-"]
+  input[type="checkbox"]:checked::after {
+  content: "\2715" !important;
+  border: none !important;
+  transform: none !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 100% !important;
+  top: -1px !important;
+  left: -0.3px !important;
+}
+@keyframes task-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.markdown-preview-view .task-list-item {
+  position: relative;
+  list-style: none;
+  padding-left: 4px;
+  min-height: calc(var(--line-height-customize) * 1em);
+  transition:
+    color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    text-decoration-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  text-decoration: line-through !important;
+  text-decoration-color: transparent !important;
+  text-decoration-thickness: 2px !important;
+}
+.markdown-preview-view .task-list-item.is-checked {
+  color: #888 !important;
+  opacity: 0.8;
+  text-decoration-color: var(--text-muted) !important;
+}
+.markdown-preview-view .task-list-item.is-checked p,
+.markdown-preview-view .task-list-item.is-checked strong,
+.markdown-preview-view .task-list-item.is-checked em,
+.markdown-preview-view .task-list-item.is-checked mark,
+.markdown-preview-view .task-list-item.is-checked code {
+  text-decoration: line-through !important;
+  text-decoration-color: var(--text-muted) !important;
+  text-decoration-thickness: 2px !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}

@@ -1,0 +1,625 @@
+.markdown-preview-view blockquote p,
+.HyperMD-quote.HyperMD-quote-1.cm-line {
+  line-height: var(--blockquote-line-height);
+}
+/* Editor blockquote dimming (toggle: editor-quote-dim) */
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i]) {
+  color: var(--text-muted);
+  opacity: var(--editor-quote-dim-opacity, 0.6);
+}
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6.is-live-preview
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i]) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-enhance-callout-line,
+.markdown-source-view.mod-cm6.is-live-preview
+  .HyperMD-quote[class*="callout" i] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.cm-active):not(.cm-enhance-active-quote-block):not(.cm-enhance-callout-line):not([class*="callout" i])
+  .cm-formatting-quote {
+  color: var(--text-faint);
+}
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-active-quote-block,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-active-callout-block,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  .cm-enhance-callout-line,
+body.editor-quote-dim
+  .markdown-source-view.mod-cm6
+  [class*="callout" i] {
+  color: inherit;
+  opacity: 1 !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-enhance-active-callout-block
+  :is(
+    .cm-formatting-quote,
+    .cm-formatting-callout,
+    .cm-hmd-callout,
+    .cm-callout
+  ),
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-enhance-active-callout-block
+  > span[class*="callout" i] {
+  color: var(--text-faint) !important;
+  display: inline !important;
+  font-size: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: auto !important;
+}
+.markdown-preview-view blockquote {
+  position: relative;
+  margin: 0.75em 0;
+  padding: 0 0 0 1em;
+  color: var(--text-normal);
+  background: transparent;
+  border: none;
+  border-left: 3px solid var(--_primary);
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+.markdown-preview-view blockquote::before {
+  content: none;
+}
+body.editor-quote-dim .markdown-preview-view blockquote {
+  color: var(--text-muted);
+  opacity: var(--editor-quote-dim-opacity, 0.6);
+}
+.markdown-preview-view blockquote p {
+  color: inherit;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 0.5em;
+}
+.markdown-preview-view blockquote p:last-child {
+  margin-bottom: 0;
+}
+.markdown-preview-view blockquote .heading-collapse-indicator {
+  display: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6) {
+  display: block !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 0 0.5em 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: var(--blockquote-line-height) !important;
+  text-align: inherit !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6):hover {
+  color: inherit !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6)::before {
+  position: static !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  font-weight: normal;
+  opacity: 0.75;
+  transform: none !important;
+}
+.markdown-preview-view blockquote h1::before {
+  content: "# " !important;
+}
+.markdown-preview-view blockquote h2::before {
+  content: "## " !important;
+}
+.markdown-preview-view blockquote h3::before {
+  content: "### " !important;
+}
+.markdown-preview-view blockquote h4::before {
+  content: "#### " !important;
+}
+.markdown-preview-view blockquote h5::before {
+  content: "##### " !important;
+}
+.markdown-preview-view blockquote h6::before {
+  content: "###### " !important;
+}
+.markdown-preview-view blockquote :is(h1, h2, h3, h4, h5, h6)::after {
+  content: none !important;
+  display: none !important;
+}
+.markdown-preview-view blockquote :is(ul, ol) {
+  margin: 0 0 0.5em 0 !important;
+  padding-inline-start: 0 !important;
+  list-style: none !important;
+}
+.markdown-preview-view blockquote :is(ul, ol) :is(ul, ol) {
+  margin-left: 1em !important;
+}
+.markdown-preview-view blockquote li {
+  margin: 0 0 0.35em 0 !important;
+  padding-left: 0 !important;
+  color: inherit !important;
+  list-style: none !important;
+}
+.markdown-preview-view blockquote li::marker {
+  content: "" !important;
+  color: transparent !important;
+}
+.markdown-preview-view blockquote ol {
+  counter-reset: quote-ordered-list;
+}
+.markdown-preview-view blockquote ol > li {
+  counter-increment: quote-ordered-list;
+}
+.markdown-preview-view blockquote ul > li::before,
+.markdown-preview-view blockquote ol > li::before {
+  position: static !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-monospace);
+  opacity: 0.75;
+  transform: none !important;
+}
+.markdown-preview-view blockquote ul > li::before {
+  content: "- " !important;
+}
+.markdown-preview-view blockquote ol > li::before {
+  content: counter(quote-ordered-list) ". " !important;
+}
+.markdown-preview-view blockquote:hover {
+  background: transparent;
+  border-left-color: var(--_primary);
+  box-shadow: none;
+  transform: none;
+}
+.markdown-preview-view a.internal-link,
+.markdown-preview-view a.external-link,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-table-widget a {
+  color: var(--_secondary) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  position: relative;
+  border-bottom: none !important;
+  background-image: none !important;
+  padding-right: 2px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+/* Light mode: use secondary accent (--text-italic) for links */
+body.theme-light .markdown-preview-view a.internal-link,
+body.theme-light .markdown-preview-view a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
+  color: var(--accent-italic) !important;
+}
+.markdown-preview-view a.internal-link::before,
+.markdown-preview-view a.external-link::before,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a::before {
+  content: "[";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-right: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+.markdown-preview-view a.internal-link::after,
+.markdown-preview-view a.external-link::after,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a::after {
+  content: "]";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-left: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+.markdown-preview-view a.internal-link:hover,
+.markdown-preview-view a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
+.markdown-source-view.mod-cm6 .cm-table-widget a:hover {
+  background-color: color-mix(in srgb, var(--_primary), transparent 90%);
+  color: var(--_primary) !important;
+  text-decoration: none !important;
+}
+.markdown-preview-view a.internal-link:hover::before,
+.markdown-preview-view a.external-link:hover::before,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a:hover::before {
+  transform: translateX(-4px);
+  color: var(--_primary);
+  font-weight: bold;
+  opacity: 1;
+}
+.markdown-preview-view a.internal-link:hover::after,
+.markdown-preview-view a.external-link:hover::after,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a:hover::after {
+  transform: translateX(4px);
+  color: var(--_primary);
+  font-weight: bold;
+  opacity: 1;
+}
+.markdown-preview-view .external-link-icon,
+.markdown-source-view.mod-cm6 .cm-link .external-link,
+.markdown-source-view.mod-cm6 .cm-formatting-link-string.external-link,
+.markdown-source-view.mod-cm6 .cm-url.external-link {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  content: none !important;
+  background-image: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* =================================================================
+   Editor Wikilink bracket decoration & hover effects
+   Mirrors the reading-mode a.internal-link styling for cm-hmd-internal-link.
+   Gated behind Style Settings toggle: editor-wikilink-style
+   ================================================================= */
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
+  color: var(--_secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  position: relative;
+  border-bottom: none;
+  background-image: none;
+  padding-right: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+body.editor-wikilink-style.theme-light .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
+  color: var(--accent-italic);
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::before {
+  content: "[";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-right: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::after {
+  content: "]";
+  display: inline-block;
+  color: var(--text-muted);
+  margin-left: 1px;
+  opacity: 0.7;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s,
+    opacity 0.3s;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
+  background-color: color-mix(in srgb, var(--_primary), transparent 90%);
+  color: var(--_primary);
+  text-decoration: none;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::before {
+  transform: translateX(-4px);
+  color: var(--_primary);
+  font-weight: bold;
+  opacity: 1;
+}
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::after {
+  transform: translateX(4px);
+  color: var(--_primary);
+  font-weight: bold;
+  opacity: 1;
+}
+/* Hide ALL decorative brackets when Obsidian reveals raw [[ ]] formatting marks (cursor inside link) */
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::after {
+  display: none;
+}
+
+.markdown-preview-view table td a,
+.markdown-source-view.mod-cm6 .cm-table-widget a {
+  padding: 0 2px !important;
+}
+.markdown-preview-view mark,
+.markdown-source-view.mod-cm6 mark,
+.markdown-source-view.mod-cm6 .cm-highlight {
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.markdown-preview-view mark::before,
+.markdown-preview-view mark::after,
+.markdown-source-view.mod-cm6 mark::before,
+.markdown-source-view.mod-cm6 mark::after,
+.markdown-source-view.mod-cm6 .cm-highlight::before,
+.markdown-source-view.mod-cm6 .cm-highlight::after {
+  content: none !important;
+  display: none !important;
+}
+.markdown-preview-view mark:not([style*="background"]),
+.markdown-source-view.mod-cm6 mark:not([style*="background"]),
+.markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]) {
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition:
+    background-size 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s ease,
+    text-shadow 0.3s ease,
+    box-shadow 0.3s ease;
+}
+body.theme-light .markdown-preview-view mark:not([style*="background"]),
+body.theme-light .markdown-source-view.mod-cm6 mark:not([style*="background"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-highlight:not([style*="background"]) {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--accent-highlight), transparent 60%),
+    transparent
+  );
+  background-size: 100% 40%;
+  color: var(--text-normal);
+}
+body.theme-dark .markdown-preview-view mark:not([style*="background"]),
+body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]),
+body.theme-dark
+  .markdown-source-view.mod-cm6
+  .cm-highlight:not([style*="background"]) {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--accent-highlight), transparent 50%),
+    transparent
+  ) !important;
+  background-size: 100% 40%;
+  color: color-mix(in srgb, var(--accent-highlight), white 20%) !important;
+  text-shadow: none;
+  box-shadow: none;
+}
+/* Highlight hover — gradient expands from 40% to full height */
+body.theme-light .markdown-preview-view mark:not([style*="background"]):hover,
+body.theme-light .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
+body.theme-light .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover,
+body.theme-dark .markdown-preview-view mark:not([style*="background"]):hover,
+body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover {
+  background-size: 100% 100% !important;
+  text-shadow: var(--glow-shadow-text);
+}
+.markdown-preview-view strong,
+.markdown-source-view.mod-cm6 .cm-strong,
+.markdown-source-view.mod-cm6 strong {
+  font-weight: bold;
+  display: inline;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+body.theme-dark .markdown-preview-view strong,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-strong,
+body.theme-dark .markdown-source-view.mod-cm6 strong {
+  color: var(--accent-bold);
+}
+/* Bold hover — unified (no color change, only effects) */
+.markdown-preview-view strong:hover,
+.markdown-source-view.mod-cm6 .cm-strong:hover,
+.markdown-source-view.mod-cm6 strong:hover {
+  font-weight: 900;
+  text-shadow: var(--glow-shadow-text);
+  border-bottom: 1px solid color-mix(in srgb, var(--_primary), transparent 70%);
+}
+body.theme-light .markdown-preview-view strong,
+body.theme-light .markdown-source-view.mod-cm6 .cm-strong,
+body.theme-light .markdown-source-view.mod-cm6 strong {
+  color: var(--accent-bold);
+}
+.markdown-preview-view em,
+.markdown-source-view.mod-cm6 .cm-em,
+.markdown-source-view.mod-cm6 em {
+  font-style: italic;
+  text-decoration: none !important;
+  padding-bottom: 1px;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 6px 3px;
+  transition:
+    color 0.2s ease,
+    -webkit-text-stroke 0.2s ease,
+    background-image 0.2s ease;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.markdown-preview-view em::after,
+.markdown-source-view.mod-cm6 .cm-em::after,
+.markdown-source-view.mod-cm6 em::after {
+  content: none !important;
+  display: none !important;
+}
+@keyframes stitchFlow {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 6px;
+  }
+}
+body.theme-light .markdown-preview-view em,
+body.theme-light .markdown-source-view.mod-cm6 .cm-em,
+body.theme-light .markdown-source-view.mod-cm6 em {
+  color: var(--accent-italic);
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 65%,
+    transparent 65%
+  );
+}
+body.theme-dark .markdown-preview-view em,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-em,
+body.theme-dark .markdown-source-view.mod-cm6 em {
+  color: var(--accent-italic);
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 65%,
+    transparent 65%
+  );
+}
+/* Italic hover — unified (no color change, only effects) */
+.markdown-preview-view em:hover,
+.markdown-source-view.mod-cm6 .cm-em:hover,
+.markdown-source-view.mod-cm6 em:hover {
+  text-shadow: var(--glow-shadow-text);
+  -webkit-text-stroke: 0.5px var(--accent-italic);
+  animation: stitchFlow 0.5s linear infinite;
+}
+.markdown-preview-view s,
+.markdown-preview-view del,
+.markdown-source-view.mod-cm6 .cm-strikethrough {
+  text-decoration: line-through;
+  transition: all 0.3s ease;
+}
+body.theme-dark .markdown-preview-view s,
+body.theme-dark .markdown-preview-view del,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-strikethrough {
+  text-decoration-color: var(--_primary);
+  color: #888;
+}
+body.theme-light .markdown-preview-view s,
+body.theme-light .markdown-preview-view del,
+body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--_primary),
+    transparent 40%
+  );
+  color: #999;
+}
+/* Strikethrough hover — unified (no color change, only glow effect) */
+.markdown-preview-view s:hover,
+.markdown-preview-view del:hover,
+.markdown-source-view.mod-cm6 .cm-strikethrough:hover {
+  text-shadow: var(--glow-shadow-text);
+}
+.markdown-preview-view hr,
+.markdown-source-view.mod-cm6.is-live-preview .hr {
+  position: relative;
+  overflow: visible;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.markdown-preview-view hr,
+.markdown-source-view.mod-cm6.is-live-preview .hr hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--_primary),
+    transparent
+  );
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-hr {
+  padding-block: 0.7em;
+}
+.markdown-source-view.mod-cm6.is-live-preview .hr {
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+}
+.markdown-source-view.mod-cm6.is-live-preview .hr hr {
+  flex: 1 0 0 !important;
+  margin: 0 !important;
+}
+.markdown-preview-view hr::after,
+.markdown-source-view.mod-cm6.is-live-preview .hr::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--_primary);
+  background-color: var(--_bg);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.markdown-preview-view hr:hover,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover {
+  opacity: 1;
+}
+.markdown-preview-view hr:hover,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover hr {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--_primary),
+    transparent
+  );
+}
+.markdown-preview-view hr:hover::after,
+.markdown-source-view.mod-cm6.is-live-preview .hr:hover::after {
+  border-color: var(--_primary);
+  background-color: var(--_primary);
+  box-shadow: 0 0 10px var(--_primary);
+  transform: translate(-50%, -50%) rotate(225deg) scale(1.5);
+}
