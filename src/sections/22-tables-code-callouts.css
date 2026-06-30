@@ -1,4 +1,4 @@
-.markdown-preview-view table {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
   width: max-content;
@@ -13,8 +13,8 @@
   -webkit-backdrop-filter: blur(5px);
   line-height: var(--table-line-height);
 }
-.markdown-preview-view table th,
-.markdown-preview-view table td {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table th,
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table td {
   padding: 10px 15px;
   color: var(--text-color);
   border-top: none !important;
@@ -23,14 +23,14 @@
   border-bottom: 1px solid var(--table-border-inner);
   transition: all 0.2s ease;
 }
-.markdown-preview-view table th:last-child,
-.markdown-preview-view table td:last-child {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table th:last-child,
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table td:last-child {
   border-right: none !important;
 }
-.markdown-preview-view table tr:last-child td {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tr:last-child td {
   border-bottom: none !important;
 }
-.markdown-preview-view table th {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table th {
   background-color: var(--table-th-bg) !important;
   color: var(--_primary);
   font-weight: bold;
@@ -38,31 +38,31 @@
   border-right: 1px solid var(--table-th-border) !important;
   border-bottom: 1px solid var(--table-th-border) !important;
 }
-.markdown-preview-view table th:last-child {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table th:last-child {
   border-right: none !important;
 }
-.markdown-preview-view table tbody tr:hover td {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tbody tr:hover td {
   background-color: var(--table-row-hover-bg);
 }
-.markdown-preview-view table tbody td:hover {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tbody td:hover {
   background-color: var(--table-cell-hover-bg);
   color: var(--table-cell-hover-text);
   box-shadow: inset 0 0 0 1px var(--_primary);
   cursor: default;
 }
-.markdown-preview-view table tr:nth-child(2n),
-.markdown-preview-view table tr:nth-child(2n + 1) {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tr:nth-child(2n),
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tr:nth-child(2n + 1) {
   background-color: transparent !important;
 }
-.markdown-preview-view table thead tr,
-.markdown-preview-view table thead tr:nth-child(2n),
-.markdown-preview-view table thead tr:nth-child(2n + 1) {
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table thead tr,
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table thead tr:nth-child(2n),
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table thead tr:nth-child(2n + 1) {
   background-color: transparent !important;
 }
-.theme-dark .markdown-preview-view table tbody td:hover {
+.theme-dark :is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tbody td:hover {
   text-shadow: 0 0 8px var(--_primary);
 }
-.theme-light .markdown-preview-view table tbody td:hover {
+.theme-light :is(.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-html-embed) table tbody td:hover {
   text-shadow: none;
 }
 /* === 宽表格左对齐铺开 ===
