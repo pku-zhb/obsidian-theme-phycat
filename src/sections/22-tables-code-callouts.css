@@ -1,7 +1,9 @@
 .markdown-preview-view table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
   margin: 1.5em 0;
   border: 1px solid var(--deco-border);
   border-radius: var(--table-border-radius);
@@ -62,6 +64,29 @@
 }
 .theme-light .markdown-preview-view table tbody td:hover {
   text-shadow: none;
+}
+/* === 宽表格左对齐铺开 ===
+   窄表靠 min-width:100% 仍占满正文宽、外观不变；宽表按内容宽度向右铺开（左缘与
+   正文对齐，不居中）。Live Preview 下表格用 overflow:visible 溢出到编辑器，超出
+   部分横向滚动整个画布（cm-scroller）；Reading 模式在表格容器内横向滚动。 */
+.markdown-source-view.mod-cm6 .cm-html-embed:has(table),
+.markdown-source-view.mod-cm6 .cm-table-widget {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  overflow-x: visible;
+}
+.markdown-source-view.mod-cm6 .cm-html-embed table {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+}
+.markdown-preview-view div:has(> table):not(.table-wrapper),
+.markdown-preview-view .table-wrapper {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  overflow-x: auto;
 }
 .markdown-source-view.mod-cm6 .cm-table-widget .table-editor {
   background-color: var(--table-bg) !important;
