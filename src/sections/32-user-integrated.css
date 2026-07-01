@@ -1,0 +1,43 @@
+/* =================================================================
+   Integrated from personal snippets — controlled via Style Settings
+   (see 00-settings.css: 🐱 光标增强 / 🧩 Phycat 其它设置).
+   Originals: font-weight.css, hide-statusbar.css, cursor-visible.css
+   ================================================================= */
+
+/* ---- Text font weight (was font-weight.css) ---------------------- */
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  font-weight: var(--phycat-text-weight, 480);
+}
+
+/* ---- Hide bottom status bar (was hide-statusbar.css) ------------- */
+body.hide-status-bar .status-bar {
+  display: none !important;
+}
+
+/* ---- Cursor enhance (was cursor-visible.css) --------------------- */
+/* Color source: Phycat accent by default; custom color when toggled on. */
+body {
+  --cursor-accent: var(--interactive-accent);
+}
+body.cursor-custom-color-enable {
+  --cursor-accent: var(--cursor-custom-color);
+}
+
+/* 1) tint the native caret with the accent color (precise, no offset) */
+.markdown-source-view.mod-cm6 .cm-content,
+.cm-content,
+.cm-line {
+  caret-color: var(--cursor-accent) !important;
+}
+
+/* 2) highlight the active line, only in the focused editor pane */
+.cm-editor.cm-focused .cm-line.cm-active,
+.cm-editor.cm-focused .cm-activeLine {
+  background-color: rgba(127, 127, 127, 0.12) !important; /* legacy fallback */
+  background-color: color-mix(
+    in srgb,
+    var(--cursor-accent) calc(var(--cursor-line-opacity) * 1%),
+    transparent
+  ) !important;
+}

@@ -656,6 +656,68 @@ settings:
         type: variable-number
         default: 1.5
 */
+
+/* @settings
+name: 🐱 Cursor enhance
+name.zh: 🐱 光标增强
+id: phycat-cursor-enhance
+settings:
+    -
+        id: cursor-line-opacity
+        title: Active line highlight strength
+        title.zh: 当前行高亮强度
+        description: Background tint on the caret's line. 0 = off.
+        description.zh: 高亮"光标所在行"的底色浓淡。0 = 完全关闭高亮
+        type: variable-number-slider
+        default: 14
+        min: 0
+        max: 40
+        step: 1
+    -
+        id: cursor-custom-color-enable
+        title: Use a custom color
+        title.zh: 用自定义颜色
+        description: Off = follow Phycat theme color; On = use the color below.
+        description.zh: 关 = 跟随 Phycat 主题色；开 = 用下面选的颜色
+        type: class-toggle
+        default: false
+    -
+        id: cursor-custom-color
+        title: Custom cursor / highlight color
+        title.zh: 自定义光标 / 高亮颜色
+        description: Requires "Use a custom color" above to be on.
+        description.zh: 需先打开上面的"用自定义颜色"
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#ff8800'
+*/
+
+/* @settings
+name: 🧩 Phycat misc
+name.zh: 🧩 Phycat 其它设置
+id: phycat-misc
+settings:
+    -
+        id: phycat-text-weight
+        title: Text font weight
+        title.zh: 正文字重
+        description: Body text weight. Default 480 (a touch heavier than the usual 400).
+        description.zh: 正文字体粗细。默认 480（比常规 400 略粗一点）
+        type: variable-number-slider
+        default: 480
+        min: 300
+        max: 700
+        step: 10
+    -
+        id: hide-status-bar
+        title: Hide bottom status bar
+        title.zh: 隐藏底部状态栏
+        description: Hide the bottom-right status bar (word count, backlink count, plugin info…).
+        description.zh: 隐藏右下角状态栏（字数、反链数、插件信息等）
+        type: class-toggle
+        default: true
+*/
 :root {
   --h1-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='24' r='3'/></svg>");
   --h2-icon-shape: url("data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='20' r='3'/><circle cx='8' cy='28' r='3'/></svg>");
@@ -5742,6 +5804,49 @@ body.rainbow-folders .nav-file-title.is-active .nav-file-title-content::before {
     in srgb,
     var(--_primary),
     transparent 95%
+  ) !important;
+}
+/* =================================================================
+   Integrated from personal snippets — controlled via Style Settings
+   (see 00-settings.css: 🐱 光标增强 / 🧩 Phycat 其它设置).
+   Originals: font-weight.css, hide-statusbar.css, cursor-visible.css
+   ================================================================= */
+
+/* ---- Text font weight (was font-weight.css) ---------------------- */
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  font-weight: var(--phycat-text-weight, 480);
+}
+
+/* ---- Hide bottom status bar (was hide-statusbar.css) ------------- */
+body.hide-status-bar .status-bar {
+  display: none !important;
+}
+
+/* ---- Cursor enhance (was cursor-visible.css) --------------------- */
+/* Color source: Phycat accent by default; custom color when toggled on. */
+body {
+  --cursor-accent: var(--interactive-accent);
+}
+body.cursor-custom-color-enable {
+  --cursor-accent: var(--cursor-custom-color);
+}
+
+/* 1) tint the native caret with the accent color (precise, no offset) */
+.markdown-source-view.mod-cm6 .cm-content,
+.cm-content,
+.cm-line {
+  caret-color: var(--cursor-accent) !important;
+}
+
+/* 2) highlight the active line, only in the focused editor pane */
+.cm-editor.cm-focused .cm-line.cm-active,
+.cm-editor.cm-focused .cm-activeLine {
+  background-color: rgba(127, 127, 127, 0.12) !important; /* legacy fallback */
+  background-color: color-mix(
+    in srgb,
+    var(--cursor-accent) calc(var(--cursor-line-opacity) * 1%),
+    transparent
   ) !important;
 }
 /* =================================================================

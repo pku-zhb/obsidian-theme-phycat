@@ -10,5 +10,6 @@ sections/21-quotes-links-inline-hr.css
 sections/22-tables-code-callouts.css
 sections/30-ui-layout-bases-scrollbars.css
 sections/31-file-explorer.css
+sections/32-user-integrated.css
 sections/40-source-mode-reset.css
 sections/90-focused-tab.css
