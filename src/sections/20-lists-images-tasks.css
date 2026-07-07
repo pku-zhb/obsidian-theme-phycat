@@ -4,10 +4,13 @@
 }
 .markdown-preview-view em {
   padding: 0 3px 0 0;
-  color: var(--_secondary);
+  color: var(--accent-italic);
 }
 .markdown-preview-view ul {
   list-style-type: disc;
+}
+.markdown-preview-view :is(ul, ol) {
+  padding-inline-start: var(--list-indent);
 }
 .markdown-preview-view ul ul {
   list-style-type: circle;
@@ -25,7 +28,8 @@
   list-style-type: lower-roman;
 }
 .markdown-preview-view ul > li > ol {
-  padding-left: 25px;
+  padding-left: var(--list-indent);
+  padding-inline-start: var(--list-indent);
 }
 .markdown-preview-view li {
   position: relative;
@@ -68,7 +72,7 @@ body.reading-list-continuation-line
   border: none !important;
 }
 .el-ol ol li {
-  margin-left: 35px;
+  margin-left: 0;
 }
 .markdown-source-view.mod-cm6 .HyperMD-list-line {
   --list-color: var(--text-muted);
@@ -105,6 +109,7 @@ body.reading-list-continuation-line
 }
 .markdown-source-view.is-live-preview {
   --list-padding-inline-start: 0;
+  --list-indent-editing: 1.1em;
 }
 .markdown-source-view.mod-cm6 .cm-indent::before {
   margin-inline-start: 3px !important;

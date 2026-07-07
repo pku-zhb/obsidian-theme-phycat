@@ -8,8 +8,8 @@ body {
   --_bg: var(--user-bg, var(--seed-bg, #fff7fa));
 
   /* Accent color system (with user override support) */
-  --accent-bold: var(--user-bold, color-mix(in srgb, var(--_primary), black 15%));
-  --accent-italic: var(--user-italic, color-mix(in srgb, var(--_secondary), black 15%));
+  --accent-bold: var(--user-bold, color-mix(in srgb, var(--_secondary), black 15%));
+  --accent-italic: var(--user-italic, color-mix(in srgb, var(--_primary), black 15%));
   --accent-highlight: var(--user-highlight, color-mix(in srgb, var(--_secondary), black 15%));
 
   /* Decoration color system (uses resolved --_primary) */
@@ -63,12 +63,12 @@ body.theme-light {
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--_secondary);
+  --background-modifier-border-hover: var(--_primary);
   --background-modifier-error: #d32f2f;
   --background-modifier-success: #388e3c;
   --code-background: var(--code-block-bg, #faf0f3);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
+  --input-shadow-hover: inset 0 0 0 1px var(--_primary);
   --mermaid-text-color: var(--text-color, #2d2d2d);
 
   /* Checkbox */
@@ -88,11 +88,12 @@ body.theme-light {
   --table-cell-hover-text: var(--_primary);
 
   /* Tags */
-  --tag-color: var(--accent-bold);
-  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
-  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
-  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
-  --tag-border-color-hover: var(--accent-bold);
+  --tag-color: var(--_primary);
+  --tag-background: color-mix(in srgb, var(--_primary), transparent 85%);
+  --tag-color-hover: #fff;
+  --tag-background-hover: var(--_primary);
+  --tag-border-color: color-mix(in srgb, var(--_primary), transparent 50%);
+  --tag-border-color-hover: var(--_primary);
 
   /* Blockquote */
   --blockquote-background-color: var(--deco-primary-wash);
@@ -143,12 +144,12 @@ body.theme-dark {
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--_secondary);
+  --background-modifier-border-hover: var(--_primary);
   --background-modifier-error: #ff5555;
   --background-modifier-success: #50fa7b;
   --code-background: var(--code-block-bg, #282a36);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
+  --input-shadow-hover: inset 0 0 0 1px var(--_primary);
   --mermaid-text-color: #000;
 
   /* Checkbox */
@@ -168,11 +169,12 @@ body.theme-dark {
   --table-cell-hover-text: var(--_primary);
 
   /* Tags */
-  --tag-color: var(--accent-bold);
-  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
-  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
-  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
-  --tag-border-color-hover: var(--accent-bold);
+  --tag-color: var(--_primary);
+  --tag-background: color-mix(in srgb, var(--_primary), transparent 85%);
+  --tag-color-hover: #fff;
+  --tag-background-hover: var(--_primary);
+  --tag-border-color: color-mix(in srgb, var(--_primary), transparent 50%);
+  --tag-border-color-hover: var(--_primary);
 
   /* Blockquote */
   --blockquote-background-color: var(--deco-primary-wash);
@@ -185,9 +187,4 @@ body.theme-dark {
 
   /* Settings panel */
   --setting-items-background: color-mix(in srgb, var(--_primary), transparent 94%);
-}
-body {
-  --line-height-normal: 2.2;
-  --line-height-tight: 1.3;
-  --line-height-customize: var(--line-height-normal);
 }

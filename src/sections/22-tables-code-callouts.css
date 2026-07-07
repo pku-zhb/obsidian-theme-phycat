@@ -311,11 +311,11 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   border-top: 1px solid var(--code-border-color, rgba(189, 147, 249, 0.3));
 }
 .theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  color: var(--_secondary) !important;
+  background-color: var(--code-block-header-bg) !important;
+  color: var(--_primary) !important;
 }
 .theme-light .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
-  background-color: var(--deco-primary-subtle, #f7f7f7) !important;
+  background-color: var(--code-block-header-bg) !important;
   color: var(--_primary) !important;
 }
 .markdown-source-view.mod-cm6 .HyperMD-codeblock-end {
@@ -929,10 +929,15 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   box-shadow: none;
 }
 .markdown-preview-view :not(pre) > code,
+.markdown-source-view.mod-cm6 .markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-embed-block :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-html-embed :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-table-widget :not(pre) > code,
 .markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
   font-family: var(--font-monospace) !important;
   letter-spacing: 0.5px;
-  background-color: color-mix(in srgb, var(--_primary), transparent 90%);
+  background: none !important;
+  background-color: color-mix(in srgb, var(--_primary), transparent 90%) !important;
   color: var(--_primary) !important;
   border: 1px solid color-mix(in srgb, var(--_primary), transparent 85%);
   padding: 2px 6px !important;
@@ -944,6 +949,10 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   box-decoration-break: clone;
 }
 .markdown-preview-view :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .markdown-rendered :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-embed-block :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-html-embed :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-table-widget :not(pre) > code:hover,
 .markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting):hover {
   background-color: var(--_primary) !important;
   color: #fff !important;
@@ -1017,3 +1026,5 @@ body.theme-light .markdown-source-view.mod-cm6 kbd:hover {
   transform: translateY(2px);
   border-bottom-width: 1px;
   background-color: color-mix(in srgb, var(--_primary), transparent 90%);
+  box-shadow: none;
+}

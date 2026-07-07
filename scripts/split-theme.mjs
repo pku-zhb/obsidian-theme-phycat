@@ -6,20 +6,21 @@ const input = process.argv[2] ?? "theme.css";
 const outDir = process.argv[3] ?? "src/sections";
 
 const sections = [
-  ["00-settings.css", 1, 659],
-  ["01-root-base-vars.css", 660, 774],
-  ["02-presets-code-tokens.css", 775, 1226],
-  ["03-derived-bridge.css", 1227, 1419],
-  ["10-reading-editor-base.css", 1420, 1495],
-  ["11-headings.css", 1496, 2490],
-  ["12-editor-heading-hover.css", 2491, 2634],
-  ["20-lists-images-tasks.css", 2635, 2984],
-  ["21-quotes-links-inline-hr.css", 2985, 3609],
-  ["22-tables-code-callouts.css", 3610, 4606],
-  ["30-ui-layout-bases-scrollbars.css", 4607, 5356],
-  ["31-file-explorer.css", 5357, 5730],
-  ["40-source-mode-reset.css", 5731, 5822],
-  ["90-focused-tab.css", 5823, 5884],
+  ["00-settings.css", 1, 738],
+  ["01-root-base-vars.css", 739, 855],
+  ["02-presets-code-tokens.css", 856, 1307],
+  ["03-derived-bridge.css", 1308, 1497],
+  ["10-reading-editor-base.css", 1498, 1578],
+  ["11-headings.css", 1579, 2572],
+  ["12-editor-heading-hover.css", 2573, 2715],
+  ["20-lists-images-tasks.css", 2716, 3067],
+  ["21-quotes-links-inline-hr.css", 3068, 3875],
+  ["22-tables-code-callouts.css", 3876, 4905],
+  ["30-ui-layout-bases-scrollbars.css", 4906, 5654],
+  ["31-file-explorer.css", 5655, 6027],
+  ["32-user-integrated.css", 6028, 6070],
+  ["40-source-mode-reset.css", 6071, 6161],
+  ["90-focused-tab.css", 6162, 6223],
 ];
 
 const source = readFileSync(input, "utf8");

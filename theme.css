@@ -155,8 +155,8 @@ settings:
         id: user-secondary
         title: Accent color
         title.zh: 对比强调色
-        description: Override secondary accent color. Affects italic text, links, and H1/H2 secondary decorations.
-        description.zh: 覆盖对比强调色。影响斜体、链接和 H1/H2 辅助装饰。
+        description: Override secondary accent color. Affects bold text, highlight text, and related strong emphasis accents.
+        description.zh: 覆盖对比强调色。影响粗体、高亮文字和相关强强调元素。
         type: variable-color
         format: hex
         default: '#bd93f9'
@@ -218,29 +218,29 @@ settings:
         id: user-bold
         title: Bold text color
         title.zh: 粗体文字颜色
-        description: Override bold/strong text color. Leave default to follow theme preset.
-        description.zh: 覆盖粗体颜色。保持默认则跟随主题预设派生。
-        type: variable-color
-        format: hex
-        default: '#d94868'
-    -
-        id: user-italic
-        title: Italic text color
-        title.zh: 斜体文字颜色
-        description: Override italic text color.
-        description.zh: 覆盖斜体颜色。
+        description: Override bold/strong text color. Leave unchanged to follow the secondary theme color.
+        description.zh: 覆盖粗体颜色。不单独设置时跟随主题 secondary 色派生。
         type: variable-color
         format: hex
         default: '#a07dd4'
     -
-        id: user-highlight
-        title: Highlight color
-        title.zh: 高亮标记颜色
-        description: Override highlight/mark gradient color.
-        description.zh: 覆盖高亮渐变颜色。
+        id: user-italic
+        title: Italic text color
+        title.zh: 斜体文字颜色
+        description: Override italic text color. Leave unchanged to follow the primary theme color.
+        description.zh: 覆盖斜体颜色。不单独设置时跟随主题 primary 色派生。
         type: variable-color
         format: hex
         default: '#d94868'
+    -
+        id: user-highlight
+        title: Highlight color
+        title.zh: 高亮标记颜色
+        description: Override highlight/mark text and gradient color. Leave unchanged to follow the secondary theme color.
+        description.zh: 覆盖高亮文字和渐变颜色。不单独设置时跟随主题 secondary 色派生。
+        type: variable-color
+        format: hex
+        default: '#a07dd4'
 */
 
 /* @settings
@@ -331,6 +331,24 @@ settings:
         title.zh:  段落间距（阅读模式）
         type: variable-text
         default: 1em
+    -
+        id: list-indent
+        title: List indent (Reading mode)
+        title.zh: 列表缩进（阅读模式）
+        description: Controls the indentation width of rendered Markdown lists.
+        description.zh: 控制阅读模式中 Markdown 列表的缩进宽度。
+        type: variable-number
+        default: 1.1
+        format: em
+    -
+        id: list-indent-editing
+        title: List indent (Live Preview)
+        title.zh: 列表缩进（实时预览）
+        description: Controls the indentation width of Markdown lists while editing.
+        description.zh: 控制编辑/实时预览模式中 Markdown 列表的缩进宽度。
+        type: variable-number
+        default: 1.1
+        format: em
     -
         id: reading-list-continuation-line
         title: Show reading list continuation lines
@@ -730,6 +748,8 @@ settings:
 body {
   --blockquote-line-height: 1.6;
   --table-line-height: 1.8;
+  --list-indent: 1.1em;
+  --list-indent-editing: 1.1em;
   --letter-spacing: 1px;
   --code-size: 0.95rem;
   --code-white-space: pre;
@@ -1295,8 +1315,8 @@ body {
   --_bg: var(--user-bg, var(--seed-bg, #fff7fa));
 
   /* Accent color system (with user override support) */
-  --accent-bold: var(--user-bold, color-mix(in srgb, var(--_primary), black 15%));
-  --accent-italic: var(--user-italic, color-mix(in srgb, var(--_secondary), black 15%));
+  --accent-bold: var(--user-bold, color-mix(in srgb, var(--_secondary), black 15%));
+  --accent-italic: var(--user-italic, color-mix(in srgb, var(--_primary), black 15%));
   --accent-highlight: var(--user-highlight, color-mix(in srgb, var(--_secondary), black 15%));
 
   /* Decoration color system (uses resolved --_primary) */
@@ -1350,12 +1370,12 @@ body.theme-light {
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--_secondary);
+  --background-modifier-border-hover: var(--_primary);
   --background-modifier-error: #d32f2f;
   --background-modifier-success: #388e3c;
   --code-background: var(--code-block-bg, #faf0f3);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
+  --input-shadow-hover: inset 0 0 0 1px var(--_primary);
   --mermaid-text-color: var(--text-color, #2d2d2d);
 
   /* Checkbox */
@@ -1375,11 +1395,12 @@ body.theme-light {
   --table-cell-hover-text: var(--_primary);
 
   /* Tags */
-  --tag-color: var(--accent-bold);
-  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
-  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
-  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
-  --tag-border-color-hover: var(--accent-bold);
+  --tag-color: var(--_primary);
+  --tag-background: color-mix(in srgb, var(--_primary), transparent 85%);
+  --tag-color-hover: #fff;
+  --tag-background-hover: var(--_primary);
+  --tag-border-color: color-mix(in srgb, var(--_primary), transparent 50%);
+  --tag-border-color-hover: var(--_primary);
 
   /* Blockquote */
   --blockquote-background-color: var(--deco-primary-wash);
@@ -1430,12 +1451,12 @@ body.theme-dark {
   --background-modifier-hover: var(--bg-hover);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
   --background-modifier-border: var(--deco-border);
-  --background-modifier-border-hover: var(--_secondary);
+  --background-modifier-border-hover: var(--_primary);
   --background-modifier-error: #ff5555;
   --background-modifier-success: #50fa7b;
   --code-background: var(--code-block-bg, #282a36);
   --input-shadow: inset 0 0 0 1px var(--deco-border);
-  --input-shadow-hover: inset 0 0 0 1px var(--_secondary);
+  --input-shadow-hover: inset 0 0 0 1px var(--_primary);
   --mermaid-text-color: #000;
 
   /* Checkbox */
@@ -1455,11 +1476,12 @@ body.theme-dark {
   --table-cell-hover-text: var(--_primary);
 
   /* Tags */
-  --tag-color: var(--accent-bold);
-  --tag-background: color-mix(in srgb, var(--accent-bold), transparent 85%);
-  --tag-background-hover: color-mix(in srgb, var(--accent-bold), transparent 75%);
-  --tag-border-color: color-mix(in srgb, var(--accent-bold), transparent 50%);
-  --tag-border-color-hover: var(--accent-bold);
+  --tag-color: var(--_primary);
+  --tag-background: color-mix(in srgb, var(--_primary), transparent 85%);
+  --tag-color-hover: #fff;
+  --tag-background-hover: var(--_primary);
+  --tag-border-color: color-mix(in srgb, var(--_primary), transparent 50%);
+  --tag-border-color-hover: var(--_primary);
 
   /* Blockquote */
   --blockquote-background-color: var(--deco-primary-wash);
@@ -2697,10 +2719,13 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
 }
 .markdown-preview-view em {
   padding: 0 3px 0 0;
-  color: var(--_secondary);
+  color: var(--accent-italic);
 }
 .markdown-preview-view ul {
   list-style-type: disc;
+}
+.markdown-preview-view :is(ul, ol) {
+  padding-inline-start: var(--list-indent);
 }
 .markdown-preview-view ul ul {
   list-style-type: circle;
@@ -2718,7 +2743,8 @@ body.editor-heading-hover .markdown-source-view.mod-cm6 .HyperMD-header-6:hover:
   list-style-type: lower-roman;
 }
 .markdown-preview-view ul > li > ol {
-  padding-left: 25px;
+  padding-left: var(--list-indent);
+  padding-inline-start: var(--list-indent);
 }
 .markdown-preview-view li {
   position: relative;
@@ -2761,7 +2787,7 @@ body.reading-list-continuation-line
   border: none !important;
 }
 .el-ol ol li {
-  margin-left: 35px;
+  margin-left: 0;
 }
 .markdown-source-view.mod-cm6 .HyperMD-list-line {
   --list-color: var(--text-muted);
@@ -2798,6 +2824,7 @@ body.reading-list-continuation-line
 }
 .markdown-source-view.is-live-preview {
   --list-padding-inline-start: 0;
+  --list-indent-editing: 1.1em;
 }
 .markdown-source-view.mod-cm6 .cm-indent::before {
   margin-inline-start: 3px !important;
@@ -3245,11 +3272,11 @@ body.editor-quote-dim .markdown-preview-view blockquote {
   box-shadow: none;
   transform: none;
 }
-.markdown-preview-view a.internal-link,
-.markdown-preview-view a.external-link,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline,
-.markdown-source-view.mod-cm6 .cm-table-widget a {
-  color: var(--_secondary) !important;
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]) {
+  color: var(--_primary) !important;
   text-decoration: none !important;
   font-weight: 500;
   padding: 0 2px;
@@ -3262,17 +3289,26 @@ body.editor-quote-dim .markdown-preview-view blockquote {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-/* Light mode: use secondary accent (--text-italic) for links */
-body.theme-light .markdown-preview-view a.internal-link,
-body.theme-light .markdown-preview-view a.external-link,
-body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
-body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
-  color: var(--accent-italic) !important;
+/* Keep links on the primary color in both light and dark modes. */
+body.theme-light .markdown-preview-view a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .markdown-rendered
+  a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-embed-block
+  a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-table-widget
+  a.internal-link:not(.tag):not([href^="#"]) {
+  color: var(--_primary) !important;
 }
-.markdown-preview-view a.internal-link::before,
-.markdown-preview-view a.external-link::before,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline::before,
-.markdown-source-view.mod-cm6 .cm-table-widget a::before {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"])::before {
   content: "[";
   display: inline-block;
   color: var(--text-muted);
@@ -3283,10 +3319,10 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
     color 0.3s,
     opacity 0.3s;
 }
-.markdown-preview-view a.internal-link::after,
-.markdown-preview-view a.external-link::after,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline::after,
-.markdown-source-view.mod-cm6 .cm-table-widget a::after {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"])::after {
   content: "]";
   display: inline-block;
   color: var(--text-muted);
@@ -3297,36 +3333,112 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
     color 0.3s,
     opacity 0.3s;
 }
-.markdown-preview-view a.internal-link:hover,
-.markdown-preview-view a.external-link:hover,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover {
   background-color: color-mix(in srgb, var(--_primary), transparent 90%);
-  color: var(--_primary) !important;
+  color: var(--heading-deep) !important;
   text-decoration: none !important;
 }
-.markdown-preview-view a.internal-link:hover::before,
-.markdown-preview-view a.external-link:hover::before,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::before,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover::before {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover::before {
   transform: translateX(-4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
-.markdown-preview-view a.internal-link:hover::after,
-.markdown-preview-view a.external-link:hover::after,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::after,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover::after {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover::after {
   transform: translateX(4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
+
+.markdown-preview-view a.external-link,
+.markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+.markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+.markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+.markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  color: var(--accent-italic) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  position: relative;
+  border-bottom: none !important;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 6px 3px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    -webkit-text-stroke 0.2s ease,
+    background-image 0.2s ease,
+    text-shadow 0.2s ease;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+body.theme-light .markdown-preview-view a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 65%,
+    transparent 65%
+  );
+}
+body.theme-dark .markdown-preview-view a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 65%,
+    transparent 65%
+  );
+}
+.markdown-preview-view a.external-link:hover,
+.markdown-source-view.mod-cm6 .markdown-rendered a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-embed-block a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-html-embed a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-table-widget a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
+  color: var(--accent-italic) !important;
+  text-shadow: var(--glow-shadow-text);
+  -webkit-text-stroke: 0.5px var(--accent-italic);
+  animation: stitchFlow 0.5s linear infinite;
+  background-color: transparent !important;
+}
+.markdown-source-view.mod-cm6 .cm-url,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
 .markdown-preview-view .external-link-icon,
 .markdown-source-view.mod-cm6 .cm-link .external-link,
 .markdown-source-view.mod-cm6 .cm-formatting-link-string.external-link,
-.markdown-source-view.mod-cm6 .cm-url.external-link {
+.markdown-source-view.mod-cm6 .cm-formatting.cm-url.external-link {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -3341,8 +3453,10 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
    Mirrors the reading-mode a.internal-link styling for cm-hmd-internal-link.
    Gated behind Style Settings toggle: editor-wikilink-style
    ================================================================= */
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
-  color: var(--_secondary);
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag) {
+  color: var(--_primary);
   text-decoration: none;
   font-weight: 500;
   padding: 0 2px;
@@ -3355,10 +3469,14 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-body.editor-wikilink-style.theme-light .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
-  color: var(--accent-italic);
+body.editor-wikilink-style.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag) {
+  color: var(--_primary);
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::before {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag)::before {
   content: "[";
   display: inline-block;
   color: var(--text-muted);
@@ -3369,7 +3487,9 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::
     color 0.3s,
     opacity 0.3s;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::after {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag)::after {
   content: "]";
   display: inline-block;
   color: var(--text-muted);
@@ -3380,31 +3500,137 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::
     color 0.3s,
     opacity 0.3s;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover {
   background-color: color-mix(in srgb, var(--_primary), transparent 90%);
-  color: var(--_primary);
+  color: var(--heading-deep);
   text-decoration: none;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::before {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover::before {
   transform: translateX(-4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::after {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover::after {
   transform: translateX(4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
 /* Hide ALL decorative brackets when Obsidian reveals raw [[ ]] formatting marks (cursor inside link) */
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::before,
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::after {
-  display: none;
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-hmd-internal-link::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-hmd-internal-link::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-widgetBuffer
+  + .cm-hmd-internal-link::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-widgetBuffer
+  + .cm-hmd-internal-link::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-formatting-link)::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-formatting-link)::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-widgetBuffer + .cm-formatting-link)::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-widgetBuffer + .cm-formatting-link)::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  ~ .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):has(
+    ~ .cm-formatting-link
+  )::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  ~ .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):has(
+    ~ .cm-formatting-link
+  )::after {
+  content: none !important;
+  display: none !important;
+}
+
+.markdown-preview-view a.tag::before,
+.markdown-preview-view a.tag::after,
+.markdown-preview-view a[href^="#"]::before,
+.markdown-preview-view a[href^="#"]::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a[href^="#"]::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a[href^="#"]::after,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hashtag::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hashtag::after,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::after {
+  content: none !important;
+  display: none !important;
+}
+
+.markdown-preview-view a.tag,
+.markdown-source-view.mod-cm6 .markdown-rendered a.tag,
+.markdown-source-view.mod-cm6 .cm-embed-block a.tag,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag,
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .markdown-preview-view a.tag:hover,
+  .markdown-source-view.mod-cm6 .markdown-rendered a.tag:hover,
+  .markdown-source-view.mod-cm6 .cm-embed-block a.tag:hover,
+  .markdown-source-view.mod-cm6 .cm-table-widget a.tag:hover {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--_primary), transparent 65%);
+    -webkit-text-fill-color: #fff !important;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-hashtag.cm-hashtag-begin:hover,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:hover
+    + .cm-hashtag-end,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:hover
+    + .cm-widgetBuffer
+    + .cm-hashtag-end,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:has(+ .cm-hashtag-end:hover),
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:has(+ .cm-widgetBuffer + .cm-hashtag-end:hover),
+  .markdown-source-view.mod-cm6 .cm-hashtag.cm-hashtag-end:hover,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag:not(.cm-hashtag-begin):not(.cm-hashtag-end):hover {
+    background-color: var(--tag-background-hover) !important;
+    border-color: var(--tag-border-color-hover) !important;
+    color: var(--tag-color-hover) !important;
+    -webkit-text-fill-color: var(--tag-color-hover) !important;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--_primary), transparent 65%);
+  }
 }
 
 .markdown-preview-view table td a,
-.markdown-source-view.mod-cm6 .cm-table-widget a {
+.markdown-source-view.mod-cm6 .cm-table-widget a:not(.tag):not([href^="#"]) {
   padding: 0 2px !important;
 }
 .markdown-preview-view mark,
@@ -3450,7 +3676,7 @@ body.theme-light
     transparent
   );
   background-size: 100% 40%;
-  color: var(--text-normal);
+  color: var(--accent-highlight) !important;
 }
 body.theme-dark .markdown-preview-view mark:not([style*="background"]),
 body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]),
@@ -3463,7 +3689,7 @@ body.theme-dark
     transparent
   ) !important;
   background-size: 100% 40%;
-  color: color-mix(in srgb, var(--accent-highlight), white 20%) !important;
+  color: var(--accent-highlight) !important;
   text-shadow: none;
   box-shadow: none;
 }
@@ -3502,7 +3728,7 @@ body.theme-dark .markdown-source-view.mod-cm6 strong {
 .markdown-source-view.mod-cm6 strong:hover {
   font-weight: 900;
   text-shadow: var(--glow-shadow-text);
-  border-bottom: 1px solid color-mix(in srgb, var(--_primary), transparent 70%);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-bold), transparent 70%);
 }
 body.theme-light .markdown-preview-view strong,
 body.theme-light .markdown-source-view.mod-cm6 .cm-strong,
@@ -3515,13 +3741,12 @@ body.theme-light .markdown-source-view.mod-cm6 strong {
   font-style: italic;
   text-decoration: none !important;
   padding-bottom: 1px;
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  background-size: 6px 3px;
+  border-bottom: 1px solid transparent;
+  color: var(--accent-italic);
   transition:
     color 0.2s ease,
-    -webkit-text-stroke 0.2s ease,
-    background-image 0.2s ease;
+    border-color 0.3s ease,
+    text-shadow 0.3s ease;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -3543,33 +3768,18 @@ body.theme-light .markdown-preview-view em,
 body.theme-light .markdown-source-view.mod-cm6 .cm-em,
 body.theme-light .markdown-source-view.mod-cm6 em {
   color: var(--accent-italic);
-  background-image: linear-gradient(
-    -45deg,
-    transparent 35%,
-    color-mix(in srgb, var(--accent-italic), transparent 60%) 35%,
-    color-mix(in srgb, var(--accent-italic), transparent 60%) 65%,
-    transparent 65%
-  );
 }
 body.theme-dark .markdown-preview-view em,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-em,
 body.theme-dark .markdown-source-view.mod-cm6 em {
   color: var(--accent-italic);
-  background-image: linear-gradient(
-    -45deg,
-    transparent 35%,
-    color-mix(in srgb, var(--accent-italic), white 20%) 35%,
-    color-mix(in srgb, var(--accent-italic), white 20%) 65%,
-    transparent 65%
-  );
 }
 /* Italic hover — unified (no color change, only effects) */
 .markdown-preview-view em:hover,
 .markdown-source-view.mod-cm6 .cm-em:hover,
 .markdown-source-view.mod-cm6 em:hover {
   text-shadow: var(--glow-shadow-text);
-  -webkit-text-stroke: 0.5px var(--accent-italic);
-  animation: stitchFlow 0.5s linear infinite;
+  border-bottom-color: color-mix(in srgb, var(--accent-italic), transparent 70%);
 }
 .markdown-preview-view s,
 .markdown-preview-view del,
@@ -3976,11 +4186,11 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   border-top: 1px solid var(--code-border-color, rgba(189, 147, 249, 0.3));
 }
 .theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  color: var(--_secondary) !important;
+  background-color: var(--code-block-header-bg) !important;
+  color: var(--_primary) !important;
 }
 .theme-light .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
-  background-color: var(--deco-primary-subtle, #f7f7f7) !important;
+  background-color: var(--code-block-header-bg) !important;
   color: var(--_primary) !important;
 }
 .markdown-source-view.mod-cm6 .HyperMD-codeblock-end {
@@ -4594,10 +4804,15 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   box-shadow: none;
 }
 .markdown-preview-view :not(pre) > code,
+.markdown-source-view.mod-cm6 .markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-embed-block :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-html-embed :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-table-widget :not(pre) > code,
 .markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
   font-family: var(--font-monospace) !important;
   letter-spacing: 0.5px;
-  background-color: color-mix(in srgb, var(--_primary), transparent 90%);
+  background: none !important;
+  background-color: color-mix(in srgb, var(--_primary), transparent 90%) !important;
   color: var(--_primary) !important;
   border: 1px solid color-mix(in srgb, var(--_primary), transparent 85%);
   padding: 2px 6px !important;
@@ -4609,6 +4824,10 @@ body.theme-dark .markdown-preview-view pre:not([class]) {
   box-decoration-break: clone;
 }
 .markdown-preview-view :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .markdown-rendered :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-embed-block :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-html-embed :not(pre) > code:hover,
+.markdown-source-view.mod-cm6 .cm-table-widget :not(pre) > code:hover,
 .markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting):hover {
   background-color: var(--_primary) !important;
   color: #fff !important;
@@ -4704,8 +4923,8 @@ body.theme-light .markdown-source-view.mod-cm6 kbd:hover {
   opacity: 1 !important;
 }
 .mermaid .node polygon {
-  fill: color-mix(in srgb, var(--_secondary), transparent 85%) !important;
-  stroke: var(--_secondary) !important;
+  fill: color-mix(in srgb, var(--_primary), transparent 85%) !important;
+  stroke: var(--heading-deep) !important;
   stroke-width: 1.5px !important;
 }
 .mermaid .label,
@@ -4762,7 +4981,7 @@ body.theme-light .markdown-source-view.mod-cm6 kbd:hover {
   border-radius: 3px;
 }
 .mermaid::-webkit-scrollbar-thumb:hover {
-  background: var(--_secondary);
+  background: var(--heading-deep);
 }
 .community-modal-info {
   --h2-color: var(--_primary);
@@ -5284,11 +5503,11 @@ body.layout-cards:not(.is-phone).theme-dark .status-bar {
   position: relative;
 }
 .flair.mod-pop {
-  color: var(--_secondary) !important;
-  border-color: var(--_secondary);
+  color: var(--_primary) !important;
+  border-color: var(--_primary);
   background-color: color-mix(
     in srgb,
-    var(--_secondary),
+    var(--_primary),
     transparent 90%
   ) !important;
 }

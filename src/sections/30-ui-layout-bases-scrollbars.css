@@ -1,5 +1,3 @@
-  box-shadow: none;
-}
 .mermaid {
   display: block !important;
   width: 100% !important;
@@ -20,8 +18,8 @@
   opacity: 1 !important;
 }
 .mermaid .node polygon {
-  fill: color-mix(in srgb, var(--_secondary), transparent 85%) !important;
-  stroke: var(--_secondary) !important;
+  fill: color-mix(in srgb, var(--_primary), transparent 85%) !important;
+  stroke: var(--heading-deep) !important;
   stroke-width: 1.5px !important;
 }
 .mermaid .label,
@@ -78,7 +76,7 @@
   border-radius: 3px;
 }
 .mermaid::-webkit-scrollbar-thumb:hover {
-  background: var(--_secondary);
+  background: var(--heading-deep);
 }
 .community-modal-info {
   --h2-color: var(--_primary);
@@ -600,11 +598,11 @@ body.layout-cards:not(.is-phone).theme-dark .status-bar {
   position: relative;
 }
 .flair.mod-pop {
-  color: var(--_secondary) !important;
-  border-color: var(--_secondary);
+  color: var(--_primary) !important;
+  border-color: var(--_primary);
   background-color: color-mix(
     in srgb,
-    var(--_secondary),
+    var(--_primary),
     transparent 90%
   ) !important;
 }

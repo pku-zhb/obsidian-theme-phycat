@@ -205,11 +205,11 @@ body.editor-quote-dim .markdown-preview-view blockquote {
   box-shadow: none;
   transform: none;
 }
-.markdown-preview-view a.internal-link,
-.markdown-preview-view a.external-link,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline,
-.markdown-source-view.mod-cm6 .cm-table-widget a {
-  color: var(--_secondary) !important;
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]),
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]) {
+  color: var(--_primary) !important;
   text-decoration: none !important;
   font-weight: 500;
   padding: 0 2px;
@@ -222,17 +222,26 @@ body.editor-quote-dim .markdown-preview-view blockquote {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-/* Light mode: use secondary accent (--text-italic) for links */
-body.theme-light .markdown-preview-view a.internal-link,
-body.theme-light .markdown-preview-view a.external-link,
-body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
-body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
-  color: var(--accent-italic) !important;
+/* Keep links on the primary color in both light and dark modes. */
+body.theme-light .markdown-preview-view a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .markdown-rendered
+  a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-embed-block
+  a.internal-link:not(.tag):not([href^="#"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-table-widget
+  a.internal-link:not(.tag):not([href^="#"]) {
+  color: var(--_primary) !important;
 }
-.markdown-preview-view a.internal-link::before,
-.markdown-preview-view a.external-link::before,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline::before,
-.markdown-source-view.mod-cm6 .cm-table-widget a::before {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"])::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"])::before {
   content: "[";
   display: inline-block;
   color: var(--text-muted);
@@ -243,10 +252,10 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
     color 0.3s,
     opacity 0.3s;
 }
-.markdown-preview-view a.internal-link::after,
-.markdown-preview-view a.external-link::after,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline::after,
-.markdown-source-view.mod-cm6 .cm-table-widget a::after {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"])::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"])::after {
   content: "]";
   display: inline-block;
   color: var(--text-muted);
@@ -257,36 +266,112 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
     color 0.3s,
     opacity 0.3s;
 }
-.markdown-preview-view a.internal-link:hover,
-.markdown-preview-view a.external-link:hover,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover {
   background-color: color-mix(in srgb, var(--_primary), transparent 90%);
-  color: var(--_primary) !important;
+  color: var(--heading-deep) !important;
   text-decoration: none !important;
 }
-.markdown-preview-view a.internal-link:hover::before,
-.markdown-preview-view a.external-link:hover::before,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::before,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover::before {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover::before {
   transform: translateX(-4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
-.markdown-preview-view a.internal-link:hover::after,
-.markdown-preview-view a.external-link:hover::after,
-.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover::after,
-.markdown-source-view.mod-cm6 .cm-table-widget a:hover::after {
+.markdown-preview-view a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .markdown-rendered a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .cm-embed-block a.internal-link:not(.tag):not([href^="#"]):hover::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.internal-link:not(.tag):not([href^="#"]):hover::after {
   transform: translateX(4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
+
+.markdown-preview-view a.external-link,
+.markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+.markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+.markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+.markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  color: var(--accent-italic) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  padding: 0 2px;
+  margin: 0;
+  border-radius: 4px;
+  position: relative;
+  border-bottom: none !important;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 6px 3px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    -webkit-text-stroke 0.2s ease,
+    background-image 0.2s ease,
+    text-shadow 0.2s ease;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+body.theme-light .markdown-preview-view a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 35%,
+    color-mix(in srgb, var(--accent-italic), transparent 60%) 65%,
+    transparent 65%
+  );
+}
+body.theme-dark .markdown-preview-view a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .markdown-rendered a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-embed-block a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-html-embed a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-table-widget a.external-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  background-image: linear-gradient(
+    -45deg,
+    transparent 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 35%,
+    color-mix(in srgb, var(--accent-italic), white 20%) 65%,
+    transparent 65%
+  );
+}
+.markdown-preview-view a.external-link:hover,
+.markdown-source-view.mod-cm6 .markdown-rendered a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-embed-block a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-html-embed a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-table-widget a.external-link:hover,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
+  color: var(--accent-italic) !important;
+  text-shadow: var(--glow-shadow-text);
+  -webkit-text-stroke: 0.5px var(--accent-italic);
+  animation: stitchFlow 0.5s linear infinite;
+  background-color: transparent !important;
+}
+.markdown-source-view.mod-cm6 .cm-url,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
 .markdown-preview-view .external-link-icon,
 .markdown-source-view.mod-cm6 .cm-link .external-link,
 .markdown-source-view.mod-cm6 .cm-formatting-link-string.external-link,
-.markdown-source-view.mod-cm6 .cm-url.external-link {
+.markdown-source-view.mod-cm6 .cm-formatting.cm-url.external-link {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -301,8 +386,10 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-table-widget a {
    Mirrors the reading-mode a.internal-link styling for cm-hmd-internal-link.
    Gated behind Style Settings toggle: editor-wikilink-style
    ================================================================= */
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
-  color: var(--_secondary);
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag) {
+  color: var(--_primary);
   text-decoration: none;
   font-weight: 500;
   padding: 0 2px;
@@ -315,10 +402,14 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-body.editor-wikilink-style.theme-light .markdown-source-view.mod-cm6 .cm-hmd-internal-link {
-  color: var(--accent-italic);
+body.editor-wikilink-style.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag) {
+  color: var(--_primary);
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::before {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag)::before {
   content: "[";
   display: inline-block;
   color: var(--text-muted);
@@ -329,7 +420,9 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::
     color 0.3s,
     opacity 0.3s;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::after {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag)::after {
   content: "]";
   display: inline-block;
   color: var(--text-muted);
@@ -340,31 +433,137 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link::
     color 0.3s,
     opacity 0.3s;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover {
   background-color: color-mix(in srgb, var(--_primary), transparent 90%);
-  color: var(--_primary);
+  color: var(--heading-deep);
   text-decoration: none;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::before {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover::before {
   transform: translateX(-4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover::after {
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):hover::after {
   transform: translateX(4px);
   color: var(--_primary);
   font-weight: bold;
   opacity: 1;
 }
 /* Hide ALL decorative brackets when Obsidian reveals raw [[ ]] formatting marks (cursor inside link) */
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::before,
-body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-formatting-link ~ .cm-hmd-internal-link::after {
-  display: none;
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-hmd-internal-link::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-hmd-internal-link::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-widgetBuffer
+  + .cm-hmd-internal-link::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  + .cm-widgetBuffer
+  + .cm-hmd-internal-link::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-formatting-link)::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-formatting-link)::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-widgetBuffer + .cm-formatting-link)::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-hmd-internal-link:has(+ .cm-widgetBuffer + .cm-formatting-link)::after,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  ~ .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):has(
+    ~ .cm-formatting-link
+  )::before,
+body.editor-wikilink-style
+  .markdown-source-view.mod-cm6
+  .cm-formatting-link
+  ~ .cm-hmd-internal-link:not(.cm-hashtag):not(.cm-tag):has(
+    ~ .cm-formatting-link
+  )::after {
+  content: none !important;
+  display: none !important;
+}
+
+.markdown-preview-view a.tag::before,
+.markdown-preview-view a.tag::after,
+.markdown-preview-view a[href^="#"]::before,
+.markdown-preview-view a[href^="#"]::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag::after,
+.markdown-source-view.mod-cm6 .cm-table-widget a[href^="#"]::before,
+.markdown-source-view.mod-cm6 .cm-table-widget a[href^="#"]::after,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hashtag::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-hashtag::after,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::before,
+body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::after {
+  content: none !important;
+  display: none !important;
+}
+
+.markdown-preview-view a.tag,
+.markdown-source-view.mod-cm6 .markdown-rendered a.tag,
+.markdown-source-view.mod-cm6 .cm-embed-block a.tag,
+.markdown-source-view.mod-cm6 .cm-table-widget a.tag,
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .markdown-preview-view a.tag:hover,
+  .markdown-source-view.mod-cm6 .markdown-rendered a.tag:hover,
+  .markdown-source-view.mod-cm6 .cm-embed-block a.tag:hover,
+  .markdown-source-view.mod-cm6 .cm-table-widget a.tag:hover {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--_primary), transparent 65%);
+    -webkit-text-fill-color: #fff !important;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-hashtag.cm-hashtag-begin:hover,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:hover
+    + .cm-hashtag-end,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:hover
+    + .cm-widgetBuffer
+    + .cm-hashtag-end,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:has(+ .cm-hashtag-end:hover),
+  .markdown-source-view.mod-cm6
+    .cm-hashtag.cm-hashtag-begin:has(+ .cm-widgetBuffer + .cm-hashtag-end:hover),
+  .markdown-source-view.mod-cm6 .cm-hashtag.cm-hashtag-end:hover,
+  .markdown-source-view.mod-cm6
+    .cm-hashtag:not(.cm-hashtag-begin):not(.cm-hashtag-end):hover {
+    background-color: var(--tag-background-hover) !important;
+    border-color: var(--tag-border-color-hover) !important;
+    color: var(--tag-color-hover) !important;
+    -webkit-text-fill-color: var(--tag-color-hover) !important;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--_primary), transparent 65%);
+  }
 }
 
 .markdown-preview-view table td a,
-.markdown-source-view.mod-cm6 .cm-table-widget a {
+.markdown-source-view.mod-cm6 .cm-table-widget a:not(.tag):not([href^="#"]) {
   padding: 0 2px !important;
 }
 .markdown-preview-view mark,
@@ -410,7 +609,7 @@ body.theme-light
     transparent
   );
   background-size: 100% 40%;
-  color: var(--text-normal);
+  color: var(--accent-highlight) !important;
 }
 body.theme-dark .markdown-preview-view mark:not([style*="background"]),
 body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]),
@@ -423,7 +622,7 @@ body.theme-dark
     transparent
   ) !important;
   background-size: 100% 40%;
-  color: color-mix(in srgb, var(--accent-highlight), white 20%) !important;
+  color: var(--accent-highlight) !important;
   text-shadow: none;
   box-shadow: none;
 }
@@ -462,7 +661,7 @@ body.theme-dark .markdown-source-view.mod-cm6 strong {
 .markdown-source-view.mod-cm6 strong:hover {
   font-weight: 900;
   text-shadow: var(--glow-shadow-text);
-  border-bottom: 1px solid color-mix(in srgb, var(--_primary), transparent 70%);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-bold), transparent 70%);
 }
 body.theme-light .markdown-preview-view strong,
 body.theme-light .markdown-source-view.mod-cm6 .cm-strong,
@@ -475,13 +674,12 @@ body.theme-light .markdown-source-view.mod-cm6 strong {
   font-style: italic;
   text-decoration: none !important;
   padding-bottom: 1px;
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  background-size: 6px 3px;
+  border-bottom: 1px solid transparent;
+  color: var(--accent-italic);
   transition:
     color 0.2s ease,
-    -webkit-text-stroke 0.2s ease,
-    background-image 0.2s ease;
+    border-color 0.3s ease,
+    text-shadow 0.3s ease;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -503,33 +701,18 @@ body.theme-light .markdown-preview-view em,
 body.theme-light .markdown-source-view.mod-cm6 .cm-em,
 body.theme-light .markdown-source-view.mod-cm6 em {
   color: var(--accent-italic);
-  background-image: linear-gradient(
-    -45deg,
-    transparent 35%,
-    color-mix(in srgb, var(--accent-italic), transparent 60%) 35%,
-    color-mix(in srgb, var(--accent-italic), transparent 60%) 65%,
-    transparent 65%
-  );
 }
 body.theme-dark .markdown-preview-view em,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-em,
 body.theme-dark .markdown-source-view.mod-cm6 em {
   color: var(--accent-italic);
-  background-image: linear-gradient(
-    -45deg,
-    transparent 35%,
-    color-mix(in srgb, var(--accent-italic), white 20%) 35%,
-    color-mix(in srgb, var(--accent-italic), white 20%) 65%,
-    transparent 65%
-  );
 }
 /* Italic hover — unified (no color change, only effects) */
 .markdown-preview-view em:hover,
 .markdown-source-view.mod-cm6 .cm-em:hover,
 .markdown-source-view.mod-cm6 em:hover {
   text-shadow: var(--glow-shadow-text);
-  -webkit-text-stroke: 0.5px var(--accent-italic);
-  animation: stitchFlow 0.5s linear infinite;
+  border-bottom-color: color-mix(in srgb, var(--accent-italic), transparent 70%);
 }
 .markdown-preview-view s,
 .markdown-preview-view del,

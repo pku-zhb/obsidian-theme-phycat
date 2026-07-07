@@ -10,6 +10,8 @@
 body {
   --blockquote-line-height: 1.6;
   --table-line-height: 1.8;
+  --list-indent: 1.1em;
+  --list-indent-editing: 1.1em;
   --letter-spacing: 1px;
   --code-size: 0.95rem;
   --code-white-space: pre;
