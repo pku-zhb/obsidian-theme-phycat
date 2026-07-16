@@ -8,6 +8,7 @@ sections/12-editor-heading-hover.css
 sections/20-lists-images-tasks.css
 sections/21-quotes-links-inline-hr.css
 sections/22-tables-code-callouts.css
+sections/23-footnotes.css
 sections/30-ui-layout-bases-scrollbars.css
 sections/31-file-explorer.css
 sections/32-user-integrated.css

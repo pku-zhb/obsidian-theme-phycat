@@ -1,0 +1,230 @@
+/* ============================================
+   Footnotes — quiet references with a shared ^id form
+   ============================================ */
+body {
+  --footnote-divider-color: var(--deco-border);
+  --footnote-divider-color-active: var(--_primary);
+  --footnote-id-color: var(--text-muted);
+  --footnote-id-color-no-occurrences: var(--text-faint);
+  --footnote-input-background: transparent;
+  --footnote-input-background-active: var(--deco-primary-wash);
+  --footnote-radius: 6px;
+}
+
+/* Reading mode: replace the rendered [id] text with ^source-id. */
+.markdown-preview-view .footnote-ref,
+.markdown-source-view.mod-cm6 .cm-table-widget .footnote-ref {
+  position: relative;
+  top: 0.15rem;
+  display: inline;
+  margin-inline: 0.08em;
+  line-height: 1;
+  vertical-align: text-top;
+}
+.markdown-preview-view .footnote-ref > a,
+.markdown-source-view.mod-cm6 .cm-table-widget .footnote-ref > a {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-accent) !important;
+  font-size: 0;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none !important;
+}
+.markdown-preview-view .footnote-ref > a::before,
+.markdown-source-view.mod-cm6 .cm-table-widget .footnote-ref > a::before {
+  content: "^" attr(data-footref) !important;
+  display: inline !important;
+  color: var(--text-accent);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+@media (hover: hover) {
+  .markdown-preview-view .footnote-ref > a:hover::before,
+  .markdown-source-view.mod-cm6
+    .cm-table-widget
+    .footnote-ref
+    > a:hover::before {
+    color: var(--text-accent-hover);
+    text-shadow: var(--glow-shadow-text);
+  }
+}
+
+/* Live Preview table widget: its renderer puts footnote-ref on the link itself. */
+.markdown-source-view.mod-cm6 .cm-table-widget a.footnote-ref {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-accent) !important;
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none !important;
+}
+.markdown-source-view.mod-cm6 .cm-table-widget a.footnote-ref::before {
+  content: "^" !important;
+  display: inline !important;
+  color: var(--text-accent);
+}
+
+/*
+   Live Preview: CodeMirror Enhance replaces an inactive [^id] range with
+   one semantic ^id widget, then restores the source when the caret touches
+   that exact range. The theme only owns its visual treatment.
+*/
+.markdown-source-view.mod-cm6.is-live-preview .cm-enhance-footnote-ref {
+  position: relative;
+  top: 0.2em;
+  display: inline;
+  margin-inline: 0.08em;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--text-accent) !important;
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none !important;
+  vertical-align: text-top;
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-footref:not(.cm-formatting) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--text-accent) !important;
+  font-weight: 650;
+  text-decoration: none !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-footref.cm-formatting {
+  color: var(--text-faint) !important;
+}
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6.is-live-preview
+    .cm-enhance-footnote-ref:hover,
+  .markdown-source-view.mod-cm6.is-live-preview
+    .cm-footref:not(.cm-formatting):hover,
+  .markdown-source-view.mod-cm6.is-live-preview
+    .cm-footref.cm-formatting:hover {
+    color: var(--text-accent-hover) !important;
+    text-shadow: var(--glow-shadow-text);
+  }
+}
+
+/* Reading mode: keep the collected footnotes deliberately recessive. */
+.markdown-preview-view .footnotes {
+  margin-block-start: 2.25rem;
+  padding: 0.65rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--deco-border);
+  border-radius: 0;
+  background: none;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.markdown-preview-view .footnotes > hr {
+  display: none;
+}
+.markdown-preview-view .footnotes > hr::after {
+  content: none !important;
+  display: none !important;
+}
+.markdown-preview-view .footnotes > ol {
+  margin: 0;
+  padding-inline-start: 0;
+}
+.markdown-preview-view .footnotes > ol > li {
+  margin-inline-start: 2ch;
+  padding: 0.16em 0.25em;
+  border-radius: 0;
+  transition:
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.markdown-preview-view .footnotes > ol > li:target {
+  color: var(--text-normal);
+  box-shadow: inset 2px 0 0 var(--_primary);
+}
+@media (hover: hover) {
+  .markdown-preview-view .footnotes > ol > li:hover {
+    color: var(--text-normal);
+  }
+}
+.markdown-preview-view .footnote-backref {
+  display: inline;
+  margin-inline-start: 0.35em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-accent);
+  font-size: 0.8em;
+  line-height: 1;
+  text-decoration: none !important;
+  opacity: 0.55;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    text-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .markdown-preview-view .footnote-backref:hover {
+    color: var(--text-accent-hover);
+    opacity: 1;
+    text-shadow: var(--glow-shadow-text);
+  }
+}
+
+/* Live Preview definitions use the same quiet divider treatment. */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-footnote {
+  margin-block: 0.08em;
+  padding: 0.12em 0.5em;
+  border-inline-start: 1px solid var(--deco-border);
+  border-radius: 0;
+  background: none;
+  color: var(--text-muted);
+  line-height: 1.65;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-footnote:hover,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-footnote.cm-active {
+  border-inline-start-color: var(--_primary);
+  background: none;
+  color: var(--text-normal);
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6
+  .cm-line.HyperMD-footnote
+  span.cm-hmd-footnote {
+  top: 0;
+  color: var(--text-accent);
+  font-weight: 650;
+}
+
+/* Hover preview and Footnotes side view stay neutral until interaction. */
+.popover.hover-popover > .markdown-embed[data-type="footnote"] {
+  border: 1px solid var(--deco-border);
+  border-radius: 8px;
+  background-color: var(--background-primary);
+}
+.footnotes-view .footnote {
+  border: 1px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.footnotes-view .footnote-id {
+  font-weight: 650;
+}
+.footnotes-view .footnote-list-item.is-editing > .footnote {
+  border-color: var(--deco-border);
+  background-color: var(--deco-primary-wash);
+  box-shadow: none;
+}

@@ -6,14 +6,21 @@
   padding: 0 3px 0 0;
   color: var(--accent-italic);
 }
+.markdown-preview-view ol {
+  padding-inline-start: var(--list-indent);
+}
 .markdown-preview-view ul {
   list-style-type: disc;
+  padding-inline-start: 0;
 }
-.markdown-preview-view :is(ul, ol) {
-  padding-inline-start: var(--list-indent);
+.markdown-preview-view ul > li {
+  margin-inline-start: 1.5ch;
 }
 .markdown-preview-view ul ul {
   list-style-type: circle;
+}
+.markdown-preview-view ul ul > li {
+  margin-inline-start: var(--list-indent);
 }
 .markdown-preview-view ul ul ul {
   list-style-type: square;
