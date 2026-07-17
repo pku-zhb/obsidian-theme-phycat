@@ -31,8 +31,8 @@ settings:
         id: info-codemirror-enhance
         type: info-text
         markdown: true
-        description: "**🧩 Required for enhanced Live Preview editing: CodeMirror Enhance** \n This fork relies on the local **CodeMirror Enhance** plugin for semantic editor classes and stable Markdown marker editing, including quote/callout dimming, active quote/callout blocks, and heading marker folding. Without it, the theme still loads, but those Live Preview editing refinements will fall back to Obsidian's default DOM behavior."
-        description.zh: "**🧩 Live Preview 编辑增强依赖：CodeMirror Enhance** \n 这个分支依赖本地 **CodeMirror Enhance** 插件提供编辑器语义类和稳定的 Markdown 标记编辑体验，包括引用/callout 的 dim 控制、当前引用/callout 块识别，以及标题标记折叠。没有该插件时主题仍可加载，但这些 Live Preview 编辑细节会退回 Obsidian 默认 DOM 行为。"
+        description: "**🧩 Required for enhanced Live Preview editing: CodeMirror Enhance** \n This fork relies on the local **CodeMirror Enhance** plugin for semantic editor classes and stable Markdown marker editing, including quote/callout dimming, heading marker folding, and punctuation-safe inline formatting boundaries. Without it, the theme still loads, but those Live Preview editing refinements fall back to Obsidian's default DOM behavior."
+        description.zh: "**🧩 Live Preview 编辑增强依赖：CodeMirror Enhance** \n 这个分支依赖本地 **CodeMirror Enhance** 插件提供编辑器语义类和稳定的 Markdown 标记编辑体验，包括引用/callout 的 dim 控制、标题标记折叠，以及标点结尾的行内格式边界修复。没有该插件时主题仍可加载，但这些 Live Preview 编辑细节会退回 Obsidian 默认 DOM 行为。"
 */
 
 /* @settings

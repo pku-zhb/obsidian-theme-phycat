@@ -568,7 +568,8 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::after {
 }
 .markdown-preview-view mark,
 .markdown-source-view.mod-cm6 mark,
-.markdown-source-view.mod-cm6 .cm-highlight {
+.markdown-source-view.mod-cm6 .cm-highlight,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-highlight {
   padding: 0 2px;
   margin: 0;
   border-radius: 4px;
@@ -588,7 +589,9 @@ body.editor-wikilink-style .markdown-source-view.mod-cm6 .cm-tag::after {
 }
 .markdown-preview-view mark:not([style*="background"]),
 .markdown-source-view.mod-cm6 mark:not([style*="background"]),
-.markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]) {
+.markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]),
+.markdown-source-view.mod-cm6
+  .cm-enhance-inline-highlight:not([style*="background"]) {
   background-color: transparent !important;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -602,7 +605,10 @@ body.theme-light .markdown-preview-view mark:not([style*="background"]),
 body.theme-light .markdown-source-view.mod-cm6 mark:not([style*="background"]),
 body.theme-light
   .markdown-source-view.mod-cm6
-  .cm-highlight:not([style*="background"]) {
+  .cm-highlight:not([style*="background"]),
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-enhance-inline-highlight:not([style*="background"]) {
   background-image: linear-gradient(
     to top,
     color-mix(in srgb, var(--accent-highlight), transparent 60%),
@@ -615,7 +621,10 @@ body.theme-dark .markdown-preview-view mark:not([style*="background"]),
 body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]),
 body.theme-dark
   .markdown-source-view.mod-cm6
-  .cm-highlight:not([style*="background"]) {
+  .cm-highlight:not([style*="background"]),
+body.theme-dark
+  .markdown-source-view.mod-cm6
+  .cm-enhance-inline-highlight:not([style*="background"]) {
   background-image: linear-gradient(
     to top,
     color-mix(in srgb, var(--accent-highlight), transparent 50%),
@@ -630,15 +639,22 @@ body.theme-dark
 body.theme-light .markdown-preview-view mark:not([style*="background"]):hover,
 body.theme-light .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
 body.theme-light .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover,
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-enhance-inline-highlight:not([style*="background"]):hover,
 body.theme-dark .markdown-preview-view mark:not([style*="background"]):hover,
 body.theme-dark .markdown-source-view.mod-cm6 mark:not([style*="background"]):hover,
-body.theme-dark .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover {
+body.theme-dark .markdown-source-view.mod-cm6 .cm-highlight:not([style*="background"]):hover,
+body.theme-dark
+  .markdown-source-view.mod-cm6
+  .cm-enhance-inline-highlight:not([style*="background"]):hover {
   background-size: 100% 100% !important;
   text-shadow: var(--glow-shadow-text);
 }
 .markdown-preview-view strong,
 .markdown-source-view.mod-cm6 .cm-strong,
-.markdown-source-view.mod-cm6 strong {
+.markdown-source-view.mod-cm6 strong,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-strong {
   font-weight: bold;
   display: inline;
   position: relative;
@@ -652,25 +668,29 @@ body.theme-dark .markdown-source-view.mod-cm6 .cm-highlight:not([style*="backgro
 }
 body.theme-dark .markdown-preview-view strong,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-strong,
-body.theme-dark .markdown-source-view.mod-cm6 strong {
+body.theme-dark .markdown-source-view.mod-cm6 strong,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-enhance-inline-strong {
   color: var(--accent-bold);
 }
 /* Bold hover — unified (no color change, only effects) */
 .markdown-preview-view strong:hover,
 .markdown-source-view.mod-cm6 .cm-strong:hover,
-.markdown-source-view.mod-cm6 strong:hover {
+.markdown-source-view.mod-cm6 strong:hover,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-strong:hover {
   font-weight: 900;
   text-shadow: var(--glow-shadow-text);
   border-bottom: 1px solid color-mix(in srgb, var(--accent-bold), transparent 70%);
 }
 body.theme-light .markdown-preview-view strong,
 body.theme-light .markdown-source-view.mod-cm6 .cm-strong,
-body.theme-light .markdown-source-view.mod-cm6 strong {
+body.theme-light .markdown-source-view.mod-cm6 strong,
+body.theme-light .markdown-source-view.mod-cm6 .cm-enhance-inline-strong {
   color: var(--accent-bold);
 }
 .markdown-preview-view em,
 .markdown-source-view.mod-cm6 .cm-em,
-.markdown-source-view.mod-cm6 em {
+.markdown-source-view.mod-cm6 em,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-em {
   font-style: italic;
   text-decoration: none !important;
   padding-bottom: 1px;
@@ -699,36 +719,42 @@ body.theme-light .markdown-source-view.mod-cm6 strong {
 }
 body.theme-light .markdown-preview-view em,
 body.theme-light .markdown-source-view.mod-cm6 .cm-em,
-body.theme-light .markdown-source-view.mod-cm6 em {
+body.theme-light .markdown-source-view.mod-cm6 em,
+body.theme-light .markdown-source-view.mod-cm6 .cm-enhance-inline-em {
   color: var(--accent-italic);
 }
 body.theme-dark .markdown-preview-view em,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-em,
-body.theme-dark .markdown-source-view.mod-cm6 em {
+body.theme-dark .markdown-source-view.mod-cm6 em,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-enhance-inline-em {
   color: var(--accent-italic);
 }
 /* Italic hover — unified (no color change, only effects) */
 .markdown-preview-view em:hover,
 .markdown-source-view.mod-cm6 .cm-em:hover,
-.markdown-source-view.mod-cm6 em:hover {
+.markdown-source-view.mod-cm6 em:hover,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-em:hover {
   text-shadow: var(--glow-shadow-text);
   border-bottom-color: color-mix(in srgb, var(--accent-italic), transparent 70%);
 }
 .markdown-preview-view s,
 .markdown-preview-view del,
-.markdown-source-view.mod-cm6 .cm-strikethrough {
+.markdown-source-view.mod-cm6 .cm-strikethrough,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough {
   text-decoration: line-through;
   transition: all 0.3s ease;
 }
 body.theme-dark .markdown-preview-view s,
 body.theme-dark .markdown-preview-view del,
-body.theme-dark .markdown-source-view.mod-cm6 .cm-strikethrough {
+body.theme-dark .markdown-source-view.mod-cm6 .cm-strikethrough,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough {
   text-decoration-color: var(--_primary);
   color: #888;
 }
 body.theme-light .markdown-preview-view s,
 body.theme-light .markdown-preview-view del,
-body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
+body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough,
+body.theme-light .markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough {
   text-decoration-color: color-mix(
     in srgb,
     var(--_primary),
@@ -739,7 +765,8 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-strikethrough {
 /* Strikethrough hover — unified (no color change, only glow effect) */
 .markdown-preview-view s:hover,
 .markdown-preview-view del:hover,
-.markdown-source-view.mod-cm6 .cm-strikethrough:hover {
+.markdown-source-view.mod-cm6 .cm-strikethrough:hover,
+.markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough:hover {
   text-shadow: var(--glow-shadow-text);
 }
 .markdown-preview-view hr,
