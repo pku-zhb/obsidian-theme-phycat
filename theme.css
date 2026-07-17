@@ -3725,6 +3725,19 @@ body.theme-dark
   background-size: 100% 100% !important;
   text-shadow: var(--glow-shadow-text);
 }
+/* Obsidian can keep an invalid punctuation-closing span open past the closing
+   marker. CodeMirror Enhance repairs the visible range with an exact semantic
+   child and a reset descendant. Neutralize hover on the leaked parser parent so
+   the exact semantic child is the only range that can expand the highlight. */
+body.theme-light
+  .markdown-source-view.mod-cm6
+  .cm-highlight:has(.cm-enhance-inline-reset-highlight):hover,
+body.theme-dark
+  .markdown-source-view.mod-cm6
+  .cm-highlight:has(.cm-enhance-inline-reset-highlight):hover {
+  background-size: 100% 40% !important;
+  text-shadow: none;
+}
 .markdown-preview-view strong,
 .markdown-source-view.mod-cm6 .cm-strong,
 .markdown-source-view.mod-cm6 strong,
@@ -3754,6 +3767,12 @@ body.theme-dark .markdown-source-view.mod-cm6 .cm-enhance-inline-strong {
   font-weight: 900;
   text-shadow: var(--glow-shadow-text);
   border-bottom: 1px solid color-mix(in srgb, var(--accent-bold), transparent 70%);
+}
+.markdown-source-view.mod-cm6
+  .cm-strong:has(.cm-enhance-inline-reset-strong):hover {
+  font-weight: bold;
+  text-shadow: none;
+  border-bottom: 2px solid transparent;
 }
 body.theme-light .markdown-preview-view strong,
 body.theme-light .markdown-source-view.mod-cm6 .cm-strong,
@@ -3811,6 +3830,11 @@ body.theme-dark .markdown-source-view.mod-cm6 .cm-enhance-inline-em {
   text-shadow: var(--glow-shadow-text);
   border-bottom-color: color-mix(in srgb, var(--accent-italic), transparent 70%);
 }
+.markdown-source-view.mod-cm6
+  .cm-em:has(.cm-enhance-inline-reset-em):hover {
+  text-shadow: none;
+  border-bottom-color: transparent;
+}
 .markdown-preview-view s,
 .markdown-preview-view del,
 .markdown-source-view.mod-cm6 .cm-strikethrough,
@@ -3842,6 +3866,10 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough 
 .markdown-source-view.mod-cm6 .cm-strikethrough:hover,
 .markdown-source-view.mod-cm6 .cm-enhance-inline-strikethrough:hover {
   text-shadow: var(--glow-shadow-text);
+}
+.markdown-source-view.mod-cm6
+  .cm-strikethrough:has(.cm-enhance-inline-reset-strikethrough):hover {
+  text-shadow: none;
 }
 .markdown-preview-view hr,
 .markdown-source-view.mod-cm6.is-live-preview .hr {
