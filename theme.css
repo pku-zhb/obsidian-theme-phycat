@@ -332,6 +332,14 @@ settings:
         type: variable-text
         default: 1em
     -
+        id: justify-body-text
+        title: Justify body text
+        title.zh: 中文正文两端对齐
+        description: Justify paragraphs and list items in Reading mode and Live Preview, while using looser CJK punctuation line-breaking rules. Headings, code blocks, tables, and properties are excluded.
+        description.zh: 在阅读模式和实时预览中对段落、列表正文进行两端对齐，并放宽中文标点换行限制。标题、代码块、表格和属性区不受影响。默认关闭。
+        type: class-toggle
+        default: false
+    -
         id: list-indent
         title: List indent (Reading mode)
         title.zh: 列表缩进（阅读模式）
@@ -1252,7 +1260,7 @@ body.theme-light.theme-light-olive {
   --code-operator: #689f38;
 }
 body.theme-light.theme-light-pearl {
-  --seed-primary: #607d8b;
+  --seed-primary: #4086a3;
   --seed-secondary: #c62828;
   --seed-bg: #fafaf8;
   --text-color: #2d2d2d;
@@ -1267,7 +1275,7 @@ body.theme-light.theme-light-pearl {
   --code-value: #78909c;
   --code-punctuation: #37474f;
   --code-tag: #546e7a;
-  --code-operator: #607d8b;
+  --code-operator: #4086a3;
 }
 body.theme-light.theme-light-paper {
   --seed-primary: #1a1a1a;
@@ -1509,6 +1517,20 @@ body {
 .markdown-preview-view li {
   color: var(--text-normal);
   word-spacing: var(--word-spacing);
+}
+body.justify-body-text .markdown-rendered :is(p, li) {
+  text-align: justify;
+  text-justify: inter-character;
+  line-break: loose;
+}
+body.justify-body-text
+  .markdown-source-view.mod-cm6.is-live-preview
+  .cm-line:not(.HyperMD-header):not(.HyperMD-codeblock):not(
+    .HyperMD-frontmatter
+  ):not(.HyperMD-table-row) {
+  text-align: justify;
+  text-justify: inter-character;
+  line-break: loose;
 }
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 .cm-scroller {

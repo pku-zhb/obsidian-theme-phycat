@@ -397,7 +397,7 @@ body.theme-light.theme-light-olive {
   --code-operator: #689f38;
 }
 body.theme-light.theme-light-pearl {
-  --seed-primary: #607d8b;
+  --seed-primary: #4086a3;
   --seed-secondary: #c62828;
   --seed-bg: #fafaf8;
   --text-color: #2d2d2d;
@@ -412,7 +412,7 @@ body.theme-light.theme-light-pearl {
   --code-value: #78909c;
   --code-punctuation: #37474f;
   --code-tag: #546e7a;
-  --code-operator: #607d8b;
+  --code-operator: #4086a3;
 }
 body.theme-light.theme-light-paper {
   --seed-primary: #1a1a1a;

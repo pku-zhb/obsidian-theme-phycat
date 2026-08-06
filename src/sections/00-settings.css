@@ -332,6 +332,14 @@ settings:
         type: variable-text
         default: 1em
     -
+        id: justify-body-text
+        title: Justify body text
+        title.zh: 中文正文两端对齐
+        description: Justify paragraphs and list items in Reading mode and Live Preview, while using looser CJK punctuation line-breaking rules. Headings, code blocks, tables, and properties are excluded.
+        description.zh: 在阅读模式和实时预览中对段落、列表正文进行两端对齐，并放宽中文标点换行限制。标题、代码块、表格和属性区不受影响。默认关闭。
+        type: class-toggle
+        default: false
+    -
         id: list-indent
         title: List indent (Reading mode)
         title.zh: 列表缩进（阅读模式）
